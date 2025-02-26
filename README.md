@@ -23,13 +23,6 @@ Data Analyst with expertise in Python, SQL, Power BI, and data visualization. Sk
 - **LinkedIn:** [Rahul Kashyap](https://www.linkedin.com/in/rahulkashyap-6698b5176)
 - **Portfolio Website:** [GitHub Pages Link](https://kashyaprahul12659.github.io)
 
-## 🖥️ How to View This Portfolio Locally
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/yourusername/yourusername.github.io.git
-   ```
-2. Open `index.html` in a browser.
-
 ## 📌 License
 This portfolio is open-source under the MIT License. Feel free to use and modify!
 
