@@ -3,12 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<<<<<<< HEAD
   <title>Rahul Kashyap | Portfolio</title>
-=======
-  <title>  | </title>
->>>>>>> 58b8c23 (Updated index.html)
-
   <!-- AOS (Animate On Scroll) CSS -->
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 
@@ -47,7 +42,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      height: 100vh;
+      height: 80vh;
       padding: 2rem;
     }
     header.hero h1 {
@@ -61,13 +56,14 @@
       line-height: 1.5;
     }
 
-    /* Sections */
-    section {
+    /* Container for Sections */
+    .container {
       max-width: 900px;
       margin: 0 auto;
-      padding: 3rem 1rem;
-      text-align: center;
+      padding: 2rem 1rem;
     }
+
+    /* Section Titles and Text */
     section h2 {
       font-size: 2rem;
       margin-bottom: 1rem;
@@ -128,18 +124,17 @@
   </header>
 
   <!-- About Section -->
-  <section class="about" data-aos="fade-up">
+  <section class="about container" data-aos="fade-up">
     <h2>About Me</h2>
     <p>
       Data Analyst with expertise in Python, SQL, Power BI, and data visualization.
       Skilled in market research, trend analysis, and cybersecurity. Passionate
-      about transforming raw data into actionable insights to drive business
-      growth.
+      about transforming raw data into actionable insights to drive business growth.
     </p>
   </section>
 
   <!-- Skills Section -->
-  <section class="skills" data-aos="fade-up">
+  <section class="skills container" data-aos="fade-up">
     <h2>Technical Skills</h2>
     <ul>
       <li>Python (Pandas, NumPy, Data Processing)</li>
@@ -152,7 +147,7 @@
   </section>
 
   <!-- Experience Section -->
-  <section class="experience" data-aos="fade-up">
+  <section class="experience container" data-aos="fade-up">
     <h2>Experience</h2>
     <ul>
       <li>
@@ -171,7 +166,7 @@
   </section>
 
   <!-- Projects Section -->
-  <section class="projects" data-aos="fade-up">
+  <section class="projects container" data-aos="fade-up">
     <h2>Projects</h2>
     <ul>
       <li><strong>BCG - Customer Churn Analysis</strong> (85% Accuracy) - Performed customer churn analysis using Python and ML models.</li>
@@ -181,7 +176,7 @@
   </section>
 
   <!-- Education Section -->
-  <section class="education" data-aos="fade-up">
+  <section class="education container" data-aos="fade-up">
     <h2>Education</h2>
     <ul>
       <li><strong>Advanced Certificate, Cyber Security</strong> - IIIT Bangalore</li>
@@ -190,7 +185,7 @@
   </section>
 
   <!-- Contact Section -->
-  <section class="contact" data-aos="fade-up">
+  <section class="contact container" data-aos="fade-up">
     <h2>Contact Me</h2>
     <p>Email: <a href="mailto:kashyaprahul535@gmail.com">kashyaprahul535@gmail.com</a></p>
     <p>LinkedIn: <a href="https://www.linkedin.com/in/rahulkashyap-6698b5176" target="_blank">
@@ -203,17 +198,17 @@
   <script>
     AOS.init({
       duration: 1000, // animation duration
-      once: true,     // whether animation should happen only once
+      once: true,     // animate only once
     });
   </script>
 
   <!-- Particles.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
-    /* ParticlesJS Config */
+    /* Updated ParticlesJS Config */
     particlesJS('particles-js', {
       particles: {
-        number: { value: 50 },
+        number: { value: 100 },
         color: { value: '#ffffff' },
         shape: {
           type: 'circle',
@@ -246,11 +241,11 @@
       interactivity: {
         detect_on: 'canvas',
         events: {
-          onhover: { enable: true, mode: 'grab' },
+          onhover: { enable: true, mode: 'repulse' },
           onclick: { enable: true, mode: 'push' },
         },
         modes: {
-          grab: { distance: 140, line_linked: { opacity: 1 } },
+          repulse: { distance: 100, duration: 0.4 },
           push: { particles_nb: 4 },
         },
       },
