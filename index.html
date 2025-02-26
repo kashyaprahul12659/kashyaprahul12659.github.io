@@ -1,74 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rahul Kashyap | Data Analyst</title>
-    <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rahul Kashyap | Portfolio</title>
+
+  <!-- AOS (Animate On Scroll) CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+  <style>
+    /* Reset and Basic Styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Arial", sans-serif;
+      color: #fff;
+      background: #000;
+      overflow-x: hidden;
+    }
+    a {
+      color: #4fa3ff;
+      text-decoration: none;
+    }
+
+    /* Particle Container */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* behind everything */
+      top: 0;
+      left: 0;
+    }
+
+    /* Hero Section */
+    header.hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 100vh;
+      padding: 2rem;
+    }
+    header.hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    header.hero p {
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    /* Sections */
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+    section p,
+    section li {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* Lists */
+    ul {
+      list-style: none;
+      margin-top: 1rem;
+    }
+    li {
+      margin-bottom: 1rem;
+    }
+
+    /* Footer / Contact */
+    .contact p {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Simple Hover Effect for Projects */
+    .projects ul li {
+      background: #222;
+      margin: 1rem 0;
+      padding: 1rem;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+    .projects ul li:hover {
+      transform: scale(1.02);
+    }
+
+    /* AOS Animations */
+    [data-aos] {
+      opacity: 0;
+      transition-property: opacity, transform;
+      transition-duration: 1s;
+    }
+    [data-aos].aos-animate {
+      opacity: 1;
+    }
+  </style>
 </head>
+
 <body>
-    <header class="hero">
-        <h1>Rahul Kashyap</h1>
-        <p>Data Analyst | Market Insights | Cybersecurity Enthusiast</p>
-    </header>
-    <section class="about">
-        <h2>About Me</h2>
-        <p>Data Analyst with expertise in Python, SQL, Power BI, and data visualization. Skilled in market research, trend analysis, and cybersecurity.</p>
-    </section>
-    <section class="skills">
-        <h2>Technical Skills</h2>
-        <ul>
-            <li>Python (Pandas, NumPy, Data Processing)</li>
-            <li>SQL & Database Design</li>
-            <li>Data Visualization (Power BI, Tableau)</li>
-            <li>Machine Learning & Model Optimization</li>
-            <li>Cybersecurity & IAM Principles</li>
-            <li>Google Cloud, AWS, Notion, GitHub</li>
-        </ul>
-    </section>
-    <section class="experience">
-        <h2>Experience</h2>
-        <ul>
-            <li><strong>Google Ads Specialist</strong> - Global eBrand India (Nov 2023 - Present)<br>Managed $1M ad accounts, optimized ad performance, and implemented innovative strategies.</li>
-            <li><strong>Ecommerce Coordinator</strong> - Global eBrand India (Jul 2022 - Nov 2023)<br>Optimized Shopify, Amazon, and Walmart listings, conducted market research and trend analysis.</li>
-            <li><strong>Frontend Developer</strong> - PALM INDIA (Mar 2021 - Feb 2023)<br>Developed responsive web applications using React, JavaScript, and CSS.</li>
-        </ul>
-    </section>
-    <section class="projects">
-        <h2>Projects</h2>
-        <ul>
-            <li><strong>BCG - Customer Churn Analysis</strong> (85% Accuracy) - Performed customer churn analysis using Python and ML models.</li>
-            <li><strong>Commonwealth Bank - Data Engineering</strong> - Built structured and unstructured data pipelines.</li>
-            <li><strong>Tata Cybersecurity - IAM Strategy</strong> - Developed IAM principles and risk assessment strategies.</li>
-        </ul>
-    </section>
-    <section class="education">
-        <h2>Education</h2>
-        <ul>
-            <li><strong>Advanced Certificate, Cyber Security</strong> - IIIT Bangalore</li>
-            <li><strong>Integrated Master of Computer Applications (IMCA)</strong> - L.J. Institute of Engineering & Technology</li>
-        </ul>
-    </section>
-    <section class="contact">
-        <h2>Contact Me</h2>
-        <p>Email: kashyaprahul535@gmail.com</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/rahulkashyap-6698b5176">Rahul Kashyap</a></p>
-    </section>
+  <!-- Particles Background -->
+  <div id="particles-js"></div>
+
+  <!-- Hero Section -->
+  <header class="hero" data-aos="fade-up">
+    <h1>Rahul Kashyap</h1>
+    <p>Data Analyst | Market Insights | Cybersecurity Enthusiast</p>
+  </header>
+
+  <!-- About Section -->
+  <section class="about" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>
+      Data Analyst with expertise in Python, SQL, Power BI, and data visualization.
+      Skilled in market research, trend analysis, and cybersecurity. Passionate
+      about transforming raw data into actionable insights to drive business
+      growth.
+    </p>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="skills" data-aos="fade-up">
+    <h2>Technical Skills</h2>
+    <ul>
+      <li>Python (Pandas, NumPy, Data Processing)</li>
+      <li>SQL & Database Design</li>
+      <li>Data Visualization (Power BI, Tableau)</li>
+      <li>Machine Learning & Model Optimization</li>
+      <li>Cybersecurity & IAM Principles</li>
+      <li>Google Cloud, AWS, Notion, GitHub</li>
+    </ul>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="experience" data-aos="fade-up">
+    <h2>Experience</h2>
+    <ul>
+      <li>
+        <strong>Google Ads Specialist</strong> - Global eBrand India (Nov 2023 - Present)
+        <br />Managed $1M ad accounts, optimized ad performance, and implemented innovative strategies.
+      </li>
+      <li>
+        <strong>Ecommerce Coordinator</strong> - Global eBrand India (Jul 2022 - Nov 2023)
+        <br />Optimized Shopify, Amazon, and Walmart listings, conducted market research and trend analysis.
+      </li>
+      <li>
+        <strong>Frontend Developer</strong> - PALM INDIA (Mar 2021 - Feb 2023)
+        <br />Developed responsive web applications using React, JavaScript, and CSS.
+      </li>
+    </ul>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects" data-aos="fade-up">
+    <h2>Projects</h2>
+    <ul>
+      <li><strong>BCG - Customer Churn Analysis</strong> (85% Accuracy) - Performed customer churn analysis using Python and ML models.</li>
+      <li><strong>Commonwealth Bank - Data Engineering</strong> - Built structured and unstructured data pipelines.</li>
+      <li><strong>Tata Cybersecurity - IAM Strategy</strong> - Developed IAM principles and risk assessment strategies.</li>
+    </ul>
+  </section>
+
+  <!-- Education Section -->
+  <section class="education" data-aos="fade-up">
+    <h2>Education</h2>
+    <ul>
+      <li><strong>Advanced Certificate, Cyber Security</strong> - IIIT Bangalore</li>
+      <li><strong>Integrated Master of Computer Applications (IMCA)</strong> - L.J. Institute of Engineering & Technology</li>
+    </ul>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" data-aos="fade-up">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:kashyaprahul535@gmail.com">kashyaprahul535@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/rahulkashyap-6698b5176" target="_blank">
+      Rahul Kashyap
+    </a></p>
+  </section>
+
+  <!-- AOS JS (Animate On Scroll) -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000, // animation duration
+      once: true,     // whether animation should happen only once
+    });
+  </script>
+
+  <!-- Particles.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    /* ParticlesJS Config */
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 50 },
+        color: { value: '#ffffff' },
+        shape: {
+          type: 'circle',
+          stroke: { width: 0, color: '#000000' },
+        },
+        opacity: {
+          value: 0.5,
+          random: false,
+        },
+        size: {
+          value: 3,
+          random: true,
+        },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: '#ffffff',
+          opacity: 0.4,
+          width: 1,
+        },
+        move: {
+          enable: true,
+          speed: 2,
+          direction: 'none',
+          random: false,
+          straight: false,
+          out_mode: 'out',
+        },
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: {
+          onhover: { enable: true, mode: 'grab' },
+          onclick: { enable: true, mode: 'push' },
+        },
+        modes: {
+          grab: { distance: 140, line_linked: { opacity: 1 } },
+          push: { particles_nb: 4 },
+        },
+      },
+      retina_detect: true,
+    });
+  </script>
 </body>
 </html>
-
-<style>
-    body { font-family: Arial, sans-serif; text-align: center; background: #000; color: #fff; margin: 0; padding: 0; }
-    .hero { padding: 100px 20px; font-size: 24px; transition: opacity 0.5s ease-in-out; }
-    .about, .skills, .experience, .projects, .education, .contact { padding: 40px; max-width: 800px; margin: auto; }
-    .project-card { background: #222; padding: 20px; margin: 10px; border-radius: 10px; transition: transform 0.3s; }
-    .project-card:hover { transform: scale(1.05); }
-    a { color: #4fa3ff; text-decoration: none; }
-</style>
-
-<script>
-    document.addEventListener("scroll", () => {
-        document.querySelector(".hero").style.opacity = 1 - window.scrollY / 500;
-    });
-</script>
