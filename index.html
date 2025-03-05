@@ -89,17 +89,29 @@
       margin-bottom: 0.5rem;
     }
 
-    /* Simple Hover Effect for Projects */
-    .projects ul li {
+    /* Simple Hover Effect for Titles */
+    .job-title, .project-title, .education-title, .skill-title {
       background: #222;
       margin: 1rem 0;
       padding: 1rem;
       border-radius: 8px;
-      transition: transform 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
     }
-    .projects ul li:hover {
+    .job-title:hover, .project-title:hover, .education-title:hover, .skill-title:hover {
       transform: scale(1.02);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     }
+
+    /* Details Section Styling */
+    .job-details, .project-details, .education-details, .skill-details {
+      background: #333;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 0.5rem;
+      transition: max-height 0.3s ease-in-out;
+    }
+
 
     /* AOS Animations */
     [data-aos] {
