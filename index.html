@@ -6,6 +6,7 @@
   <title>Rahul Kashyap | Portfolio</title>
   <!-- AOS (Animate On Scroll) CSS -->
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
   <style>
     /* Reset and Basic Styling */
@@ -14,15 +15,39 @@
       padding: 0;
       box-sizing: border-box;
     }
-    body {
-      font-family: "Arial", sans-serif;
-      color: #fff;
-      background: #000;
-      overflow-x: hidden;
+    
+    :root {
+      --primary-color: #4fa3ff;
+      --secondary-color: #2c3e50;
+      --accent-color: #e74c3c;
+      --background-dark: #1a1a1a;
+      --text-light: #ffffff;
+      --text-gray: #95a5a6;
+      --card-bg: rgba(34, 34, 34, 0.8);
+      --hover-color: #3498db;
     }
+
+    body {
+      font-family: 'Segoe UI', 'Arial', sans-serif;
+      color: var(--text-light);
+      background: linear-gradient(135deg, var(--background-dark) 0%, #000000 100%);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Smooth Scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
     a {
-      color: #4fa3ff;
+      color: var(--primary-color);
       text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--hover-color);
     }
 
     /* Particle Container */
@@ -30,7 +55,7 @@
       position: fixed;
       width: 100%;
       height: 100%;
-      z-index: -1; /* behind everything */
+      z-index: -1;
       top: 0;
       left: 0;
     }
@@ -42,90 +67,223 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      height: 80vh;
+      height: 100vh;
       padding: 2rem;
+      position: relative;
     }
+
     header.hero h1 {
-      font-size: 3rem;
+      font-size: 4rem;
       margin-bottom: 1rem;
+      background: linear-gradient(45deg, var(--primary-color), var(--hover-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeInUp 1s ease;
     }
+
     header.hero p {
-      font-size: 1.25rem;
+      font-size: 1.5rem;
       max-width: 600px;
       margin: 0 auto;
       line-height: 1.5;
+      color: var(--text-gray);
     }
 
     /* Container for Sections */
     .container {
-      max-width: 900px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 2rem 1rem;
+      padding: 4rem 2rem;
     }
 
     /* Section Titles and Text */
     section h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
       text-transform: uppercase;
-    }
-    section p,
-    section li {
-      font-size: 1rem;
-      line-height: 1.6;
+      position: relative;
+      display: inline-block;
     }
 
-    /* Lists */
-    ul {
-      list-style: none;
-      margin-top: 1rem;
-    }
-    li {
-      margin-bottom: 1rem;
-    }
-
-    /* Footer / Contact */
-    .contact p {
-      margin-bottom: 0.5rem;
+    section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 50%;
+      height: 3px;
+      background: var(--primary-color);
+      transition: width 0.3s ease;
     }
 
-    /* Simple Hover Effect for Titles */
-    .job-title, .project-title, .education-title, .skill-title {
-      background: #222;
+    section h2:hover::after {
+      width: 100%;
+    }
+
+    /* Skills Section Enhancement */
+    .skill-bar {
+      background: rgba(255, 255, 255, 0.1);
+      height: 10px;
+      border-radius: 5px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .skill-progress {
+      height: 100%;
+      background: var(--primary-color);
+      border-radius: 5px;
+      transition: width 1.5s ease-in-out;
+      position: relative;
+    }
+
+    .skill-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Card Styling */
+    .job-title, .project-title, .education-title {
+      background: var(--card-bg);
       margin: 1rem 0;
-      padding: 1rem;
-      border-radius: 8px;
-      transition: transform 0.3s, box-shadow 0.3s;
+      padding: 1.5rem;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
       cursor: pointer;
     }
-    .job-title:hover, .project-title:hover, .education-title:hover, .skill-title:hover {
-      transform: scale(1.02);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+
+    .job-title:hover, .project-title:hover, .education-title:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      border-color: var(--primary-color);
     }
 
-    /* Details Section Styling */
-    .job-details, .project-details, .education-details, .skill-details {
-      background: #333;
-      padding: 1rem;
+    .job-details, .project-details, .education-details {
+      background: rgba(51, 51, 51, 0.8);
+      padding: 1.5rem;
       border-radius: 8px;
       margin-top: 0.5rem;
-      transition: max-height 0.3s ease-in-out;
+      border-left: 3px solid var(--primary-color);
     }
 
+    /* Contact Section Enhancement */
+    .contact {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
 
-    /* AOS Animations */
-    [data-aos] {
+    .contact p {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact i {
+      color: var(--primary-color);
+      font-size: 1.2rem;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--primary-color);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
       opacity: 0;
-      transition-property: opacity, transform;
-      transition-duration: 1s;
+      transition: opacity 0.3s ease;
+      z-index: 1000;
     }
-    [data-aos].aos-animate {
+
+    .back-to-top.visible {
       opacity: 1;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header.hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      header.hero p {
+        font-size: 1.2rem;
+      }
+      
+      .container {
+        padding: 2rem 1rem;
+      }
+      
+      section h2 {
+        font-size: 2rem;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Loading Animation */
+    .loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--background-dark);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid var(--text-gray);
+      border-top: 5px solid var(--primary-color);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
   </style>
 </head>
 
 <body>
+  <!-- Loading Screen -->
+  <div class="loading">
+    <div class="loading-spinner"></div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <div class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
   <!-- Particles Background -->
   <div id="particles-js"></div>
 
@@ -273,14 +431,80 @@
   <!-- Contact Section -->
   <section class="contact container" data-aos="fade-up">
     <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:kashyaprahul535@gmail.com">kashyaprahul535@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/rahul-kashyap-6698b5176" target="_blank">Rahul Kashyap</a></p>
-    <p>Phone: +91 7016792897 (Mobile)</p>
-    <p>Address: B 430, Gujarat Housing Board Society, Near Ramji Mandir, Bhadreshwar, Sardar Nagar, Ahmedabad, Gujarat, 382475</p>
-    <p>Portfolio: <a href="https://rahulinmotion.me/" target="_blank">https://rahulinmotion.me/</a></p>
+    <p><i class="fas fa-envelope"></i> <a href="mailto:kashyaprahul535@gmail.com">kashyaprahul535@gmail.com</a></p>
+    <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/rahul-kashyap-6698b5176" target="_blank">Rahul Kashyap</a></p>
+    <p><i class="fas fa-phone"></i> +91 7016792897 (Mobile)</p>
+    <p><i class="fas fa-map-marker-alt"></i> B 430, Gujarat Housing Board Society, Near Ramji Mandir, Bhadreshwar, Sardar Nagar, Ahmedabad, Gujarat, 382475</p>
+    <p><i class="fas fa-globe"></i> <a href="https://rahulinmotion.me/" target="_blank">https://rahulinmotion.me/</a></p>
   </section>
 
   <script>
+    // Loading Screen
+    window.addEventListener('load', function() {
+      document.querySelector('.loading').style.display = 'none';
+    });
+
+    // Back to Top Button
+    window.addEventListener('scroll', function() {
+      const backToTop = document.querySelector('.back-to-top');
+      if (window.pageYOffset > 300) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+
+    document.querySelector('.back-to-top').addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Skill Bars Animation
+    function initSkillBars() {
+      const skills = {
+        'Python': 90,
+        'SQL': 85,
+        'Data Visualization': 88,
+        'Machine Learning': 82,
+        'Cybersecurity': 80,
+        'Cloud Services': 85
+      };
+
+      const skillsSection = document.querySelector('.skills ul');
+      skillsSection.innerHTML = '';
+
+      for (const [skill, level] of Object.entries(skills)) {
+        const skillHTML = `
+          <li>
+            <div class="skill-title">
+              <span>${skill}</span>
+              <span>${level}%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 0%"></div>
+            </div>
+          </li>
+        `;
+        skillsSection.innerHTML += skillHTML;
+      }
+
+      // Animate skill bars when they come into view
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const progressBars = entry.target.querySelectorAll('.skill-progress');
+            progressBars.forEach((bar, index) => {
+              const level = Object.values(skills)[index];
+              setTimeout(() => {
+                bar.style.width = `${level}%`;
+              }, 200 * index);
+            });
+          }
+        });
+      });
+
+      observer.observe(document.querySelector('.skills'));
+    }
+
     function toggleDetails(id) {
       var details = document.getElementById(id);
       if (details.style.display === "none") {
@@ -289,16 +513,20 @@
         details.style.display = "none";
       }
     }
-  </script>
-  <!-- AOS JS (Animate On Scroll) -->
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 1000, // animation duration
-      once: true,     // animate only once
+    // Initialize everything
+    document.addEventListener('DOMContentLoaded', function() {
+      AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100
+      });
+      initSkillBars();
     });
   </script>
+
+  <!-- AOS JS (Animate On Scroll) -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
   <!-- Particles.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
