@@ -270,6 +270,93 @@
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
+
+    /* Project Section Enhancements */
+    .project-tags {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      background: rgba(79, 163, 255, 0.15);
+      color: var(--primary-color);
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+    }
+
+    .project-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .project-content h3 {
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .project-content ul {
+      list-style-type: disc;
+      margin-left: 1.5rem;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      list-style: none !important;
+      margin-left: 0 !important;
+    }
+
+    .tech-stack li {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 20px;
+      margin-top: 1rem;
+    }
+
+    .project-links a {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--primary-color);
+      transition: color 0.3s ease;
+    }
+
+    .project-links a:hover {
+      color: var(--hover-color);
+    }
+
+    .project-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px) {
+      .project-title {
+        flex-direction: column;
+      }
+      
+      .project-tags {
+        margin-top: 10px;
+        flex-wrap: wrap;
+      }
+      
+      .tech-stack {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 
@@ -377,31 +464,363 @@
     <h2>Projects</h2>
     <ul>
       <li>
+        <div class="project-title" onclick="toggleDetails('project0')">
+          <strong>IndiaMART Product Importer for Shopify</strong>
+          <div class="project-tags">
+            <span class="tag">TypeScript</span>
+            <span class="tag">Next.js</span>
+            <span class="tag">Prisma</span>
+            <span class="tag">E-commerce</span>
+          </div>
+        </div>
+        <div id="project0" class="project-details" style="display: none;">
+          <div class="project-content">
+            <h3>Overview</h3>
+            <p>Developed a full-stack application that enables seamless product importing from IndiaMART to Shopify stores, streamlining the product sourcing process for e-commerce businesses.</p>
+            
+            <h3>Key Features</h3>
+            <ul>
+              <li>Automated product data scraping from IndiaMART</li>
+              <li>Seamless integration with Shopify API for product creation</li>
+              <li>Prisma ORM integration for efficient database management</li>
+              <li>Modern TypeScript-based architecture for type safety</li>
+              <li>Real-time product sync and update capabilities</li>
+            </ul>
+            
+            <h3>Technologies & Skills</h3>
+            <ul class="tech-stack">
+              <li>TypeScript</li>
+              <li>Next.js</li>
+              <li>Prisma ORM</li>
+              <li>Shopify API</li>
+              <li>Web Scraping</li>
+              <li>RESTful APIs</li>
+              <li>Database Design</li>
+            </ul>
+            
+            <div class="project-links">
+              <a href="https://github.com/kashyaprahul12659/indiamart-importer" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+              <a href="#" target="_blank"><i class="fas fa-play"></i> Live Demo</a>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="project-title" onclick="toggleDetails('project-multisearch')">
+          <strong>Product MultiSearch Tool</strong>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">Data Processing</span>
+            <span class="tag">Product Search</span>
+          </div>
+        </div>
+        <div id="project-multisearch" class="project-details" style="display: none;">
+          <div class="project-content">
+            <h3>Overview</h3>
+            <p>Developed an efficient product search tool that processes multiple product queries simultaneously, identifying products and their variant IDs from large product feeds.</p>
+            
+            <h3>Key Features</h3>
+            <ul>
+              <li>Batch processing of multiple product queries</li>
+              <li>Advanced search algorithm for exact and partial matches</li>
+              <li>Variant ID mapping and validation</li>
+              <li>High-performance data processing using Pandas</li>
+              <li>Input validation and error handling</li>
+            </ul>
+            
+            <h3>Technical Implementation</h3>
+            <ul>
+              <li>Utilized Pandas DataFrames for efficient data manipulation</li>
+              <li>Implemented parallel processing for faster search results</li>
+              <li>Created custom filtering and matching algorithms</li>
+              <li>Built robust input validation system</li>
+            </ul>
+            
+            <h3>Technologies & Skills</h3>
+            <ul class="tech-stack">
+              <li>Python</li>
+              <li>Pandas</li>
+              <li>Data Structures</li>
+              <li>Algorithm Design</li>
+              <li>Performance Optimization</li>
+            </ul>
+            
+            <div class="project-links">
+              <a href="#" target="_blank"><i class="fab fa-github"></i> View Code</a>
+              <a href="#" target="_blank"><i class="fas fa-book"></i> Documentation</a>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="project-title" onclick="toggleDetails('project-policy-checker')">
+          <strong>Product Policy Compliance Checker</strong>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Tkinter</span>
+            <span class="tag">GUI</span>
+            <span class="tag">Policy Validation</span>
+          </div>
+        </div>
+        <div id="project-policy-checker" class="project-details" style="display: none;">
+          <div class="project-content">
+            <h3>Overview</h3>
+            <p>Created a GUI application using Tkinter to validate product listings against Google's policy requirements, helping identify and flag non-compliant product descriptions.</p>
+            
+            <h3>Key Features</h3>
+            <ul>
+              <li>User-friendly GUI interface for easy interaction</li>
+              <li>Real-time product description validation</li>
+              <li>Comprehensive policy compliance checking</li>
+              <li>Detailed violation reporting</li>
+              <li>Batch processing capabilities</li>
+            </ul>
+            
+            <h3>Technical Implementation</h3>
+            <ul>
+              <li>Built intuitive UI with Tkinter widgets</li>
+              <li>Implemented custom validation algorithms</li>
+              <li>Created efficient data processing pipeline</li>
+              <li>Integrated error handling and user feedback</li>
+            </ul>
+            
+            <h3>Technologies & Skills</h3>
+            <ul class="tech-stack">
+              <li>Python</li>
+              <li>Tkinter</li>
+              <li>GUI Development</li>
+              <li>Text Processing</li>
+              <li>Policy Implementation</li>
+            </ul>
+            
+            <div class="project-links">
+              <a href="#" target="_blank"><i class="fab fa-github"></i> View Code</a>
+              <a href="#" target="_blank"><i class="fas fa-desktop"></i> Live Demo</a>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="project-title" onclick="toggleDetails('project-text-analysis')">
+          <strong>Text Analysis Dashboard</strong>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">NLP</span>
+            <span class="tag">Streamlit</span>
+            <span class="tag">Data Analysis</span>
+          </div>
+        </div>
+        <div id="project-text-analysis" class="project-details" style="display: none;">
+          <div class="project-content">
+            <h3>Overview</h3>
+            <p>Developed a comprehensive text analysis dashboard using Streamlit that extracts and analyzes text from articles to compute various metrics for sentiment analysis and readability assessment.</p>
+            
+            <h3>Key Features</h3>
+            <ul>
+              <li>Automated text extraction from web articles using BeautifulSoup and Selenium</li>
+              <li>Advanced sentiment analysis with positive/negative scoring</li>
+              <li>Comprehensive readability metrics calculation (FOG Index, complexity scores)</li>
+              <li>Interactive visualization of metrics using Plotly and Seaborn</li>
+              <li>Robust error handling and NLTK resource management</li>
+              <li>Batch processing capabilities with multi-threading</li>
+            </ul>
+            
+            <h3>Technical Implementation</h3>
+            <ul>
+              <li>Implemented parallel processing using ThreadPoolExecutor for efficient batch analysis</li>
+              <li>Created custom algorithms for syllable counting and text complexity analysis</li>
+              <li>Developed interactive dashboards using Streamlit and Plotly</li>
+              <li>Built robust error handling and logging system</li>
+              <li>Integrated multiple text processing libraries (NLTK, BeautifulSoup)</li>
+            </ul>
+            
+            <h3>Technologies & Skills</h3>
+            <ul class="tech-stack">
+              <li>Python</li>
+              <li>Streamlit</li>
+              <li>NLTK</li>
+              <li>BeautifulSoup</li>
+              <li>Selenium</li>
+              <li>Pandas</li>
+              <li>Plotly</li>
+              <li>Threading</li>
+              <li>Web Scraping</li>
+              <li>NLP</li>
+            </ul>
+            
+            <div class="project-links">
+              <a href="#" target="_blank"><i class="fab fa-github"></i> View Code</a>
+              <a href="#" target="_blank"><i class="fas fa-book"></i> Documentation</a>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li>
         <div class="project-title" onclick="toggleDetails('project1')">
-          <strong>BCG - Customer Churn Analysis</strong> (85% Accuracy)
+          <strong>BCG - Data Science & Advanced Analytics</strong>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">85% Accuracy</span>
+            <span class="tag">Data Analysis</span>
+          </div>
         </div>
         <div id="project1" class="project-details" style="display: none;">
-          <p>Performed customer churn analysis using Python and ML models.</p>
+          <div class="project-content">
+            <h3>Overview</h3>
+            <p>Completed a comprehensive customer churn analysis simulation for XYZ Analytics, showcasing advanced data analytics capabilities and strategic problem-solving skills.</p>
+            
+            <h3>Key Achievements</h3>
+            <ul>
+              <li>Achieved 85% prediction accuracy using Random Forest algorithm for customer churn prediction</li>
+              <li>Conducted efficient data analysis using Python (Pandas, NumPy) and advanced visualization techniques</li>
+              <li>Developed and optimized machine learning models for accurate churn prediction</li>
+              <li>Created executive summary with actionable insights for the Associate Director</li>
+            </ul>
+            
+            <h3>Technologies & Skills</h3>
+            <ul class="tech-stack">
+              <li>Python (Scikit-learn, Pandas)</li>
+              <li>Data Visualization</li>
+              <li>Mathematical Modeling</li>
+              <li>Business Understanding</li>
+              <li>Model Evaluation</li>
+              <li>Hypothesis Framing</li>
+              <li>Client Communication</li>
+            </ul>
+            
+            <div class="project-links">
+              <a href="#" target="_blank"><i class="fas fa-certificate"></i> View Certificate</a>
+              <a href="#" target="_blank"><i class="fas fa-file-alt"></i> Project Report</a>
+            </div>
+          </div>
         </div>
       </li>
+
       <li>
         <div class="project-title" onclick="toggleDetails('project2')">
-          <strong>Commonwealth Bank - Data Engineering</strong>
+          <strong>Commonwealth Bank - Data Science & Engineering</strong>
+          <div class="project-tags">
+            <span class="tag">Data Engineering</span>
+            <span class="tag">Data Privacy</span>
+            <span class="tag">Database Design</span>
+          </div>
         </div>
         <div id="project2" class="project-details" style="display: none;">
-          <p>Built structured and unstructured data pipelines.</p>
+          <div class="project-content">
+            <h3>Overview</h3>
+            <p>Completed an intensive job simulation focused on Data Management and Engineering for Commonwealth Bank's Data Science team.</p>
+            
+            <h3>Key Achievements</h3>
+            <ul>
+              <li>Designed and implemented data engineering pipelines for efficient data aggregation</li>
+              <li>Developed data anonymization protocols ensuring compliance with privacy regulations</li>
+              <li>Created well-structured database schemas for optimal information management</li>
+              <li>Implemented social media data analysis strategies</li>
+            </ul>
+            
+            <h3>Technologies & Skills</h3>
+            <ul class="tech-stack">
+              <li>APIs</li>
+              <li>Database Design</li>
+              <li>Data Privacy</li>
+              <li>Data Processing</li>
+              <li>Microsoft Excel</li>
+              <li>Statistics</li>
+              <li>Data Anonymisation</li>
+            </ul>
+            
+            <div class="project-links">
+              <a href="#" target="_blank"><i class="fas fa-certificate"></i> View Certificate</a>
+              <a href="#" target="_blank"><i class="fas fa-database"></i> Database Documentation</a>
+            </div>
+          </div>
         </div>
       </li>
+
       <li>
         <div class="project-title" onclick="toggleDetails('project3')">
-          <strong>Tata Cybersecurity - IAM Strategy</strong>
+          <strong>Tata - Data Visualization & Insights</strong>
+          <div class="project-tags">
+            <span class="tag">Data Visualization</span>
+            <span class="tag">Business Analytics</span>
+            <span class="tag">Dashboard Design</span>
+          </div>
         </div>
         <div id="project3" class="project-details" style="display: none;">
-          <p>Developed IAM principles and risk assessment strategies.</p>
+          <div class="project-content">
+            <h3>Overview</h3>
+            <p>Led a comprehensive data visualization project for Tata Consultancy Services, focusing on creating impactful business insights through effective visual storytelling.</p>
+            
+            <h3>Key Achievements</h3>
+            <ul>
+              <li>Created executive-level data visualizations for strategic decision-making</li>
+              <li>Prepared and conducted meetings with client senior leadership</li>
+              <li>Developed interactive dashboards for business analysis</li>
+              <li>Implemented data cleanup and interpretation strategies</li>
+            </ul>
+            
+            <h3>Technologies & Skills</h3>
+            <ul class="tech-stack">
+              <li>Data Visualization</li>
+              <li>Dashboard Design</li>
+              <li>Data Analysis</li>
+              <li>Data Interpretation</li>
+              <li>Effective Communication</li>
+              <li>Charts & Graphs</li>
+              <li>Visual Basics</li>
+            </ul>
+            
+            <div class="project-links">
+              <a href="#" target="_blank"><i class="fas fa-certificate"></i> View Certificate</a>
+              <a href="#" target="_blank"><i class="fas fa-chart-bar"></i> View Dashboards</a>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="project-title" onclick="toggleDetails('project4')">
+          <strong>Tata Cybersecurity - IAM Strategy & Implementation</strong>
+          <div class="project-tags">
+            <span class="tag">Security</span>
+            <span class="tag">IAM</span>
+            <span class="tag">Risk Assessment</span>
+          </div>
+        </div>
+        <div id="project4" class="project-details" style="display: none;">
+          <div class="project-content">
+            <h3>Overview</h3>
+            <p>Developed and implemented comprehensive Identity and Access Management (IAM) strategy for enterprise systems.</p>
+            
+            <h3>Key Achievements</h3>
+            <ul>
+              <li>Reduced security incidents by 40%</li>
+              <li>Implemented Zero Trust architecture</li>
+              <li>Developed automated access review system</li>
+            </ul>
+            
+            <h3>Technologies Used</h3>
+            <ul class="tech-stack">
+              <li>Azure AD</li>
+              <li>OAuth 2.0</li>
+              <li>SAML</li>
+              <li>Python (Security Tools)</li>
+            </ul>
+            
+            <div class="project-links">
+              <a href="#" target="_blank"><i class="fas fa-file-pdf"></i> Case Study</a>
+              <a href="#" target="_blank"><i class="fas fa-presentation"></i> Presentation</a>
+            </div>
+          </div>
         </div>
       </li>
     </ul>
-
   </section>
 
   <!-- Education Section -->
