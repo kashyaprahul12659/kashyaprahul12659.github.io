@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rahul Kashyap | Product Analyst @Microsoft | AI Systems Design</title>
-  <meta name="description" content="Portfolio of Rahul Kashyap - Product Analyst at Microsoft, Founder of SpaceTalk, AI Systems Architect specializing in Search Technology, Copilot, KQL, and Full-Stack Engineering." />
-  <meta name="keywords" content="Rahul Kashyap, Microsoft, Product Analyst, SpaceTalk, AI Systems, Copilot, KQL, AutoApply Pro, MemBridge, Data Analyst, Python, React, Rust" />
+  <title>Rahul Kashyap | Product Analyst @Microsoft | AI Systems Architect</title>
+  <meta name="description" content="Portfolio of Rahul Kashyap - Product Analyst at Microsoft, Creator of SeedhaStock (Azure), Founder of SpaceTalk (Rust SaaS), and AI Systems Architect." />
+  <meta name="keywords" content="Rahul Kashyap, Microsoft, SeedhaStock, Azure, SpaceTalk, Rust, Product Analyst, Copilot, KQL, AutoApply Pro, MemBridge, AI Agent" />
   <meta name="author" content="Rahul Kashyap" />
 
-  <!-- Open Graph / Meta -->
+  <!-- Open Graph / Social -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://rahulinmotion.me/" />
-  <meta property="og:title" content="Rahul Kashyap | Product Analyst @Microsoft | AI Systems Design" />
-  <meta property="og:description" content="Product Analyst @Microsoft working across search technology & Copilot infrastructure. Founder of SpaceTalk & builder of AI systems." />
+  <meta property="og:title" content="Rahul Kashyap | Product Analyst @Microsoft | AI Systems Architect" />
+  <meta property="og:description" content="Product Analyst @Microsoft working on Copilot search telemetry. Builder of SeedhaStock (Azure OSINT Trading Agent) & SpaceTalk." />
 
   <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,6 +21,9 @@
 
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -35,19 +38,43 @@
           },
           colors: {
             brand: {
+              300: '#67e8f9',
               400: '#22d3ee',
               500: '#06b6d4',
               600: '#0891b2',
             },
-            msft: {
-              blue: '#00a4ef',
-              green: '#7fba00',
-              red: '#f25022',
-              yellow: '#ffb900',
+            azure: {
+              400: '#38bdf8',
+              500: '#0284c7',
+              600: '#0369a1',
             },
             dark: {
-              bg: '#080c14',
-              card: '#0f172a',
+              bg: '#060911',
+              card: '#0d1322',
+            }
+          },
+          animation: {
+            'glow-pulse': 'glowPulse 5s ease-in-out infinite',
+            'float-slow': 'floatSlow 6s ease-in-out infinite',
+            'radar-spin': 'radarSpin 4s linear infinite',
+            'bounce-subtle': 'bounceSubtle 2s ease-in-out infinite',
+          },
+          keyframes: {
+            glowPulse: {
+              '0%, 100%': { opacity: '0.3', transform: 'scale(1)' },
+              '50%': { opacity: '0.6', transform: 'scale(1.06)' },
+            },
+            floatSlow: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            radarSpin: {
+              'from': { transform: 'rotate(0deg)' },
+              'to': { transform: 'rotate(360deg)' }
+            },
+            bounceSubtle: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-4px)' }
             }
           }
         }
@@ -58,10 +85,10 @@
   <style>
     /* Custom Scrollbar */
     ::-webkit-scrollbar {
-      width: 8px;
+      width: 7px;
     }
     ::-webkit-scrollbar-track {
-      background: #080c14;
+      background: #060911;
     }
     ::-webkit-scrollbar-thumb {
       background: #1e293b;
@@ -71,26 +98,68 @@
       background: #06b6d4;
     }
 
-    /* Glassmorphic Effects */
-    .glass-nav {
-      background: rgba(8, 12, 20, 0.85);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    /* Ambient Background & Grid */
+    .cyber-grid {
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(14, 165, 233, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 15%, rgba(99, 102, 241, 0.16) 0px, transparent 50%),
+        radial-gradient(at 50% 85%, rgba(16, 185, 129, 0.1) 0px, transparent 50%),
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
     }
 
-    .glass-card {
-      background: rgba(15, 23, 42, 0.65);
+    /* Glassmorphic Nav & Cards */
+    .glass-nav {
+      background: rgba(6, 9, 17, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .interactive-card {
+      background: rgba(13, 19, 34, 0.7);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+      overflow: hidden;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .glass-card:hover {
-      border-color: rgba(34, 211, 238, 0.35);
-      transform: translateY(-4px);
-      box-shadow: 0 16px 36px -10px rgba(6, 182, 212, 0.16);
+    .interactive-card::before {
+      content: '';
+      position: absolute;
+      top: var(--mouse-y, -1000px);
+      left: var(--mouse-x, -1000px);
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(34, 211, 238, 0.12) 0%, transparent 60%);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      opacity: 0;
+    }
+
+    .interactive-card:hover::before {
+      opacity: 1;
+    }
+
+    .interactive-card:hover {
+      border-color: rgba(34, 211, 238, 0.4);
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px -15px rgba(6, 182, 212, 0.2);
+    }
+
+    /* VIP Azure Card */
+    .vip-azure-card {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.12) 0%, rgba(15, 23, 42, 0.85) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      box-shadow: 0 0 30px rgba(56, 189, 248, 0.12);
+    }
+    .vip-azure-card:hover {
+      border-color: rgba(56, 189, 248, 0.8);
+      box-shadow: 0 0 50px rgba(56, 189, 248, 0.28);
     }
 
     /* Gradient Text */
@@ -100,32 +169,24 @@
       -webkit-text-fill-color: transparent;
     }
 
-    .gradient-msft {
-      background: linear-gradient(135deg, #00a4ef 0%, #60a5fa 50%, #a78bfa 100%);
+    .gradient-azure {
+      background: linear-gradient(135deg, #38bdf8 0%, #0284c7 60%, #0ea5e9 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    /* Radial Ambient Background Glows */
-    .bg-ambient {
-      background-image: 
-        radial-gradient(at 0% 0%, rgba(14, 165, 233, 0.14) 0px, transparent 50%),
-        radial-gradient(at 100% 20%, rgba(99, 102, 241, 0.14) 0px, transparent 50%),
-        radial-gradient(at 50% 80%, rgba(168, 85, 247, 0.08) 0px, transparent 50%);
-    }
-
     .badge-pill {
-      background: rgba(30, 41, 59, 0.7);
+      background: rgba(30, 41, 59, 0.75);
       border: 1px solid rgba(255, 255, 255, 0.08);
       transition: all 0.2s ease;
     }
     .badge-pill:hover {
-      border-color: rgba(6, 182, 212, 0.5);
-      background: rgba(6, 182, 212, 0.1);
-      color: #22d3ee;
+      border-color: rgba(6, 182, 212, 0.6);
+      background: rgba(6, 182, 212, 0.15);
+      color: #38bdf8;
     }
 
-    /* Toast Notification */
+    /* Toast */
     #toast {
       visibility: hidden;
       opacity: 0;
@@ -136,13 +197,18 @@
       opacity: 1;
       transition: opacity 0.2s ease;
     }
+
+    /* Terminal Window */
+    .terminal-glow {
+      box-shadow: 0 0 50px rgba(6, 182, 212, 0.25), 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+    }
   </style>
 </head>
 
-<body class="bg-dark-bg text-slate-200 font-sans antialiased selection:bg-cyan-500/20 selection:text-cyan-300 min-h-screen bg-ambient relative">
+<body class="bg-dark-bg text-slate-200 font-sans antialiased selection:bg-cyan-500/30 selection:text-cyan-200 min-h-screen cyber-grid relative">
 
   <!-- Toast Notification -->
-  <div id="toast" class="fixed bottom-6 right-6 z-50 flex items-center gap-3 px-5 py-3 rounded-xl bg-slate-900/90 text-cyan-300 border border-cyan-500/40 shadow-2xl backdrop-blur-md">
+  <div id="toast" class="fixed bottom-6 right-6 z-50 flex items-center gap-3 px-5 py-3 rounded-2xl bg-slate-900/95 text-cyan-300 border border-cyan-500/50 shadow-2xl backdrop-blur-xl">
     <i class="fas fa-check-circle text-lg text-emerald-400"></i>
     <span id="toast-text" class="text-sm font-medium">Copied to clipboard!</span>
   </div>
@@ -152,14 +218,14 @@
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
       
       <!-- Brand Logo -->
-      <a href="#hero" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center font-mono font-bold text-white shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform">
+      <a href="#hero" class="flex items-center gap-3 group" onclick="playClickSound()">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 via-blue-600 to-indigo-600 flex items-center justify-center font-mono font-bold text-white shadow-lg shadow-cyan-500/25 group-hover:rotate-6 group-hover:scale-105 transition-all">
           RK
         </div>
         <div class="flex flex-col">
           <span class="font-bold tracking-tight text-white group-hover:text-cyan-400 transition-colors">Rahul Kashyap</span>
           <span class="text-[11px] font-mono text-cyan-400 flex items-center gap-1.5">
-            <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
             Product Analyst @Microsoft
           </span>
         </div>
@@ -167,29 +233,48 @@
 
       <!-- Desktop Nav Links -->
       <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-        <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
-        <a href="#experience" class="hover:text-cyan-400 transition-colors">Experience</a>
-        <a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a>
-        <a href="#skills" class="hover:text-cyan-400 transition-colors">Skills</a>
-        <a href="#education" class="hover:text-cyan-400 transition-colors">Education</a>
-        <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
+        <a href="#about" onclick="playClickSound()" class="hover:text-cyan-400 transition-colors">About</a>
+        <a href="#seedhastock" onclick="playClickSound()" class="text-sky-300 hover:text-sky-200 flex items-center gap-1 font-semibold">
+          <span class="w-2 h-2 rounded-full bg-sky-400 animate-ping"></span>
+          <span>SeedhaStock</span>
+        </a>
+        <a href="#experience" onclick="playClickSound()" class="hover:text-cyan-400 transition-colors">Experience</a>
+        <a href="#projects" onclick="playClickSound()" class="hover:text-cyan-400 transition-colors">Builds</a>
+        <a href="#skills" onclick="playClickSound()" class="hover:text-cyan-400 transition-colors">Skills</a>
+        <a href="#contact" onclick="playClickSound()" class="hover:text-cyan-400 transition-colors">Contact</a>
       </nav>
 
-      <!-- Right CTAs -->
+      <!-- Right Interactive Controls -->
       <div class="hidden md:flex items-center gap-3">
-        <a href="https://github.com/kashyaprahul12659" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-slate-300 hover:text-white hover:border-cyan-500/50 transition-all" title="GitHub Profile">
-          <i class="fab fa-github text-base"></i>
+        
+        <!-- Interactive Terminal Trigger Button -->
+        <button onclick="toggleTerminal()" class="px-3 py-1.5 rounded-lg interactive-card text-xs font-mono text-cyan-300 hover:text-white flex items-center gap-2 border-cyan-500/30 group" title="Open Hacker Terminal (Press ~)">
+          <i class="fas fa-terminal text-cyan-400 group-hover:animate-bounce"></i>
+          <span>Terminal</span>
+          <kbd class="px-1.5 py-0.5 rounded bg-slate-800 text-[10px] text-slate-400 border border-slate-700">~</kbd>
+        </button>
+
+        <!-- Sound FX Toggle -->
+        <button id="sound-btn" onclick="toggleAudio()" class="w-9 h-9 rounded-lg interactive-card flex items-center justify-center text-slate-400 hover:text-cyan-300 transition-colors" title="Toggle UI Sound FX">
+          <i class="fas fa-volume-xmark text-sm" id="sound-icon"></i>
+        </button>
+
+        <!-- Social Icons -->
+        <a href="https://github.com/kashyaprahul12659" target="_blank" rel="noopener" onclick="playClickSound()" class="w-9 h-9 rounded-lg interactive-card flex items-center justify-center text-slate-300 hover:text-white hover:border-cyan-500/50 transition-all" title="GitHub">
+          <i class="fab fa-github text-sm"></i>
         </a>
-        <a href="https://www.linkedin.com/in/rahul-kashyap-6698b5176" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-slate-300 hover:text-white hover:border-cyan-500/50 transition-all" title="LinkedIn Profile">
-          <i class="fab fa-linkedin-in text-base"></i>
+        <a href="https://www.linkedin.com/in/rahul-kashyap-6698b5176" target="_blank" rel="noopener" onclick="playClickSound()" class="w-9 h-9 rounded-lg interactive-card flex items-center justify-center text-slate-300 hover:text-white hover:border-cyan-500/50 transition-all" title="LinkedIn">
+          <i class="fab fa-linkedin-in text-sm"></i>
         </a>
-        <a href="#contact" class="px-4 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-sm shadow-md shadow-cyan-500/20 hover:shadow-cyan-500/30 transition-all">
-          Get in Touch
+
+        <!-- Main CTA -->
+        <a href="#contact" onclick="triggerConfetti(); playClickSound();" class="px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-xs shadow-md shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all">
+          Let's Talk
         </a>
       </div>
 
       <!-- Mobile Hamburger Button -->
-      <button id="mobile-menu-btn" aria-label="Open Navigation Menu" class="md:hidden w-10 h-10 rounded-lg glass-card flex items-center justify-center text-slate-300 hover:text-white focus:outline-none">
+      <button id="mobile-menu-btn" aria-label="Open Navigation Menu" class="md:hidden w-10 h-10 rounded-lg interactive-card flex items-center justify-center text-slate-300 hover:text-white focus:outline-none">
         <i class="fas fa-bars text-lg" id="menu-icon"></i>
       </button>
 
@@ -199,17 +284,17 @@
     <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-6 border-b border-slate-800/80 bg-slate-950/95 backdrop-blur-xl">
       <nav class="flex flex-col gap-4 text-base font-medium">
         <a href="#about" class="mobile-nav-link text-slate-300 hover:text-cyan-400 py-1">About</a>
+        <a href="#seedhastock" class="mobile-nav-link text-sky-400 font-semibold py-1">🔥 SeedhaStock (Azure)</a>
         <a href="#experience" class="mobile-nav-link text-slate-300 hover:text-cyan-400 py-1">Experience</a>
-        <a href="#projects" class="mobile-nav-link text-slate-300 hover:text-cyan-400 py-1">Projects</a>
+        <a href="#projects" class="mobile-nav-link text-slate-300 hover:text-cyan-400 py-1">Builds</a>
         <a href="#skills" class="mobile-nav-link text-slate-300 hover:text-cyan-400 py-1">Skills</a>
-        <a href="#education" class="mobile-nav-link text-slate-300 hover:text-cyan-400 py-1">Education</a>
         <a href="#contact" class="mobile-nav-link text-slate-300 hover:text-cyan-400 py-1">Contact</a>
         <div class="pt-4 flex items-center gap-3 border-t border-slate-800">
-          <a href="https://github.com/kashyaprahul12659" target="_blank" rel="noopener" class="px-4 py-2 rounded-lg glass-card flex items-center gap-2 text-sm text-slate-300 hover:text-white">
+          <button onclick="toggleTerminal()" class="px-3 py-1.5 rounded-lg interactive-card text-xs font-mono text-cyan-300">
+            <i class="fas fa-terminal"></i> Terminal
+          </button>
+          <a href="https://github.com/kashyaprahul12659" target="_blank" rel="noopener" class="px-3 py-1.5 rounded-lg interactive-card text-xs text-slate-300">
             <i class="fab fa-github"></i> GitHub
-          </a>
-          <a href="https://www.linkedin.com/in/rahul-kashyap-6698b5176" target="_blank" rel="noopener" class="px-4 py-2 rounded-lg glass-card flex items-center gap-2 text-sm text-slate-300 hover:text-white">
-            <i class="fab fa-linkedin"></i> LinkedIn
           </a>
         </div>
       </nav>
@@ -220,20 +305,23 @@
   <section id="hero" class="pt-36 pb-20 md:pt-44 md:pb-28 max-w-7xl mx-auto px-6">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
       
-      <!-- Left Column: Bio & Intro -->
+      <!-- Left Column -->
       <div class="lg:col-span-8 flex flex-col items-start space-y-6">
         
-        <!-- Microsoft Role Pill -->
-        <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-card text-xs font-semibold text-slate-200 border border-blue-500/30">
-          <span class="flex gap-0.5 items-center">
+        <!-- Microsoft Role Pill + Live Pulse -->
+        <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full interactive-card text-xs font-semibold text-slate-200 border-blue-500/30">
+          <span class="flex gap-1 items-center">
             <span class="w-2 h-2 bg-[#f25022] rounded-sm"></span>
             <span class="w-2 h-2 bg-[#7fba00] rounded-sm"></span>
             <span class="w-2 h-2 bg-[#00a4ef] rounded-sm"></span>
             <span class="w-2 h-2 bg-[#ffb900] rounded-sm"></span>
           </span>
           <span class="text-white font-bold">Product Analyst @ Microsoft</span>
-          <span class="text-slate-500">•</span>
-          <span class="text-cyan-400 font-mono">Search Tech & Copilot</span>
+          <span class="text-slate-600">•</span>
+          <span class="text-cyan-400 font-mono flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            Bing Sports & Copilot
+          </span>
         </div>
 
         <!-- Headline -->
@@ -242,87 +330,234 @@
         </h1>
 
         <!-- Dynamic Typing Role -->
-        <div class="text-xl sm:text-2xl md:text-3xl font-semibold text-slate-300 flex items-center gap-2 min-h-[42px]">
+        <div class="text-xl sm:text-2xl md:text-3xl font-semibold text-slate-300 flex items-center gap-2 min-h-[44px]">
           <span>I architect</span>
           <span id="role-text" class="text-cyan-400 font-mono font-bold border-b-2 border-cyan-500"></span>
         </div>
 
         <!-- Description -->
         <p class="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
-          Product Analyst at <strong class="text-white">Microsoft</strong> working on AI-driven search relevance and Copilot integration for Bing Sports. Founder of <strong class="text-white">SpaceTalk</strong> (Conversation Intelligence SaaS) and creator of autonomous AI pipelines, high-throughput web automation, and predictive data systems.
+          Product Analyst at <strong class="text-white">Microsoft</strong> optimizing AI search telemetry and Copilot prompt intelligence for Bing Sports. Creator of <strong class="text-sky-400">SeedhaStock</strong> (Deployed on Azure: Multi-Agent OSINT Trading Detective) and Founder of <strong class="text-purple-400">SpaceTalk</strong> (Rust SaaS).
         </p>
 
-        <!-- CTAs -->
+        <!-- Action CTAs -->
         <div class="flex flex-wrap items-center gap-4 pt-2">
-          <a href="#projects" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-sm shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:-translate-y-0.5 transition-all flex items-center gap-2">
-            <span>Explore My Builds</span>
-            <i class="fas fa-arrow-right text-xs"></i>
+          <a href="#seedhastock" onclick="playClickSound()" class="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-sky-500 via-cyan-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-slate-950 font-extrabold text-sm shadow-xl shadow-sky-500/25 hover:shadow-sky-500/40 hover:-translate-y-0.5 transition-all flex items-center gap-2.5">
+            <i class="fas fa-bolt text-xs"></i>
+            <span>Inspect SeedhaStock (Azure)</span>
           </a>
-          <a href="#experience" class="px-6 py-3.5 rounded-xl glass-card hover:bg-slate-800/80 text-white font-semibold text-sm hover:border-cyan-500/50 hover:-translate-y-0.5 transition-all flex items-center gap-2">
-            <i class="fas fa-briefcase text-cyan-400 text-sm"></i>
-            <span>View Experience</span>
+          <a href="#projects" onclick="playClickSound()" class="px-6 py-3.5 rounded-2xl interactive-card hover:bg-slate-800/90 text-white font-semibold text-sm hover:border-cyan-500/50 hover:-translate-y-0.5 transition-all flex items-center gap-2">
+            <span>Explore All Builds</span>
+            <i class="fas fa-arrow-down text-xs text-cyan-400"></i>
           </a>
-          <button onclick="copyToClipboard('kashyaprahul535@gmail.com', 'Email copied!')" class="px-4 py-3.5 rounded-xl glass-card hover:bg-slate-800/80 text-slate-300 hover:text-cyan-300 text-sm font-mono flex items-center gap-2" title="Copy Email">
+          <button onclick="copyToClipboard('kashyaprahul535@gmail.com', 'Email copied to clipboard!'); triggerConfetti(); playClickSound();" class="px-4 py-3.5 rounded-2xl interactive-card hover:bg-slate-800/90 text-slate-300 hover:text-cyan-300 text-sm font-mono flex items-center gap-2" title="Copy Email">
             <i class="far fa-copy"></i>
             <span class="hidden sm:inline">kashyaprahul535@gmail.com</span>
             <span class="sm:hidden">Copy Email</span>
           </button>
         </div>
 
-        <!-- Social Connections -->
-        <div class="flex items-center gap-4 pt-4 text-slate-400 text-sm">
-          <span class="text-xs uppercase tracking-wider font-mono text-slate-500">Connect:</span>
-          <a href="https://github.com/kashyaprahul12659" target="_blank" rel="noopener" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5">
-            <i class="fab fa-github"></i> <span>GitHub</span>
-          </a>
-          <span class="text-slate-700">•</span>
-          <a href="https://www.linkedin.com/in/rahul-kashyap-6698b5176" target="_blank" rel="noopener" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5">
-            <i class="fab fa-linkedin"></i> <span>LinkedIn</span>
-          </a>
-          <span class="text-slate-700">•</span>
-          <a href="mailto:kashyaprahul535@gmail.com" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5">
-            <i class="fas fa-paper-plane"></i> <span>Email</span>
-          </a>
+        <!-- Live Subsystems Radar Status -->
+        <div class="pt-4 flex flex-wrap items-center gap-3 text-xs font-mono">
+          <div class="px-3 py-1.5 rounded-lg bg-slate-900/80 border border-emerald-500/30 text-emerald-400 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span>Azure App Service: LIVE</span>
+          </div>
+          <div class="px-3 py-1.5 rounded-lg bg-slate-900/80 border border-blue-500/30 text-blue-300 flex items-center gap-2">
+            <i class="fab fa-microsoft text-blue-400"></i>
+            <span>Microsoft Copilot Search Telemetry</span>
+          </div>
+          <button onclick="toggleTerminal()" class="px-3 py-1.5 rounded-lg bg-slate-900/80 border border-cyan-500/30 text-cyan-300 hover:text-white flex items-center gap-1.5 transition-colors">
+            <i class="fas fa-code text-[10px]"></i>
+            <span>Press ~ for Interactive Shell</span>
+          </button>
         </div>
 
       </div>
 
-      <!-- Right Column: Bento Stats -->
+      <!-- Right Column: Interactive Bento Tech Grid -->
       <div class="lg:col-span-4 flex flex-col gap-4">
         
-        <!-- Bento 1: Microsoft -->
-        <div class="glass-card rounded-2xl p-6 relative overflow-hidden group border-blue-500/30">
-          <div class="absolute -right-8 -top-8 w-28 h-28 bg-blue-500/15 rounded-full blur-xl group-hover:bg-blue-500/25 transition-all"></div>
+        <!-- Card 1: SeedhaStock Azure Live Deploy -->
+        <div class="vip-azure-card rounded-2xl p-6 relative overflow-hidden group cursor-pointer" onclick="document.getElementById('seedhastock').scrollIntoView({behavior:'smooth'}); playClickSound();">
+          <div class="absolute -right-8 -top-8 w-28 h-28 bg-sky-500/20 rounded-full blur-xl group-hover:bg-sky-500/35 transition-all"></div>
           <div class="flex items-center justify-between mb-3">
-            <span class="text-xs font-mono uppercase tracking-wider text-blue-400 font-bold">Current Impact</span>
-            <i class="fab fa-microsoft text-blue-400 text-lg"></i>
+            <span class="text-xs font-mono uppercase tracking-wider text-sky-300 font-bold flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              Deployed on Azure Yesterday
+            </span>
+            <i class="fas fa-cloud text-sky-400 text-lg"></i>
           </div>
-          <div class="text-2xl font-extrabold text-white">Microsoft Copilot</div>
-          <p class="text-xs text-slate-400 mt-1">Search query analysis, accuracy evaluation, and KQL data pipelines for Bing Sports.</p>
+          <div class="text-2xl font-extrabold text-white group-hover:text-sky-300 transition-colors">SeedhaStock</div>
+          <p class="text-xs text-slate-300 mt-1">Multi-Agent OSINT Trading Detective & Forensic Audio Engine for NSE/BSE & US Equities.</p>
         </div>
 
-        <!-- Bento 2: SpaceTalk SaaS -->
-        <div class="glass-card rounded-2xl p-6 relative overflow-hidden group border-purple-500/30">
+        <!-- Card 2: SpaceTalk SaaS -->
+        <div class="interactive-card rounded-2xl p-6 relative overflow-hidden group border-purple-500/30 cursor-pointer" onclick="openModal('modal-spacetalk'); playClickSound();">
           <div class="absolute -right-8 -top-8 w-28 h-28 bg-purple-500/15 rounded-full blur-xl group-hover:bg-purple-500/25 transition-all"></div>
           <div class="flex items-center justify-between mb-3">
-            <span class="text-xs font-mono uppercase tracking-wider text-purple-400 font-bold">Founder</span>
+            <span class="text-xs font-mono uppercase tracking-wider text-purple-400 font-bold">Founder Project</span>
             <i class="fas fa-rocket text-purple-400 text-lg"></i>
           </div>
-          <div class="text-2xl font-extrabold text-white">SpaceTalk</div>
-          <p class="text-xs text-slate-400 mt-1">Multi-tenant B2B SaaS conversation intelligence built with Rust/Axum & React.</p>
+          <div class="text-2xl font-extrabold text-white group-hover:text-purple-300 transition-colors">SpaceTalk</div>
+          <p class="text-xs text-slate-400 mt-1">Multi-tenant contact center intelligence SaaS in Rust/Axum + React.</p>
         </div>
 
-        <!-- Bento 3: Claude Impact Lab 2026 -->
-        <div class="glass-card rounded-2xl p-6 relative overflow-hidden group border-cyan-500/30">
+        <!-- Card 3: Khoya-Paya Agent -->
+        <div class="interactive-card rounded-2xl p-6 relative overflow-hidden group border-cyan-500/30 cursor-pointer" onclick="openModal('modal-khoyapaya'); playClickSound();">
           <div class="absolute -right-8 -top-8 w-28 h-28 bg-cyan-500/15 rounded-full blur-xl group-hover:bg-cyan-500/25 transition-all"></div>
           <div class="flex items-center justify-between mb-3">
-            <span class="text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold">Social Impact AI</span>
-            <i class="fas fa-heart-pulse text-cyan-400 text-lg"></i>
+            <span class="text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold">Claude Impact Lab 2026</span>
+            <i class="fas fa-hands-holding-child text-cyan-400 text-lg"></i>
           </div>
-          <div class="text-2xl font-extrabold text-white">Khoya-Paya Agent</div>
-          <p class="text-xs text-slate-400 mt-1">Claude Impact Lab Mumbai 2026: AI unified missing person registry for Kumbh Mela 2027.</p>
+          <div class="text-2xl font-extrabold text-white group-hover:text-cyan-300 transition-colors">Khoya-Paya Agent</div>
+          <p class="text-xs text-slate-400 mt-1">Kumbh Mela 2027: AI-powered missing persons registry with offline PWA & PA broadcasts.</p>
         </div>
 
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FEATURED SPOTLIGHT: SEEDHASTOCK (AZURE) -->
+  <section id="seedhastock" class="py-20 border-t border-slate-900 bg-gradient-to-b from-slate-950 via-[#07111e] to-slate-950 relative overflow-hidden">
+    <!-- Azure Glow in Background -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-sky-950/80 text-sky-300 border border-sky-500/50 mb-3">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span>DEPLOYED ON AZURE APP SERVICE</span>
+          </div>
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+            Spotlight: <span class="gradient-azure">SeedhaStock</span>
+          </h2>
+          <p class="text-slate-400 mt-2 text-base max-w-2xl">
+            Autonomous AI Trading & OSINT Detective Platform with Forensic Audio Deception Detection, Multi-Agent FinBERT NLP, and NSE/BSE/US Universal Resolution.
+          </p>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button onclick="openModal('modal-seedhastock'); playClickSound();" class="px-5 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-xs flex items-center gap-2 shadow-lg shadow-sky-500/25 transition-all">
+            <i class="fas fa-file-code"></i>
+            <span>Architecture Dossier</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- SeedhaStock Architecture Showcase Card -->
+      <div class="vip-azure-card rounded-3xl p-8 md:p-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          
+          <!-- Left Specs -->
+          <div class="lg:col-span-7 space-y-6">
+            <div>
+              <span class="text-xs font-mono uppercase text-sky-400 font-bold tracking-wider">Subsystem Architecture</span>
+              <h3 class="text-2xl md:text-3xl font-extrabold text-white mt-1">
+                Institutional-Grade Equity & OSINT Detective
+              </h3>
+            </div>
+
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Engineered and deployed an end-to-end multi-agent trading intelligence suite on Azure. SeedhaStock ingests real-time financial market data, parses executive digital footprints, executes vector backtests, and conducts forensic earnings call deception checks for global and Indian stocks.
+            </p>
+
+            <!-- 4 Core Subsystems Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              
+              <div class="p-4 rounded-xl bg-slate-900/70 border border-sky-500/20">
+                <div class="flex items-center gap-2 text-sky-400 font-bold text-sm mb-1">
+                  <i class="fas fa-microphone-lines"></i>
+                  <span>Audio Deception Engine</span>
+                </div>
+                <p class="text-xs text-slate-400">
+                  Acoustic & vocal stress analysis on quarterly earnings calls to detect executive evasion and deception signals.
+                </p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-slate-900/70 border border-sky-500/20">
+                <div class="flex items-center gap-2 text-cyan-400 font-bold text-sm mb-1">
+                  <i class="fas fa-magnifying-glass"></i>
+                  <span>Universal Ticker Resolver</span>
+                </div>
+                <p class="text-xs text-slate-400">
+                  Fuzzy alias resolution: maps typos, company names ("Tata Motors", "Google"), and suffixes (.NS, .BO) to canonical symbols.
+                </p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-slate-900/70 border border-indigo-500/20">
+                <div class="flex items-center gap-2 text-indigo-400 font-bold text-sm mb-1">
+                  <i class="fas fa-radar"></i>
+                  <span>OSINT Detective & Rumor Radar</span>
+                </div>
+                <p class="text-xs text-slate-400">
+                  Footprint tracker for executive travel, hiring velocity, SEC EDGAR filings, and grounded rumor corroboration scores.
+                </p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-slate-900/70 border border-emerald-500/20">
+                <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm mb-1">
+                  <i class="fas fa-chart-line"></i>
+                  <span>Quantitative Backtesting</span>
+                </div>
+                <p class="text-xs text-slate-400">
+                  Vectorized momentum replay computing Sharpe ratios, maximum drawdowns, win-rates, and multi-factor risk vetoes.
+                </p>
+              </div>
+
+            </div>
+
+            <!-- Tech Badges -->
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="px-3 py-1 rounded-lg text-xs font-mono badge-pill text-sky-300 border-sky-500/40">Microsoft Azure</span>
+              <span class="px-3 py-1 rounded-lg text-xs font-mono badge-pill text-sky-300 border-sky-500/40">Azure Cosmos DB</span>
+              <span class="px-3 py-1 rounded-lg text-xs font-mono badge-pill text-slate-200">FastAPI & Python 3.12</span>
+              <span class="px-3 py-1 rounded-lg text-xs font-mono badge-pill text-slate-200">FinBERT Multi-Agent NLP</span>
+              <span class="px-3 py-1 rounded-lg text-xs font-mono badge-pill text-slate-200">Docker Container</span>
+              <span class="px-3 py-1 rounded-lg text-xs font-mono badge-pill text-slate-200">NSE/BSE API</span>
+            </div>
+          </div>
+
+          <!-- Right Live Interactive Console Simulation -->
+          <div class="lg:col-span-5 flex flex-col justify-between rounded-2xl bg-slate-950/90 border border-sky-500/30 p-6 font-mono text-xs">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+                <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+                <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                <span class="text-slate-400 text-[11px] ml-2">azure-appservice::seedhastock</span>
+              </div>
+              <span class="text-emerald-400 text-[10px]">200 OK</span>
+            </div>
+
+            <div class="py-4 space-y-3 text-slate-300">
+              <div class="text-sky-400">
+                &gt; python -m app.services.ingestion --symbol TATAMOTORS.NS
+              </div>
+              <div class="text-slate-400 text-[11px]">
+                [RESOLVER] Canonical match: "Tata Motors Ltd" (NSE: TATAMOTORS.NS)<br/>
+                [MARKET] 60-Day OHLCV fetched | Volatility: 1.84%<br/>
+                [SENTIMENT] FinBERT polarity: +0.78 (Bullish)<br/>
+                [DECEPTION] Audio call stream parsed | Stress flag: 0.12 (Normal)<br/>
+                [RISK OFFICER] Position size cleared: 150 units | Stop-Loss: 2.1%
+              </div>
+              <div class="p-3 rounded-lg bg-slate-900/90 border border-emerald-500/40 text-emerald-300">
+                VERDICT: HIGH CONVICTION BUY (Score: 88/100)<br/>
+                Alpha: +4.2% | Max Drawdown: -3.8%
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-400">
+              <span>Azure App Service: Live</span>
+              <span class="text-sky-400">Deployed Yesterday</span>
+            </div>
+          </div>
+
+        </div>
       </div>
 
     </div>
@@ -335,25 +570,25 @@
       <div class="max-w-3xl mb-12">
         <span class="text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold">About Me</span>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 tracking-tight">
-          Product Intelligence, <span class="gradient-text">Search Systems & AI Automations</span>
+          Product Intelligence, <span class="gradient-text">Search Telemetry & AI Automations</span>
         </h2>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         
         <!-- Story Card -->
-        <div class="lg:col-span-2 glass-card rounded-2xl p-8 space-y-5 text-slate-300 text-base leading-relaxed">
+        <div class="lg:col-span-2 interactive-card rounded-2xl p-8 space-y-5 text-slate-300 text-base leading-relaxed">
           <p>
             I am a <strong class="text-white">Product Analyst at Microsoft</strong> with a background spanning product analytics, artificial intelligence system design, and full-stack software development. In my role at Microsoft, I work across search technology and Copilot infrastructure to enhance the Bing Sports user experience—evaluating result accuracy, optimizing complex queries, and collaborating cross-functionally with PMs, Data Engineers, and AI/ML scientists.
           </p>
           <p>
-            As a builder and founder, I launched <strong class="text-white">SpaceTalk</strong>, an enterprise conversation intelligence platform architected in Rust, Axum, PostgreSQL, and React. I also engineered <strong class="text-white">AutoApply Pro</strong>, a Chrome extension and full-stack automation platform that cuts job application overhead for thousands of job seekers.
+            As a builder and founder, I launched <strong class="text-white">SpaceTalk</strong>, an enterprise conversation intelligence platform architected in Rust, Axum, PostgreSQL, and React. I also engineered <strong class="text-sky-400">SeedhaStock</strong>, deployed yesterday on Azure with Cosmos DB and multi-agent FinBERT, and <strong class="text-white">AutoApply Pro</strong>, a Chrome extension helping job seekers automate applications.
           </p>
           <p>
-            My foundation is anchored by an <strong class="text-white">Integrated Master of Computer Applications (IMCA)</strong> from L.J. Institute and an <strong class="text-white">Advanced Certificate in Cyber Security from IIIT Bangalore</strong>. This blend of rigorous systems engineering and data-driven product thinking enables me to build resilient, high-impact technologies.
+            My foundation is anchored by an <strong class="text-white">Integrated Master of Computer Applications (IMCA)</strong> from L.J. Institute and an <strong class="text-white">Advanced Certificate in Cyber Security from IIIT Bangalore</strong>.
           </p>
 
-          <!-- Core Competencies -->
+          <!-- 3 Pillars -->
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
             <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800">
               <i class="fas fa-magnifying-glass-chart text-blue-400 text-xl mb-2"></i>
@@ -363,7 +598,7 @@
             <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800">
               <i class="fas fa-brain text-purple-400 text-xl mb-2"></i>
               <h4 class="text-white font-bold text-sm">AI Systems & Agents</h4>
-              <p class="text-xs text-slate-400 mt-1">Multi-tenant AI SaaS (SpaceTalk), memory vaults (MemBridge), and LLM pipelines.</p>
+              <p class="text-xs text-slate-400 mt-1">Multi-tenant AI SaaS (SpaceTalk), memory vaults (MemBridge), and Azure models.</p>
             </div>
             <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800">
               <i class="fas fa-gears text-emerald-400 text-xl mb-2"></i>
@@ -374,7 +609,7 @@
         </div>
 
         <!-- Quick Profile Card -->
-        <div class="glass-card rounded-2xl p-8 flex flex-col justify-between space-y-6">
+        <div class="interactive-card rounded-2xl p-8 flex flex-col justify-between space-y-6">
           <h3 class="text-lg font-bold text-white flex items-center gap-2">
             <i class="fas fa-id-badge text-cyan-400"></i>
             <span>Profile Summary</span>
@@ -412,7 +647,7 @@
           </ul>
 
           <div class="pt-4 border-t border-slate-800">
-            <a href="#contact" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm flex items-center justify-center gap-2 transition-colors">
+            <a href="#contact" onclick="playClickSound()" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm flex items-center justify-center gap-2 transition-colors">
               <span>Send a Direct Message</span>
               <i class="fas fa-arrow-right text-xs"></i>
             </a>
@@ -439,16 +674,15 @@
       
       <!-- Role 1: Microsoft -->
       <div class="relative pl-8 md:pl-10 group">
-        <!-- Marker -->
         <div class="absolute -left-3 top-1.5 w-6 h-6 rounded-full bg-slate-900 border-2 border-blue-400 group-hover:bg-blue-500 transition-colors flex items-center justify-center shadow-lg shadow-blue-500/20">
           <div class="w-2 h-2 rounded-full bg-blue-400 group-hover:bg-slate-950"></div>
         </div>
 
-        <div class="glass-card rounded-2xl p-6 md:p-8 border-blue-500/40">
+        <div class="interactive-card rounded-2xl p-6 md:p-8 border-blue-500/40">
           <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
             <div>
               <div class="flex items-center gap-2">
-                <span class="text-xs font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-bold">Active Role</span>
+                <span class="text-xs font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-bold">Active Big Tech Role</span>
               </div>
               <h3 class="text-2xl font-bold text-white mt-1 group-hover:text-blue-400 transition-colors">
                 Product Analyst
@@ -490,19 +724,17 @@
             <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-blue-300">Bing Search Tech</span>
             <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-blue-300">Search Relevance</span>
             <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-blue-300">Prompt Evaluation</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-blue-300">Microsoft 365 Analytics</span>
           </div>
         </div>
       </div>
 
       <!-- Role 2: SpaceTalk Founder -->
       <div class="relative pl-8 md:pl-10 group">
-        <!-- Marker -->
         <div class="absolute -left-3 top-1.5 w-6 h-6 rounded-full bg-slate-900 border-2 border-purple-400 group-hover:bg-purple-500 transition-colors flex items-center justify-center shadow-lg shadow-purple-500/20">
           <div class="w-2 h-2 rounded-full bg-purple-400 group-hover:bg-slate-950"></div>
         </div>
 
-        <div class="glass-card rounded-2xl p-6 md:p-8 border-purple-500/30">
+        <div class="interactive-card rounded-2xl p-6 md:p-8 border-purple-500/30">
           <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
             <div>
               <h3 class="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">
@@ -529,31 +761,24 @@
               <i class="fas fa-check text-purple-400 mt-1 text-xs"></i>
               <span><strong>Enterprise RBAC & Multi-Tenancy:</strong> Built organization-level tenant isolation, rate limiting, and 4-tier Role-Based Access Control (Agent, QA, Manager, Admin).</span>
             </li>
-            <li class="flex items-start gap-2.5">
-              <i class="fas fa-check text-purple-400 mt-1 text-xs"></i>
-              <span><strong>AI Services Integration:</strong> Connected ASR speech models, automated summarization, and quality assurance scoring pipelines with webhook integrations.</span>
-            </li>
           </ul>
 
           <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-800/80">
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-purple-300">Rust</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-purple-300">Axum</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-purple-300">Rust / Axum</span>
             <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-purple-300">React</span>
             <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-purple-300">PostgreSQL</span>
             <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-purple-300">Redis</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-purple-300">Multi-Tenancy</span>
           </div>
         </div>
       </div>
 
       <!-- Role 3: Advertising Data Analyst -->
       <div class="relative pl-8 md:pl-10 group">
-        <!-- Marker -->
         <div class="absolute -left-3 top-1.5 w-6 h-6 rounded-full bg-slate-900 border-2 border-cyan-400 group-hover:bg-cyan-500 transition-colors flex items-center justify-center shadow-lg shadow-cyan-500/20">
           <div class="w-2 h-2 rounded-full bg-cyan-400 group-hover:bg-slate-950"></div>
         </div>
 
-        <div class="glass-card rounded-2xl p-6 md:p-8">
+        <div class="interactive-card rounded-2xl p-6 md:p-8">
           <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
             <div>
               <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
@@ -567,7 +792,7 @@
           </div>
 
           <p class="text-slate-300 text-sm mb-4">
-            Managed multi-million rupee digital ad spend optimization, conversion analytics, and interactive BI reporting for global brand catalogs.
+            Managed digital ad spend optimization, conversion analytics, and interactive BI reporting for global brand catalogs.
           </p>
 
           <ul class="space-y-2.5 text-sm text-slate-300 mb-6">
@@ -578,10 +803,6 @@
             <li class="flex items-start gap-2.5">
               <i class="fas fa-check text-cyan-400 mt-1 text-xs"></i>
               <span><strong>Interactive Dashboards:</strong> Built automated Power BI & Tableau dashboards tracking vital marketing KPIs, ROAS, and conversion funnels.</span>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <i class="fas fa-check text-cyan-400 mt-1 text-xs"></i>
-              <span><strong>Data Pipelines (SQL & Python):</strong> Extracted, cleaned, and transformed large datasets using Pandas and NumPy to surface bidding optimizations.</span>
             </li>
           </ul>
 
@@ -594,46 +815,13 @@
         </div>
       </div>
 
-      <!-- Role 4: Ecommerce Analyst -->
+      <!-- Role 4: Frontend Developer -->
       <div class="relative pl-8 md:pl-10 group">
-        <!-- Marker -->
-        <div class="absolute -left-3 top-1.5 w-6 h-6 rounded-full bg-slate-900 border-2 border-indigo-400 group-hover:bg-indigo-500 transition-colors flex items-center justify-center shadow-lg shadow-indigo-500/20">
-          <div class="w-2 h-2 rounded-full bg-indigo-400 group-hover:bg-slate-950"></div>
-        </div>
-
-        <div class="glass-card rounded-2xl p-6 md:p-8">
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
-            <div>
-              <h3 class="text-xl font-bold text-white group-hover:text-indigo-400 transition-colors">
-                Ecommerce Analyst
-              </h3>
-              <span class="text-sm font-semibold text-indigo-400">Global eBrand India</span>
-            </div>
-            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-indigo-950/60 text-indigo-300 border border-indigo-800/50 w-fit">
-              Jul 2022 – Nov 2023
-            </span>
-          </div>
-
-          <p class="text-slate-300 text-sm mb-4">
-            Optimized product listings across Shopify, Amazon, and Walmart, analyzing conversion metrics and customer purchasing behavior.
-          </p>
-
-          <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-800/80">
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-slate-300">Shopify</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-slate-300">Amazon Seller</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-slate-300">Market Intelligence</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Role 5: Frontend Developer -->
-      <div class="relative pl-8 md:pl-10 group">
-        <!-- Marker -->
         <div class="absolute -left-3 top-1.5 w-6 h-6 rounded-full bg-slate-900 border-2 border-emerald-400 group-hover:bg-emerald-500 transition-colors flex items-center justify-center shadow-lg shadow-emerald-500/20">
           <div class="w-2 h-2 rounded-full bg-emerald-400 group-hover:bg-slate-950"></div>
         </div>
 
-        <div class="glass-card rounded-2xl p-6 md:p-8">
+        <div class="interactive-card rounded-2xl p-6 md:p-8">
           <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
             <div>
               <h3 class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">
@@ -672,33 +860,85 @@
     </div>
   </section>
 
-  <!-- PROJECTS SECTION (REAL PROJECTS CREATED ON THIS LAPTOP) -->
+  <!-- ALL BUILDS & PROJECTS (WITH CATEGORY FILTERS) -->
   <section id="projects" class="py-20 border-t border-slate-900 bg-slate-950/50">
     <div class="max-w-7xl mx-auto px-6">
       
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-        <div class="max-w-2xl">
-          <span class="text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold">Code & Systems</span>
+        <div>
+          <span class="text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold">Engineered Systems</span>
           <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 tracking-tight">
-            Featured <span class="gradient-text">Engineered Builds</span>
+            Codebase & <span class="gradient-text">Production Builds</span>
           </h2>
-          <p class="text-slate-400 mt-2 text-base">Real applications, AI memory vaults, SaaS platforms, and automation engines built from scratch.</p>
+          <p class="text-slate-400 mt-2 text-base">Real applications, AI memory vaults, SaaS platforms, and automation engines.</p>
         </div>
 
         <!-- Filter Buttons -->
-        <div class="flex flex-wrap items-center gap-2 p-1.5 rounded-xl bg-slate-900/80 border border-slate-800 text-xs font-semibold">
-          <button onclick="filterProjects('all')" class="project-filter-btn active px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 transition-all font-mono" data-filter="all">All</button>
-          <button onclick="filterProjects('ai')" class="project-filter-btn px-4 py-2 rounded-lg text-slate-400 hover:text-white transition-all font-mono" data-filter="ai">AI Systems</button>
-          <button onclick="filterProjects('saas')" class="project-filter-btn px-4 py-2 rounded-lg text-slate-400 hover:text-white transition-all font-mono" data-filter="saas">SaaS & Apps</button>
-          <button onclick="filterProjects('automation')" class="project-filter-btn px-4 py-2 rounded-lg text-slate-400 hover:text-white transition-all font-mono" data-filter="automation">Automation</button>
+        <div class="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-slate-900/80 border border-slate-800 text-xs font-semibold">
+          <button onclick="filterProjects('all'); playClickSound();" class="project-filter-btn active px-4 py-2 rounded-xl bg-cyan-500 text-slate-950 transition-all font-mono" data-filter="all">All (7)</button>
+          <button onclick="filterProjects('ai'); playClickSound();" class="project-filter-btn px-4 py-2 rounded-xl text-slate-400 hover:text-white transition-all font-mono" data-filter="ai">AI & OSINT</button>
+          <button onclick="filterProjects('saas'); playClickSound();" class="project-filter-btn px-4 py-2 rounded-xl text-slate-400 hover:text-white transition-all font-mono" data-filter="saas">SaaS & Apps</button>
+          <button onclick="filterProjects('automation'); playClickSound();" class="project-filter-btn px-4 py-2 rounded-xl text-slate-400 hover:text-white transition-all font-mono" data-filter="automation">Automation</button>
         </div>
       </div>
 
       <!-- Projects Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
         
+        <!-- Project 0: SeedhaStock (Azure VIP Card) -->
+        <div class="project-card vip-azure-card rounded-2xl p-6 flex flex-col justify-between" data-category="ai saas">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-mono bg-sky-950/80 text-sky-300 border border-sky-500/50 font-bold">
+                Azure Deployed
+              </span>
+              <span class="text-xs font-mono text-emerald-400 flex items-center gap-1.5 font-bold">
+                <i class="fas fa-satellite-dish"></i> Live
+              </span>
+            </div>
+            
+            <h3 class="text-xl font-bold text-white mb-2 hover:text-sky-300 transition-colors">
+              SeedhaStock: AI Trading Detective
+            </h3>
+            
+            <p class="text-sm text-slate-300 mb-4 line-clamp-3">
+              Multi-agent OSINT trading intelligence system deployed on Azure. Features earnings call acoustic deception checks, universal ticker resolution, and automated vectorized backtesting.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-slate-300 mb-6">
+              <li class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-sky-400 text-[10px]"></i>
+                <span>Deployed on Azure App Service & Cosmos DB</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-sky-400 text-[10px]"></i>
+                <span>Forensic voice deception engine for earnings calls</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-sky-400 text-[10px]"></i>
+                <span>NSE/BSE & US equities universal resolver</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="flex flex-wrap gap-1.5 mb-5">
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-sky-300">Azure</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-sky-300">Python 3.12</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-sky-300">FastAPI</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-sky-300">FinBERT</span>
+            </div>
+            
+            <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs font-semibold">
+              <button onclick="openModal('modal-seedhastock'); playClickSound();" class="text-sky-400 hover:text-sky-300 flex items-center gap-1">
+                <span>View Full Spec</span> <i class="fas fa-arrow-right text-[10px]"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
         <!-- Project 1: SpaceTalk -->
-        <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between border-purple-500/30" data-category="ai saas">
+        <div class="project-card interactive-card rounded-2xl p-6 flex flex-col justify-between border-purple-500/30" data-category="ai saas">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="px-3 py-1 rounded-full text-xs font-mono bg-purple-950/60 text-purple-300 border border-purple-800/50">
@@ -724,11 +964,7 @@
               </li>
               <li class="flex items-center gap-2">
                 <i class="fas fa-chevron-right text-purple-400 text-[10px]"></i>
-                <span>Multi-tenant data isolation & 4-tier RBAC permissions</span>
-              </li>
-              <li class="flex items-center gap-2">
-                <i class="fas fa-chevron-right text-purple-400 text-[10px]"></i>
-                <span>PostgreSQL + Redis caching with OpenAPI REST design</span>
+                <span>Multi-tenant data isolation & 4-tier RBAC</span>
               </li>
             </ul>
           </div>
@@ -739,11 +975,10 @@
               <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-purple-300">Axum</span>
               <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-purple-300">React</span>
               <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-purple-300">PostgreSQL</span>
-              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-purple-300">Redis</span>
             </div>
             
             <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs font-semibold">
-              <button onclick="openModal('modal-spacetalk')" class="text-purple-400 hover:text-purple-300 flex items-center gap-1">
+              <button onclick="openModal('modal-spacetalk'); playClickSound();" class="text-purple-400 hover:text-purple-300 flex items-center gap-1">
                 <span>Architecture Deep Dive</span> <i class="fas fa-arrow-right text-[10px]"></i>
               </button>
             </div>
@@ -751,7 +986,7 @@
         </div>
 
         <!-- Project 2: AutoApply Pro -->
-        <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="saas automation">
+        <div class="project-card interactive-card rounded-2xl p-6 flex flex-col justify-between" data-category="saas automation">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="px-3 py-1 rounded-full text-xs font-mono bg-cyan-950/60 text-cyan-300 border border-cyan-800/50">
@@ -763,7 +998,7 @@
             </div>
             
             <h3 class="text-xl font-bold text-white mb-2 hover:text-cyan-400 transition-colors">
-              AutoApply Pro: Automated Job Application
+              AutoApply Pro: Automated Job Applications
             </h3>
             
             <p class="text-sm text-slate-400 mb-4 line-clamp-3">
@@ -779,10 +1014,6 @@
                 <i class="fas fa-chevron-right text-cyan-400 text-[10px]"></i>
                 <span>AI cover letter generation matching job requirements</span>
               </li>
-              <li class="flex items-center gap-2">
-                <i class="fas fa-chevron-right text-cyan-400 text-[10px]"></i>
-                <span>Node/Express backend with MongoDB & JWT authentication</span>
-              </li>
             </ul>
           </div>
 
@@ -791,11 +1022,10 @@
               <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-slate-300">React</span>
               <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-slate-300">Chrome Ext</span>
               <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-slate-300">Node/Express</span>
-              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-slate-300">MongoDB</span>
             </div>
             
             <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs font-semibold">
-              <button onclick="openModal('modal-autoapply')" class="text-cyan-400 hover:text-cyan-300 flex items-center gap-1">
+              <button onclick="openModal('modal-autoapply'); playClickSound();" class="text-cyan-400 hover:text-cyan-300 flex items-center gap-1">
                 <span>Deep Dive</span> <i class="fas fa-arrow-right text-[10px]"></i>
               </button>
               <a href="https://github.com/kashyaprahul12659/AutoApplyPro" target="_blank" class="text-slate-400 hover:text-white flex items-center gap-1">
@@ -805,8 +1035,8 @@
           </div>
         </div>
 
-        <!-- Project 3: MemBridge Universal AI Memory Platform -->
-        <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="ai saas">
+        <!-- Project 3: MemBridge -->
+        <div class="project-card interactive-card rounded-2xl p-6 flex flex-col justify-between" data-category="ai saas">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="px-3 py-1 rounded-full text-xs font-mono bg-indigo-950/60 text-indigo-300 border border-indigo-800/50">
@@ -834,31 +1064,26 @@
                 <i class="fas fa-chevron-right text-indigo-400 text-[10px]"></i>
                 <span>Cross-platform sync SDKs for major AI assistants</span>
               </li>
-              <li class="flex items-center gap-2">
-                <i class="fas fa-chevron-right text-indigo-400 text-[10px]"></i>
-                <span>Encrypted user-owned memory vault with privacy controls</span>
-              </li>
             </ul>
           </div>
 
           <div>
             <div class="flex flex-wrap gap-1.5 mb-5">
               <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-indigo-300">Vector DB</span>
-              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-indigo-300">Node.js</span>
               <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-indigo-300">PostgreSQL</span>
-              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-indigo-300">LLM Plugins</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-indigo-300">Node.js</span>
             </div>
             
             <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs font-semibold">
-              <button onclick="openModal('modal-membridge')" class="text-cyan-400 hover:text-cyan-300 flex items-center gap-1">
+              <button onclick="openModal('modal-membridge'); playClickSound();" class="text-cyan-400 hover:text-cyan-300 flex items-center gap-1">
                 <span>Deep Dive</span> <i class="fas fa-arrow-right text-[10px]"></i>
               </button>
             </div>
           </div>
         </div>
 
-        <!-- Project 4: Khoya-Paya Agent (Claude Impact Lab Mumbai 2026) -->
-        <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between border-cyan-500/30" data-category="ai">
+        <!-- Project 4: Khoya-Paya Agent -->
+        <div class="project-card interactive-card rounded-2xl p-6 flex flex-col justify-between border-cyan-500/30" data-category="ai">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="px-3 py-1 rounded-full text-xs font-mono bg-cyan-950/60 text-cyan-300 border border-cyan-800/50">
@@ -880,15 +1105,11 @@
             <ul class="space-y-1.5 text-xs text-slate-300 mb-6">
               <li class="flex items-center gap-2">
                 <i class="fas fa-chevron-right text-cyan-400 text-[10px]"></i>
-                <span>Automated missing ↔ found entity resolution using Claude</span>
+                <span>Automated missing ↔ found resolution using Claude AI</span>
               </li>
               <li class="flex items-center gap-2">
                 <i class="fas fa-chevron-right text-cyan-400 text-[10px]"></i>
                 <span>Rust API + Offline PWA for zero-connectivity environments</span>
-              </li>
-              <li class="flex items-center gap-2">
-                <i class="fas fa-chevron-right text-cyan-400 text-[10px]"></i>
-                <span>Automated loudspeaker broadcast & SMS reunification alerts</span>
               </li>
             </ul>
           </div>
@@ -897,12 +1118,11 @@
             <div class="flex flex-wrap gap-1.5 mb-5">
               <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-cyan-300">Claude AI</span>
               <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-cyan-300">Rust API</span>
-              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-cyan-300">Docker</span>
               <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-cyan-300">Offline PWA</span>
             </div>
             
             <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs font-semibold">
-              <button onclick="openModal('modal-khoyapaya')" class="text-cyan-400 hover:text-cyan-300 flex items-center gap-1">
+              <button onclick="openModal('modal-khoyapaya'); playClickSound();" class="text-cyan-400 hover:text-cyan-300 flex items-center gap-1">
                 <span>Case Study</span> <i class="fas fa-arrow-right text-[10px]"></i>
               </button>
             </div>
@@ -910,7 +1130,7 @@
         </div>
 
         <!-- Project 5: Automated Lead Generation Engine -->
-        <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="automation">
+        <div class="project-card interactive-card rounded-2xl p-6 flex flex-col justify-between" data-category="automation">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="px-3 py-1 rounded-full text-xs font-mono bg-emerald-950/60 text-emerald-300 border border-emerald-800/50">
@@ -936,10 +1156,6 @@
                 <i class="fas fa-chevron-right text-emerald-400 text-[10px]"></i>
                 <span>Multi-proxy pool rotation with randomized delays</span>
               </li>
-              <li class="flex items-center gap-2">
-                <i class="fas fa-chevron-right text-emerald-400 text-[10px]"></i>
-                <span>Automated contact enrichment and scoring</span>
-              </li>
             </ul>
           </div>
 
@@ -948,11 +1164,10 @@
               <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-slate-300">Python</span>
               <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-slate-300">Selenium</span>
               <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-slate-300">BeautifulSoup</span>
-              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-slate-300">APIs</span>
             </div>
             
             <div class="flex items-center gap-3 pt-3 border-t border-slate-800/80 text-xs font-semibold">
-              <button onclick="openModal('modal-leadgen')" class="text-cyan-400 hover:text-cyan-300 flex items-center gap-1">
+              <button onclick="openModal('modal-leadgen'); playClickSound();" class="text-cyan-400 hover:text-cyan-300 flex items-center gap-1">
                 <span>Deep Dive</span> <i class="fas fa-arrow-right text-[10px]"></i>
               </button>
             </div>
@@ -960,7 +1175,7 @@
         </div>
 
         <!-- Project 6: IndiaMART Importer for Shopify -->
-        <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="saas automation">
+        <div class="project-card interactive-card rounded-2xl p-6 flex flex-col justify-between" data-category="saas automation">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="px-3 py-1 rounded-full text-xs font-mono bg-blue-950/60 text-blue-300 border border-blue-800/50">
@@ -996,11 +1211,10 @@
               <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-slate-300">TypeScript</span>
               <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-slate-300">Next.js</span>
               <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-slate-300">Prisma</span>
-              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-slate-300">Shopify API</span>
             </div>
             
             <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs font-semibold">
-              <button onclick="openModal('modal-importer')" class="text-cyan-400 hover:text-cyan-300 flex items-center gap-1">
+              <button onclick="openModal('modal-importer'); playClickSound();" class="text-cyan-400 hover:text-cyan-300 flex items-center gap-1">
                 <span>Deep Dive</span> <i class="fas fa-arrow-right text-[10px]"></i>
               </button>
               <a href="https://github.com/kashyaprahul12659/indiamart-importer" target="_blank" class="text-slate-400 hover:text-white flex items-center gap-1">
@@ -1022,13 +1236,13 @@
       <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 tracking-tight">
         Technical <span class="gradient-text">Skill Matrix</span>
       </h2>
-      <p class="text-slate-400 mt-2 text-base">Core technologies, Big Tech analytics tools, programming languages, and frameworks.</p>
+      <p class="text-slate-400 mt-2 text-base">Core technologies, Big Tech analytics tools, cloud platforms, and engineering languages.</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       
       <!-- Big Tech & Search Analytics -->
-      <div class="glass-card rounded-2xl p-6 border-blue-500/30">
+      <div class="interactive-card rounded-2xl p-6 border-blue-500/30">
         <div class="flex items-center gap-3 mb-5">
           <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
             <i class="fab fa-microsoft text-lg"></i>
@@ -1049,7 +1263,7 @@
       </div>
 
       <!-- AI Systems & LLMs -->
-      <div class="glass-card rounded-2xl p-6 border-purple-500/30">
+      <div class="interactive-card rounded-2xl p-6 border-purple-500/30">
         <div class="flex items-center gap-3 mb-5">
           <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
             <i class="fas fa-brain text-lg"></i>
@@ -1060,17 +1274,17 @@
           </div>
         </div>
         <div class="flex flex-wrap gap-2">
-          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Prompt Engineering</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">FinBERT Sentiment Analysis</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Audio Deception Detection</span>
           <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Vector Databases (Pinecone/Weaviate)</span>
           <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Context Memory Vaults</span>
           <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">ASR & Speech Intelligence</span>
           <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Scikit-Learn & Random Forest</span>
-          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Natural Language (NLTK)</span>
         </div>
       </div>
 
       <!-- Languages & Systems Engineering -->
-      <div class="glass-card rounded-2xl p-6">
+      <div class="interactive-card rounded-2xl p-6">
         <div class="flex items-center gap-3 mb-5">
           <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
             <i class="fas fa-code text-lg"></i>
@@ -1082,7 +1296,7 @@
         </div>
         <div class="flex flex-wrap gap-2">
           <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Rust (Axum)</span>
-          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Python (Pandas, NumPy)</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Python 3.12 (Pandas, NumPy)</span>
           <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">SQL & PostgreSQL</span>
           <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">TypeScript & Node.js</span>
           <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">React.js & Next.js</span>
@@ -1091,7 +1305,7 @@
       </div>
 
       <!-- Data Analytics & BI -->
-      <div class="glass-card rounded-2xl p-6">
+      <div class="interactive-card rounded-2xl p-6">
         <div class="flex items-center gap-3 mb-5">
           <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
             <i class="fas fa-chart-pie text-lg"></i>
@@ -1111,7 +1325,7 @@
       </div>
 
       <!-- Web Scraping & Automation -->
-      <div class="glass-card rounded-2xl p-6">
+      <div class="interactive-card rounded-2xl p-6">
         <div class="flex items-center gap-3 mb-5">
           <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
             <i class="fas fa-robot text-lg"></i>
@@ -1130,23 +1344,23 @@
         </div>
       </div>
 
-      <!-- Cybersecurity & Cloud -->
-      <div class="glass-card rounded-2xl p-6">
+      <!-- Cloud & Cybersecurity -->
+      <div class="interactive-card rounded-2xl p-6">
         <div class="flex items-center gap-3 mb-5">
-          <div class="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400">
-            <i class="fas fa-shield-virus text-lg"></i>
+          <div class="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400">
+            <i class="fas fa-cloud text-lg"></i>
           </div>
           <div>
-            <h3 class="text-base font-bold text-white">Cybersecurity & Cloud</h3>
-            <span class="text-xs text-slate-400 font-mono">Zero Trust & IAM</span>
+            <h3 class="text-base font-bold text-white">Cloud & Cybersecurity</h3>
+            <span class="text-xs text-sky-400 font-mono">Azure & Zero Trust</span>
           </div>
         </div>
         <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Microsoft Azure (App Service)</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Azure Cosmos DB</span>
           <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Identity & Access (IAM)</span>
           <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Zero Trust Architecture</span>
           <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Docker & Docker Compose</span>
-          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Azure & GCP</span>
-          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Data Anonymization</span>
         </div>
       </div>
 
@@ -1167,7 +1381,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         
         <!-- IIIT Bangalore -->
-        <div class="glass-card rounded-2xl p-6 flex items-start gap-4">
+        <div class="interactive-card rounded-2xl p-6 flex items-start gap-4">
           <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 flex-shrink-0">
             <i class="fas fa-graduation-cap text-xl"></i>
           </div>
@@ -1179,7 +1393,7 @@
         </div>
 
         <!-- IMCA -->
-        <div class="glass-card rounded-2xl p-6 flex items-start gap-4">
+        <div class="interactive-card rounded-2xl p-6 flex items-start gap-4">
           <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 flex-shrink-0">
             <i class="fas fa-university text-xl"></i>
           </div>
@@ -1191,7 +1405,7 @@
         </div>
 
         <!-- BCG Simulation -->
-        <div class="glass-card rounded-2xl p-6 flex items-start gap-4">
+        <div class="interactive-card rounded-2xl p-6 flex items-start gap-4">
           <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 flex-shrink-0">
             <i class="fas fa-certificate text-xl"></i>
           </div>
@@ -1203,7 +1417,7 @@
         </div>
 
         <!-- Tata Group Simulation -->
-        <div class="glass-card rounded-2xl p-6 flex items-start gap-4">
+        <div class="interactive-card rounded-2xl p-6 flex items-start gap-4">
           <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 flex-shrink-0">
             <i class="fas fa-shield-alt text-xl"></i>
           </div>
@@ -1237,8 +1451,7 @@
 
         <!-- Direct Contact Cards -->
         <div class="space-y-4">
-          <!-- Email Card -->
-          <div class="glass-card rounded-xl p-4 flex items-center justify-between group">
+          <div class="interactive-card rounded-xl p-4 flex items-center justify-between group">
             <div class="flex items-center gap-3">
               <div class="w-10 h-10 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center">
                 <i class="fas fa-envelope"></i>
@@ -1250,13 +1463,12 @@
                 </a>
               </div>
             </div>
-            <button onclick="copyToClipboard('kashyaprahul535@gmail.com', 'Email copied!')" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-cyan-300 transition-colors" title="Copy Email">
+            <button onclick="copyToClipboard('kashyaprahul535@gmail.com', 'Email copied!'); triggerConfetti(); playClickSound();" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-cyan-300 transition-colors" title="Copy Email">
               <i class="far fa-copy text-sm"></i>
             </button>
           </div>
 
-          <!-- Phone Card -->
-          <div class="glass-card rounded-xl p-4 flex items-center justify-between group">
+          <div class="interactive-card rounded-xl p-4 flex items-center justify-between group">
             <div class="flex items-center gap-3">
               <div class="w-10 h-10 rounded-lg bg-indigo-500/10 text-indigo-400 flex items-center justify-center">
                 <i class="fas fa-phone"></i>
@@ -1266,13 +1478,12 @@
                 <span class="text-sm font-semibold text-white">+91 7016792897</span>
               </div>
             </div>
-            <button onclick="copyToClipboard('+917016792897', 'Phone number copied!')" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-cyan-300 transition-colors" title="Copy Phone">
+            <button onclick="copyToClipboard('+917016792897', 'Phone copied!'); triggerConfetti(); playClickSound();" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-cyan-300 transition-colors" title="Copy Phone">
               <i class="far fa-copy text-sm"></i>
             </button>
           </div>
 
-          <!-- Location Card -->
-          <div class="glass-card rounded-xl p-4 flex items-center gap-3">
+          <div class="interactive-card rounded-xl p-4 flex items-center gap-3">
             <div class="w-10 h-10 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center">
               <i class="fas fa-location-dot"></i>
             </div>
@@ -1285,10 +1496,10 @@
 
         <!-- Social Buttons -->
         <div class="flex items-center gap-3 pt-2">
-          <a href="https://github.com/kashyaprahul12659" target="_blank" rel="noopener" class="px-4 py-2.5 rounded-xl glass-card text-slate-300 hover:text-white hover:border-cyan-500/50 flex items-center gap-2 text-xs font-semibold transition-all">
+          <a href="https://github.com/kashyaprahul12659" target="_blank" rel="noopener" onclick="playClickSound()" class="px-4 py-2.5 rounded-xl interactive-card text-slate-300 hover:text-white hover:border-cyan-500/50 flex items-center gap-2 text-xs font-semibold transition-all">
             <i class="fab fa-github text-sm"></i> GitHub
           </a>
-          <a href="https://www.linkedin.com/in/rahul-kashyap-6698b5176" target="_blank" rel="noopener" class="px-4 py-2.5 rounded-xl glass-card text-slate-300 hover:text-white hover:border-cyan-500/50 flex items-center gap-2 text-xs font-semibold transition-all">
+          <a href="https://www.linkedin.com/in/rahul-kashyap-6698b5176" target="_blank" rel="noopener" onclick="playClickSound()" class="px-4 py-2.5 rounded-xl interactive-card text-slate-300 hover:text-white hover:border-cyan-500/50 flex items-center gap-2 text-xs font-semibold transition-all">
             <i class="fab fa-linkedin text-sm"></i> LinkedIn
           </a>
         </div>
@@ -1297,7 +1508,7 @@
 
       <!-- Right Form -->
       <div class="lg:col-span-7">
-        <div class="glass-card rounded-3xl p-8 md:p-10 border border-slate-800">
+        <div class="interactive-card rounded-3xl p-8 md:p-10 border border-slate-800">
           <h3 class="text-xl font-bold text-white mb-2">Send a Message</h3>
           <p class="text-sm text-slate-400 mb-6">Drop a note directly to my inbox.</p>
 
@@ -1320,7 +1531,7 @@
 
             <div>
               <label for="message" class="block text-xs font-mono text-slate-400 uppercase mb-2">Message</label>
-              <textarea id="message" rows="5" required placeholder="Hi Rahul, I came across your work on SpaceTalk and Bing Sports..." class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-800 text-white placeholder-slate-600 focus:outline-none focus:border-cyan-500 transition-colors text-sm resize-none"></textarea>
+              <textarea id="message" rows="5" required placeholder="Hi Rahul, I came across your work on SeedhaStock and SpaceTalk..." class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-800 text-white placeholder-slate-600 focus:outline-none focus:border-cyan-500 transition-colors text-sm resize-none"></textarea>
             </div>
 
             <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-sm shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all flex items-center justify-center gap-2">
@@ -1348,33 +1559,130 @@
         &copy; <span id="year">2026</span> Rahul Kashyap. Hosted on GitHub Pages with Custom Domain.
       </p>
 
-      <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="w-9 h-9 rounded-lg glass-card flex items-center justify-center text-slate-400 hover:text-cyan-400 transition-colors" title="Back to Top">
+      <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); playClickSound();" class="w-9 h-9 rounded-lg interactive-card flex items-center justify-center text-slate-400 hover:text-cyan-400 transition-colors" title="Back to Top">
         <i class="fas fa-arrow-up text-xs"></i>
       </button>
     </div>
   </footer>
 
-  <!-- DEEP DIVE MODAL -->
-  <div id="project-modal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
-    <div class="glass-card bg-slate-900/95 border border-slate-700/80 max-w-2xl w-full rounded-3xl p-6 md:p-8 max-h-[90vh] overflow-y-auto relative shadow-2xl">
-      <button onclick="closeModal()" class="absolute top-6 right-6 w-9 h-9 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition-colors">
+  <!-- PLAYFUL INTERACTIVE TERMINAL (PRESS ~ OR CLICK TERMINAL) -->
+  <div id="terminal-modal" class="fixed inset-0 z-50 hidden bg-slate-950/85 backdrop-blur-lg flex items-center justify-center p-4">
+    <div class="terminal-glow bg-slate-950 border border-cyan-500/50 max-w-2xl w-full rounded-2xl overflow-hidden shadow-2xl font-mono text-xs">
+      
+      <!-- Terminal Window Bar -->
+      <div class="px-4 py-3 bg-slate-900 border-b border-slate-800 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span onclick="toggleTerminal()" class="w-3 h-3 rounded-full bg-rose-500 cursor-pointer" title="Close"></span>
+          <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+          <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+          <span class="text-slate-400 text-xs ml-2">rahul-os::guest@portfolio ~ (bash)</span>
+        </div>
+        <button onclick="toggleTerminal()" class="text-slate-500 hover:text-white text-xs">✕</button>
+      </div>
+
+      <!-- Terminal Output Area -->
+      <div id="terminal-output" class="p-5 h-80 overflow-y-auto space-y-2 text-slate-300 bg-slate-950">
+        <div class="text-cyan-400">
+          Welcome to Rahul's Interactive Terminal v2.6.0 [x86_64-azure]<br/>
+          Type <span class="text-amber-300 font-bold">'help'</span> for available commands, or try <span class="text-amber-300 font-bold">'seedhastock'</span>, <span class="text-amber-300 font-bold">'microsoft'</span>, <span class="text-amber-300 font-bold">'spacetalk'</span>, <span class="text-amber-300 font-bold">'matrix'</span>.
+        </div>
+      </div>
+
+      <!-- Terminal Input Line -->
+      <div class="px-5 py-3 bg-slate-900/90 border-t border-slate-800 flex items-center gap-2">
+        <span class="text-cyan-400 font-bold">guest@rahulinmotion:~$</span>
+        <input type="text" id="terminal-input" class="flex-1 bg-transparent text-emerald-400 focus:outline-none font-mono text-xs" autocomplete="off" spellcheck="false" placeholder="Type a command (e.g. help)..." />
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DEEP DIVE MODAL (PROJECT DETAILS) -->
+  <div id="project-modal" class="fixed inset-0 z-50 hidden bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="interactive-card bg-slate-900/95 border border-slate-700/80 max-w-2xl w-full rounded-3xl p-6 md:p-8 max-h-[90vh] overflow-y-auto relative shadow-2xl">
+      <button onclick="closeModal(); playClickSound();" class="absolute top-6 right-6 w-9 h-9 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition-colors">
         <i class="fas fa-times"></i>
       </button>
 
       <div id="modal-content" class="space-y-4">
-        <!-- Injected via JS -->
+        <!-- Injected via JavaScript -->
       </div>
     </div>
   </div>
 
-  <!-- SCRIPTS -->
+  <!-- JAVASCRIPT & PLAYFUL LOGIC -->
   <script>
-    // 1. Dynamic Role Typing
+    // 1. Interactive Audio Synth (Polite Web Audio Clicks)
+    let audioEnabled = false;
+    let audioCtx = null;
+
+    function initAudio() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+    }
+
+    function toggleAudio() {
+      initAudio();
+      audioEnabled = !audioEnabled;
+      const icon = document.getElementById("sound-icon");
+      if (audioEnabled) {
+        icon.className = "fas fa-volume-high text-cyan-400";
+        playBeep(880, 0.08, "sine");
+      } else {
+        icon.className = "fas fa-volume-xmark text-slate-400";
+      }
+    }
+
+    function playBeep(freq = 600, duration = 0.05, type = "sine") {
+      if (!audioEnabled || !audioCtx) return;
+      try {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      } catch (e) {}
+    }
+
+    function playClickSound() {
+      playBeep(900, 0.04, "triangle");
+    }
+
+    // 2. Confetti Blast Helper
+    function triggerConfetti() {
+      if (typeof confetti === 'function') {
+        confetti({
+          particleCount: 50,
+          spread: 60,
+          origin: { y: 0.8 },
+          colors: ['#38bdf8', '#818cf8', '#34d399', '#f472b6']
+        });
+      }
+    }
+
+    // 3. Dynamic Cursor Spotlight Effect on Interactive Cards
+    document.addEventListener("mousemove", (e) => {
+      document.querySelectorAll(".interactive-card").forEach((card) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+      });
+    });
+
+    // 4. Dynamic Role Typing
     const roles = [
-      "Copilot & Search Telemetry",
-      "B2B SaaS with Rust & React",
-      "Universal AI Memory Vaults",
-      "High-Throughput Automations"
+      "Copilot & Search Telemetry @Microsoft",
+      "SeedhaStock: AI Trading Detective on Azure",
+      "SpaceTalk: Multi-Tenant Rust/Axum SaaS",
+      "Universal AI Memory Vaults (MemBridge)"
     ];
     let roleIndex = 0;
     let charIndex = 0;
@@ -1391,7 +1699,7 @@
         charIndex++;
       }
 
-      let speed = isDeleting ? 35 : 75;
+      let speed = isDeleting ? 30 : 70;
 
       if (!isDeleting && charIndex === currentRole.length) {
         speed = 2200;
@@ -1399,14 +1707,14 @@
       } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         roleIndex = (roleIndex + 1) % roles.length;
-        speed = 400;
+        speed = 350;
       }
 
       setTimeout(typeRoles, speed);
     }
     document.addEventListener("DOMContentLoaded", typeRoles);
 
-    // 2. Mobile Menu Toggle
+    // 5. Mobile Menu
     const menuBtn = document.getElementById("mobile-menu-btn");
     const mobileMenu = document.getElementById("mobile-menu");
     const menuIcon = document.getElementById("menu-icon");
@@ -1415,6 +1723,7 @@
       mobileMenu.classList.toggle("hidden");
       menuIcon.classList.toggle("fa-bars");
       menuIcon.classList.toggle("fa-times");
+      playClickSound();
     });
 
     document.querySelectorAll(".mobile-nav-link").forEach(link => {
@@ -1425,7 +1734,7 @@
       });
     });
 
-    // 3. Project Filter Tabs
+    // 6. Project Filter Tabs
     function filterProjects(category) {
       document.querySelectorAll(".project-filter-btn").forEach(btn => {
         if (btn.getAttribute("data-filter") === category) {
@@ -1448,7 +1757,7 @@
       });
     }
 
-    // 4. Copy to Clipboard
+    // 7. Clipboard Copy
     function copyToClipboard(text, message) {
       navigator.clipboard.writeText(text).then(() => {
         const toast = document.getElementById("toast");
@@ -1461,9 +1770,11 @@
       });
     }
 
-    // 5. Contact Form Handler
+    // 8. Contact Form
     function handleFormSubmit(e) {
       e.preventDefault();
+      triggerConfetti();
+      playClickSound();
       const name = document.getElementById("name").value;
       const email = document.getElementById("email").value;
       const subject = document.getElementById("subject").value;
@@ -1475,8 +1786,134 @@
 
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // 6. Modal Database
+    // 9. Interactive Terminal Logic
+    function toggleTerminal() {
+      const modal = document.getElementById("terminal-modal");
+      modal.classList.toggle("hidden");
+      if (!modal.classList.contains("hidden")) {
+        document.getElementById("terminal-input").focus();
+        playClickSound();
+      }
+    }
+
+    // Open terminal with key `~` or backquote
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "`" || e.key === "~") {
+        e.preventDefault();
+        toggleTerminal();
+      }
+      if (e.key === "Escape") {
+        closeModal();
+        document.getElementById("terminal-modal").classList.add("hidden");
+      }
+    });
+
+    const termInput = document.getElementById("terminal-input");
+    const termOutput = document.getElementById("terminal-output");
+
+    termInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        const cmd = termInput.value.trim().toLowerCase();
+        termInput.value = "";
+        executeTerminalCommand(cmd);
+      }
+    });
+
+    function executeTerminalCommand(cmd) {
+      const line = document.createElement("div");
+      line.innerHTML = `<span class="text-cyan-400">guest@rahulinmotion:~$</span> ${cmd}`;
+      termOutput.appendChild(line);
+
+      const resp = document.createElement("div");
+      resp.className = "text-slate-300 text-[11px] mb-2";
+
+      switch (cmd) {
+        case "help":
+          resp.innerHTML = `
+Available Commands:<br/>
+  • <span class="text-amber-300">seedhastock</span>  : Inspect SeedhaStock Azure AI Trading Agent<br/>
+  • <span class="text-amber-300">microsoft</span>    : Details on Product Analyst role @ Microsoft<br/>
+  • <span class="text-amber-300">spacetalk</span>    : Rust/Axum B2B SaaS architecture<br/>
+  • <span class="text-amber-300">skills</span>       : List core tech stack & frameworks<br/>
+  • <span class="text-amber-300">contact</span>      : Show direct contact info<br/>
+  • <span class="text-amber-300">matrix</span>       : Trigger Matrix digital rain effect<br/>
+  • <span class="text-amber-300">clear</span>        : Clear terminal output<br/>
+  • <span class="text-amber-300">exit</span>         : Close terminal
+          `;
+          break;
+        case "seedhastock":
+          resp.innerHTML = `
+<span class="text-sky-400 font-bold">[SeedhaStock - Deployed on Azure Yesterday]</span><br/>
+• Platform: Autonomous Equity & OSINT Detective Platform<br/>
+• Subsystems: Audio Deception Engine (Earnings calls), Universal Ticker Resolver (NSE/BSE/US), Multi-Agent FinBERT NLP, Vectorized Backtester.<br/>
+• Infrastructure: Azure App Service, Cosmos DB, Docker container, FastAPI.
+          `;
+          break;
+        case "microsoft":
+          resp.innerHTML = `
+<span class="text-blue-400 font-bold">[Microsoft - Product Analyst (March 2026 - Present)]</span><br/>
+• Team: Search Technology & Copilot Infrastructure for Bing Sports.<br/>
+• Responsibilities: Search query accuracy evaluation, intent classification, KQL telemetry analysis, cross-functional collaboration with PMs and AI/ML scientists.
+          `;
+          break;
+        case "spacetalk":
+          resp.innerHTML = `
+<span class="text-purple-400 font-bold">[SpaceTalk - Founder & Architect]</span><br/>
+• Type: Multi-tenant B2B SaaS Contact Center Intelligence.<br/>
+• Tech: Rust, Axum, React, PostgreSQL, Redis, ASR Services, Automated QA scoring.
+          `;
+          break;
+        case "skills":
+          resp.innerHTML = `
+• Big Tech: Microsoft Copilot, KQL (Kusto Query Language), Search Relevance<br/>
+• Languages: Rust, Python 3.12, SQL, TypeScript, Dart, JavaScript<br/>
+• AI & Cloud: FinBERT, Azure, Cosmos DB, Vector DBs, Docker, Firebase
+          `;
+          break;
+        case "contact":
+          resp.innerHTML = `
+Email: kashyaprahul535@gmail.com | Phone: +91 7016792897<br/>
+Location: Ahmedabad, Gujarat, India | Domain: rahulinmotion.me
+          `;
+          break;
+        case "matrix":
+          resp.innerHTML = `<span class="text-emerald-400">Wake up, Neo... The Matrix has you. Follow the white rabbit. 🐇</span>`;
+          triggerConfetti();
+          break;
+        case "clear":
+          termOutput.innerHTML = "";
+          return;
+        case "exit":
+          toggleTerminal();
+          return;
+        case "":
+          return;
+        default:
+          resp.innerHTML = `<span class="text-rose-400">command not found: ${cmd}. Type 'help' for available commands.</span>`;
+      }
+
+      termOutput.appendChild(resp);
+      termOutput.scrollTop = termOutput.scrollHeight;
+    }
+
+    // 10. Modal Database
     const modalData = {
+      'modal-seedhastock': {
+        title: 'SeedhaStock: AI Trading & OSINT Detective Platform',
+        badge: 'Deployed on Azure Yesterday • Multi-Agent Equity System',
+        description: 'Institutional-grade real-time AI Trading and OSINT Detective system providing deep-dive intelligence dossiers, multi-agent sentiment analysis, forensic audio deception checks, quantitative risk management, and historical backtesting for NSE, BSE, and US equities.',
+        features: [
+          'Universal Ticker Resolution Layer: Converts company names ("Google", "Tata Motors"), tickers ("GOOGL", "TATAMOTORS.NS"), and typos ("Gooogle") into canonical metadata.',
+          'Audio Deception Engine: Analyzes executive voice acoustic features and hesitation patterns during quarterly earnings calls to detect evasion.',
+          'Dynamic OSINT Detective: Scrapes live CXO profiles, travel/aviation check-ins, SEC EDGAR filings, and grounded rumor corroboration scores.',
+          'Vectorized Backtesting Engine: Replays momentum strategies calculating Sharpe ratio, maximum drawdown, and risk officer stop-loss clearances.',
+          'Production Deployment: Packaged in Docker and deployed live on Azure App Service with Azure Cosmos DB integration.'
+        ],
+        stack: ['Microsoft Azure', 'Azure Cosmos DB', 'Python 3.12', 'FastAPI', 'FinBERT NLP', 'Docker', 'NSE/BSE Clients', 'yfinance'],
+        links: [
+          { text: 'Deployed on Azure Yesterday', url: '#', icon: 'fas fa-cloud' }
+        ]
+      },
       'modal-spacetalk': {
         title: 'SpaceTalk: Conversation Intelligence SaaS',
         badge: 'Founder Project • Rust / Axum & React',
@@ -1597,7 +2034,7 @@
               <i class="${l.icon}"></i> <span>${l.text}</span>
             </a>
           `).join('')}
-          <button onclick="closeModal()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold transition-colors">
+          <button onclick="closeModal(); playClickSound();" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold transition-colors">
             Close
           </button>
         </div>
@@ -1610,9 +2047,6 @@
       document.getElementById("project-modal").classList.add("hidden");
     }
 
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeModal();
-    });
     document.getElementById("project-modal").addEventListener("click", (e) => {
       if (e.target.id === "project-modal") closeModal();
     });
