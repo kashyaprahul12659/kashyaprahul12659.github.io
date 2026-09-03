@@ -441,8 +441,12 @@
           </p>
         </div>
 
-        <div class="flex items-center gap-3">
-          <button onclick="openModal('modal-seedhastock'); playClickSound();" class="px-5 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-xs flex items-center gap-2 shadow-lg shadow-sky-500/25 transition-all">
+        <div class="flex flex-wrap items-center gap-3">
+          <a href="https://seedhastock.azurewebsites.net/" target="_blank" rel="noopener" onclick="playClickSound()" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-500 hover:from-emerald-300 hover:to-cyan-400 text-slate-950 font-extrabold text-xs flex items-center gap-2 shadow-lg shadow-emerald-500/25 transition-all">
+            <i class="fas fa-arrow-up-right-from-square"></i>
+            <span>Launch Live App</span>
+          </a>
+          <button onclick="openModal('modal-seedhastock'); playClickSound();" class="px-5 py-2.5 rounded-xl interactive-card text-sky-300 hover:text-white font-bold text-xs flex items-center gap-2 transition-all">
             <i class="fas fa-file-code"></i>
             <span>Architecture Dossier</span>
           </button>
@@ -740,8 +744,13 @@
               <h3 class="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">
                 Founder
               </h3>
-              <span class="text-base font-semibold text-purple-400">SpaceTalk</span>
-              <span class="text-slate-500 text-sm font-normal">• Conversation Intelligence Platform</span>
+              <div class="flex items-center gap-2 mt-0.5">
+                <span class="text-base font-semibold text-purple-400">SpaceTalk</span>
+                <span class="text-slate-500 text-sm font-normal">• Conversation Intelligence Platform</span>
+                <a href="https://www.spacetalk.in/" target="_blank" rel="noopener" onclick="playClickSound()" class="px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 hover:bg-purple-500/30 text-[11px] font-mono border border-purple-500/30 inline-flex items-center gap-1 transition-colors">
+                  <i class="fas fa-arrow-up-right-from-square text-[9px]"></i> spacetalk.in
+                </a>
+              </div>
             </div>
             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-purple-950/60 text-purple-300 border border-purple-800/50 w-fit">
               February 2026 – Present
@@ -933,6 +942,9 @@
               <button onclick="openModal('modal-seedhastock'); playClickSound();" class="text-sky-400 hover:text-sky-300 flex items-center gap-1">
                 <span>View Full Spec</span> <i class="fas fa-arrow-right text-[10px]"></i>
               </button>
+              <a href="https://seedhastock.azurewebsites.net/" target="_blank" rel="noopener" onclick="playClickSound()" class="px-2.5 py-1 rounded-lg bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 border border-sky-500/40 flex items-center gap-1.5 transition-all">
+                <i class="fas fa-arrow-up-right-from-square text-[10px]"></i> <span>Live on Azure</span>
+              </a>
             </div>
           </div>
         </div>
@@ -979,8 +991,11 @@
             
             <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs font-semibold">
               <button onclick="openModal('modal-spacetalk'); playClickSound();" class="text-purple-400 hover:text-purple-300 flex items-center gap-1">
-                <span>Architecture Deep Dive</span> <i class="fas fa-arrow-right text-[10px]"></i>
+                <span>Deep Dive</span> <i class="fas fa-arrow-right text-[10px]"></i>
               </button>
+              <a href="https://www.spacetalk.in/" target="_blank" rel="noopener" onclick="playClickSound()" class="px-2.5 py-1 rounded-lg bg-purple-500/20 hover:bg-purple-500/30 text-purple-300 border border-purple-500/40 flex items-center gap-1.5 transition-all">
+                <i class="fas fa-arrow-up-right-from-square text-[10px]"></i> <span>spacetalk.in</span>
+              </a>
             </div>
           </div>
         </div>
@@ -1024,13 +1039,18 @@
               <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-slate-300">Node/Express</span>
             </div>
             
-            <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs font-semibold">
+            <div class="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-slate-800/80 text-xs font-semibold">
               <button onclick="openModal('modal-autoapply'); playClickSound();" class="text-cyan-400 hover:text-cyan-300 flex items-center gap-1">
                 <span>Deep Dive</span> <i class="fas fa-arrow-right text-[10px]"></i>
               </button>
-              <a href="https://github.com/kashyaprahul12659/AutoApplyPro" target="_blank" class="text-slate-400 hover:text-white flex items-center gap-1">
-                <i class="fab fa-github"></i> <span>GitHub</span>
-              </a>
+              <div class="flex items-center gap-2">
+                <a href="https://github.com/kashyaprahul12659/AutoApplyPro" target="_blank" rel="noopener" class="text-slate-400 hover:text-white flex items-center gap-1" title="GitHub">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a href="https://chromewebstore.google.com/detail/autoapply-pro-ai-job-appl/jomnppfdjmcoacjlhmmfalocbbkdhnkn?authuser=0&hl=en" target="_blank" rel="noopener" onclick="playClickSound()" class="px-2.5 py-1 rounded-lg bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 border border-cyan-500/40 flex items-center gap-1.5 transition-all">
+                  <i class="fab fa-chrome text-[11px]"></i> <span>Chrome Store</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -1831,9 +1851,10 @@
         case "help":
           resp.innerHTML = `
 Available Commands:<br/>
-  • <span class="text-amber-300">seedhastock</span>  : Inspect SeedhaStock Azure AI Trading Agent<br/>
+  • <span class="text-amber-300">seedhastock</span>  : Inspect SeedhaStock (Azure live link)<br/>
+  • <span class="text-amber-300">spacetalk</span>    : SpaceTalk SaaS (spacetalk.in live link)<br/>
+  • <span class="text-amber-300">autoapply</span>    : AutoApply Pro (Chrome Web Store link)<br/>
   • <span class="text-amber-300">microsoft</span>    : Details on Product Analyst role @ Microsoft<br/>
-  • <span class="text-amber-300">spacetalk</span>    : Rust/Axum B2B SaaS architecture<br/>
   • <span class="text-amber-300">skills</span>       : List core tech stack & frameworks<br/>
   • <span class="text-amber-300">contact</span>      : Show direct contact info<br/>
   • <span class="text-amber-300">matrix</span>       : Trigger Matrix digital rain effect<br/>
@@ -1845,22 +1866,22 @@ Available Commands:<br/>
           resp.innerHTML = `
 <span class="text-sky-400 font-bold">[SeedhaStock - Deployed on Azure Yesterday]</span><br/>
 • Platform: Autonomous Equity & OSINT Detective Platform<br/>
-• Subsystems: Audio Deception Engine (Earnings calls), Universal Ticker Resolver (NSE/BSE/US), Multi-Agent FinBERT NLP, Vectorized Backtester.<br/>
-• Infrastructure: Azure App Service, Cosmos DB, Docker container, FastAPI.
-          `;
-          break;
-        case "microsoft":
-          resp.innerHTML = `
-<span class="text-blue-400 font-bold">[Microsoft - Product Analyst (March 2026 - Present)]</span><br/>
-• Team: Search Technology & Copilot Infrastructure for Bing Sports.<br/>
-• Responsibilities: Search query accuracy evaluation, intent classification, KQL telemetry analysis, cross-functional collaboration with PMs and AI/ML scientists.
+• Subsystems: Audio Deception Engine, Universal Ticker Resolver, FinBERT NLP, Backtesting.<br/>
+• Live URL: <a href="https://seedhastock.azurewebsites.net/" target="_blank" class="text-emerald-400 underline">https://seedhastock.azurewebsites.net/</a>
           `;
           break;
         case "spacetalk":
           resp.innerHTML = `
 <span class="text-purple-400 font-bold">[SpaceTalk - Founder & Architect]</span><br/>
-• Type: Multi-tenant B2B SaaS Contact Center Intelligence.<br/>
-• Tech: Rust, Axum, React, PostgreSQL, Redis, ASR Services, Automated QA scoring.
+• Type: Multi-tenant B2B SaaS Contact Center Intelligence in Rust & React.<br/>
+• Live URL: <a href="https://www.spacetalk.in/" target="_blank" class="text-purple-300 underline">https://www.spacetalk.in/</a>
+          `;
+          break;
+        case "autoapply":
+          resp.innerHTML = `
+<span class="text-cyan-400 font-bold">[AutoApply Pro - AI Job Application Autofill]</span><br/>
+• Type: Full-Stack React + Node + Chrome Extension.<br/>
+• Live Chrome Store: <a href="https://chromewebstore.google.com/detail/autoapply-pro-ai-job-appl/jomnppfdjmcoacjlhmmfalocbbkdhnkn?authuser=0&hl=en" target="_blank" class="text-cyan-300 underline">Open on Chrome Web Store</a>
           `;
           break;
         case "skills":
@@ -1911,7 +1932,7 @@ Location: Ahmedabad, Gujarat, India | Domain: rahulinmotion.me
         ],
         stack: ['Microsoft Azure', 'Azure Cosmos DB', 'Python 3.12', 'FastAPI', 'FinBERT NLP', 'Docker', 'NSE/BSE Clients', 'yfinance'],
         links: [
-          { text: 'Deployed on Azure Yesterday', url: '#', icon: 'fas fa-cloud' }
+          { text: 'Launch Live on Azure', url: 'https://seedhastock.azurewebsites.net/', icon: 'fas fa-arrow-up-right-from-square' }
         ]
       },
       'modal-spacetalk': {
@@ -1926,6 +1947,7 @@ Location: Ahmedabad, Gujarat, India | Domain: rahulinmotion.me
         ],
         stack: ['Rust', 'Axum', 'React', 'PostgreSQL', 'Redis', 'Docker', 'JWT', 'ASR Service Connectors'],
         links: [
+          { text: 'Visit spacetalk.in', url: 'https://www.spacetalk.in/', icon: 'fas fa-arrow-up-right-from-square' },
           { text: 'GitHub Organization', url: 'https://github.com/kashyaprahul12659/SpaceTalk', icon: 'fab fa-github' }
         ]
       },
@@ -1941,7 +1963,8 @@ Location: Ahmedabad, Gujarat, India | Domain: rahulinmotion.me
         ],
         stack: ['React.js', 'Tailwind CSS', 'Chrome Extension API', 'Node.js', 'Express', 'MongoDB', 'JWT'],
         links: [
-          { text: 'View Repository', url: 'https://github.com/kashyaprahul12659/AutoApplyPro', icon: 'fab fa-github' }
+          { text: 'Chrome Web Store', url: 'https://chromewebstore.google.com/detail/autoapply-pro-ai-job-appl/jomnppfdjmcoacjlhmmfalocbbkdhnkn?authuser=0&hl=en', icon: 'fab fa-chrome' },
+          { text: 'GitHub Repository', url: 'https://github.com/kashyaprahul12659/AutoApplyPro', icon: 'fab fa-github' }
         ]
       },
       'modal-membridge': {
