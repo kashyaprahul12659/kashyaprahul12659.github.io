@@ -1,1130 +1,1620 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rahul Kashyap | Portfolio</title>
-  <!-- AOS (Animate On Scroll) CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rahul Kashyap | Product Analyst @Microsoft | AI Systems Design</title>
+  <meta name="description" content="Portfolio of Rahul Kashyap - Product Analyst at Microsoft, Founder of SpaceTalk, AI Systems Architect specializing in Search Technology, Copilot, KQL, and Full-Stack Engineering." />
+  <meta name="keywords" content="Rahul Kashyap, Microsoft, Product Analyst, SpaceTalk, AI Systems, Copilot, KQL, AutoApply Pro, MemBridge, Data Analyst, Python, React, Rust" />
+  <meta name="author" content="Rahul Kashyap" />
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rahulinmotion.me/" />
+  <meta property="og:title" content="Rahul Kashyap | Product Analyst @Microsoft | AI Systems Design" />
+  <meta property="og:description" content="Product Analyst @Microsoft working across search technology & Copilot infrastructure. Founder of SpaceTalk & builder of AI systems." />
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              400: '#22d3ee',
+              500: '#06b6d4',
+              600: '#0891b2',
+            },
+            msft: {
+              blue: '#00a4ef',
+              green: '#7fba00',
+              red: '#f25022',
+              yellow: '#ffb900',
+            },
+            dark: {
+              bg: '#080c14',
+              card: '#0f172a',
+            }
+          }
+        }
+      }
+    }
+  </script>
 
   <style>
-    /* Reset and Basic Styling */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
     }
-    
-    :root {
-      --primary-color: #4fa3ff;
-      --secondary-color: #2c3e50;
-      --accent-color: #e74c3c;
-      --background-dark: #1a1a1a;
-      --text-light: #ffffff;
-      --text-gray: #95a5a6;
-      --card-bg: rgba(34, 34, 34, 0.8);
-      --hover-color: #3498db;
+    ::-webkit-scrollbar-track {
+      background: #080c14;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #06b6d4;
     }
 
-    body {
-      font-family: 'Segoe UI', 'Arial', sans-serif;
-      color: var(--text-light);
-      background: linear-gradient(135deg, var(--background-dark) 0%, #000000 100%);
-      overflow-x: hidden;
-      line-height: 1.6;
+    /* Glassmorphic Effects */
+    .glass-nav {
+      background: rgba(8, 12, 20, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
     }
 
-    /* Smooth Scrolling */
-    html {
-      scroll-behavior: smooth;
+    .glass-card {
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    a {
-      color: var(--primary-color);
-      text-decoration: none;
-      transition: color 0.3s ease;
+    .glass-card:hover {
+      border-color: rgba(34, 211, 238, 0.35);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px -10px rgba(6, 182, 212, 0.16);
     }
 
-    a:hover {
-      color: var(--hover-color);
-    }
-
-    /* Particle Container */
-    #particles-js {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      top: 0;
-      left: 0;
-    }
-
-    /* Hero Section */
-    header.hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      height: 100vh;
-      padding: 2rem;
-      position: relative;
-    }
-
-    header.hero h1 {
-      font-size: 4rem;
-      margin-bottom: 1rem;
-      background: linear-gradient(45deg, var(--primary-color), var(--hover-color));
+    /* Gradient Text */
+    .gradient-text {
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: fadeInUp 1s ease;
     }
 
-    header.hero p {
-      font-size: 1.5rem;
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.5;
-      color: var(--text-gray);
+    .gradient-msft {
+      background: linear-gradient(135deg, #00a4ef 0%, #60a5fa 50%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    /* Container for Sections */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 4rem 2rem;
+    /* Radial Ambient Background Glows */
+    .bg-ambient {
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(14, 165, 233, 0.14) 0px, transparent 50%),
+        radial-gradient(at 100% 20%, rgba(99, 102, 241, 0.14) 0px, transparent 50%),
+        radial-gradient(at 50% 80%, rgba(168, 85, 247, 0.08) 0px, transparent 50%);
     }
 
-    /* Section Titles and Text */
-    section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-      text-transform: uppercase;
-      position: relative;
-      display: inline-block;
+    .badge-pill {
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.2s ease;
+    }
+    .badge-pill:hover {
+      border-color: rgba(6, 182, 212, 0.5);
+      background: rgba(6, 182, 212, 0.1);
+      color: #22d3ee;
     }
 
-    section h2::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 50%;
-      height: 3px;
-      background: var(--primary-color);
-      transition: width 0.3s ease;
-    }
-
-    section h2:hover::after {
-      width: 100%;
-    }
-
-    /* Skills Section Enhancement */
-    .skill-bar {
-      background: rgba(255, 255, 255, 0.1);
-      height: 10px;
-      border-radius: 5px;
-      margin-top: 10px;
-      margin-bottom: 20px;
-      overflow: hidden;
-    }
-
-    .skill-progress {
-      height: 100%;
-      background: var(--primary-color);
-      border-radius: 5px;
-      transition: width 1.5s ease-in-out;
-      position: relative;
-    }
-
-    .skill-title {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    /* Card Styling */
-    .job-title, .project-title, .education-title {
-      background: var(--card-bg);
-      margin: 1rem 0;
-      padding: 1.5rem;
-      border-radius: 12px;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      cursor: pointer;
-    }
-
-    .job-title:hover, .project-title:hover, .education-title:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      border-color: var(--primary-color);
-    }
-
-    .job-details, .project-details, .education-details {
-      background: rgba(51, 51, 51, 0.8);
-      padding: 1.5rem;
-      border-radius: 8px;
-      margin-top: 0.5rem;
-      border-left: 3px solid var(--primary-color);
-    }
-
-    /* Contact Section Enhancement */
-    .contact {
-      background: var(--card-bg);
-      border-radius: 12px;
-      padding: 2rem;
-      margin-top: 2rem;
-    }
-
-    .contact p {
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .contact i {
-      color: var(--primary-color);
-      font-size: 1.2rem;
-    }
-
-    /* Back to Top Button */
-    .back-to-top {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: var(--primary-color);
-      color: white;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
+    /* Toast Notification */
+    #toast {
+      visibility: hidden;
       opacity: 0;
-      transition: opacity 0.3s ease;
-      z-index: 1000;
+      transition: visibility 0s 0.2s, opacity 0.2s ease;
     }
-
-    .back-to-top.visible {
+    #toast.show {
+      visibility: visible;
       opacity: 1;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      header.hero h1 {
-        font-size: 2.5rem;
-      }
-      
-      header.hero p {
-        font-size: 1.2rem;
-      }
-      
-      .container {
-        padding: 2rem 1rem;
-      }
-      
-      section h2 {
-        font-size: 2rem;
-      }
-    }
-
-    /* Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Loading Animation */
-    .loading {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--background-dark);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-
-    .loading-spinner {
-      width: 50px;
-      height: 50px;
-      border: 5px solid var(--text-gray);
-      border-top: 5px solid var(--primary-color);
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    /* Project Section Enhancements */
-    .project-tags {
-      display: flex;
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .tag {
-      background: rgba(79, 163, 255, 0.15);
-      color: var(--primary-color);
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-size: 0.85rem;
-    }
-
-    .project-content {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .project-content h3 {
-      color: var(--primary-color);
-      margin-bottom: 0.5rem;
-      font-size: 1.2rem;
-    }
-
-    .project-content ul {
-      list-style-type: disc;
-      margin-left: 1.5rem;
-    }
-
-    .tech-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      list-style: none !important;
-      margin-left: 0 !important;
-    }
-
-    .tech-stack li {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 5px 10px;
-      border-radius: 4px;
-      font-size: 0.9rem;
-    }
-
-    .project-links {
-      display: flex;
-      gap: 20px;
-      margin-top: 1rem;
-    }
-
-    .project-links a {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      color: var(--primary-color);
-      transition: color 0.3s ease;
-    }
-
-    .project-links a:hover {
-      color: var(--hover-color);
-    }
-
-    .project-title {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 768px) {
-      .project-title {
-        flex-direction: column;
-      }
-      
-      .project-tags {
-        margin-top: 10px;
-        flex-wrap: wrap;
-      }
-      
-      .tech-stack {
-        flex-direction: column;
-      }
+      transition: opacity 0.2s ease;
     }
   </style>
 </head>
 
-<body>
-  <!-- Loading Screen -->
-  <div class="loading">
-    <div class="loading-spinner"></div>
+<body class="bg-dark-bg text-slate-200 font-sans antialiased selection:bg-cyan-500/20 selection:text-cyan-300 min-h-screen bg-ambient relative">
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 flex items-center gap-3 px-5 py-3 rounded-xl bg-slate-900/90 text-cyan-300 border border-cyan-500/40 shadow-2xl backdrop-blur-md">
+    <i class="fas fa-check-circle text-lg text-emerald-400"></i>
+    <span id="toast-text" class="text-sm font-medium">Copied to clipboard!</span>
   </div>
 
-  <!-- Back to Top Button -->
-  <div class="back-to-top">
-    <i class="fas fa-arrow-up"></i>
-  </div>
+  <!-- NAVIGATION BAR -->
+  <header class="fixed top-0 left-0 right-0 z-40 glass-nav transition-all duration-300" id="main-nav">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center font-mono font-bold text-white shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform">
+          RK
+        </div>
+        <div class="flex flex-col">
+          <span class="font-bold tracking-tight text-white group-hover:text-cyan-400 transition-colors">Rahul Kashyap</span>
+          <span class="text-[11px] font-mono text-cyan-400 flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+            Product Analyst @Microsoft
+          </span>
+        </div>
+      </a>
 
-  <!-- Particles Background -->
-  <div id="particles-js"></div>
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
+        <a href="#experience" class="hover:text-cyan-400 transition-colors">Experience</a>
+        <a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a>
+        <a href="#skills" class="hover:text-cyan-400 transition-colors">Skills</a>
+        <a href="#education" class="hover:text-cyan-400 transition-colors">Education</a>
+        <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
+      </nav>
 
-  <!-- Hero Section -->
-  <header class="hero" data-aos="fade-up">
-    <h1>Rahul Kashyap</h1>
-    <p>Data Analyst | Data Science Enthusiast </p>
+      <!-- Right CTAs -->
+      <div class="hidden md:flex items-center gap-3">
+        <a href="https://github.com/kashyaprahul12659" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-slate-300 hover:text-white hover:border-cyan-500/50 transition-all" title="GitHub Profile">
+          <i class="fab fa-github text-base"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/rahul-kashyap-6698b5176" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-slate-300 hover:text-white hover:border-cyan-500/50 transition-all" title="LinkedIn Profile">
+          <i class="fab fa-linkedin-in text-base"></i>
+        </a>
+        <a href="#contact" class="px-4 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-sm shadow-md shadow-cyan-500/20 hover:shadow-cyan-500/30 transition-all">
+          Get in Touch
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" aria-label="Open Navigation Menu" class="md:hidden w-10 h-10 rounded-lg glass-card flex items-center justify-center text-slate-300 hover:text-white focus:outline-none">
+        <i class="fas fa-bars text-lg" id="menu-icon"></i>
+      </button>
+
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-6 border-b border-slate-800/80 bg-slate-950/95 backdrop-blur-xl">
+      <nav class="flex flex-col gap-4 text-base font-medium">
+        <a href="#about" class="mobile-nav-link text-slate-300 hover:text-cyan-400 py-1">About</a>
+        <a href="#experience" class="mobile-nav-link text-slate-300 hover:text-cyan-400 py-1">Experience</a>
+        <a href="#projects" class="mobile-nav-link text-slate-300 hover:text-cyan-400 py-1">Projects</a>
+        <a href="#skills" class="mobile-nav-link text-slate-300 hover:text-cyan-400 py-1">Skills</a>
+        <a href="#education" class="mobile-nav-link text-slate-300 hover:text-cyan-400 py-1">Education</a>
+        <a href="#contact" class="mobile-nav-link text-slate-300 hover:text-cyan-400 py-1">Contact</a>
+        <div class="pt-4 flex items-center gap-3 border-t border-slate-800">
+          <a href="https://github.com/kashyaprahul12659" target="_blank" rel="noopener" class="px-4 py-2 rounded-lg glass-card flex items-center gap-2 text-sm text-slate-300 hover:text-white">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/rahul-kashyap-6698b5176" target="_blank" rel="noopener" class="px-4 py-2 rounded-lg glass-card flex items-center gap-2 text-sm text-slate-300 hover:text-white">
+            <i class="fab fa-linkedin"></i> LinkedIn
+          </a>
+        </div>
+      </nav>
+    </div>
   </header>
 
-  <!-- About Section -->
-  <section class="about container" data-aos="fade-up">
-    <h2>About Me</h2>
-    <p>
-      Data Analyst with expertise in Python, SQL, Power BI, and data visualization.
-      Skilled in market research, trend analysis, and cybersecurity. Passionate
-      about transforming raw data into actionable insights to drive business growth.
-    </p>
+  <!-- HERO SECTION -->
+  <section id="hero" class="pt-36 pb-20 md:pt-44 md:pb-28 max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Left Column: Bio & Intro -->
+      <div class="lg:col-span-8 flex flex-col items-start space-y-6">
+        
+        <!-- Microsoft Role Pill -->
+        <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-card text-xs font-semibold text-slate-200 border border-blue-500/30">
+          <span class="flex gap-0.5 items-center">
+            <span class="w-2 h-2 bg-[#f25022] rounded-sm"></span>
+            <span class="w-2 h-2 bg-[#7fba00] rounded-sm"></span>
+            <span class="w-2 h-2 bg-[#00a4ef] rounded-sm"></span>
+            <span class="w-2 h-2 bg-[#ffb900] rounded-sm"></span>
+          </span>
+          <span class="text-white font-bold">Product Analyst @ Microsoft</span>
+          <span class="text-slate-500">•</span>
+          <span class="text-cyan-400 font-mono">Search Tech & Copilot</span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-tight">
+          Hi, I'm <span class="gradient-text">Rahul Kashyap</span>
+        </h1>
+
+        <!-- Dynamic Typing Role -->
+        <div class="text-xl sm:text-2xl md:text-3xl font-semibold text-slate-300 flex items-center gap-2 min-h-[42px]">
+          <span>I architect</span>
+          <span id="role-text" class="text-cyan-400 font-mono font-bold border-b-2 border-cyan-500"></span>
+        </div>
+
+        <!-- Description -->
+        <p class="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
+          Product Analyst at <strong class="text-white">Microsoft</strong> working on AI-driven search relevance and Copilot integration for Bing Sports. Founder of <strong class="text-white">SpaceTalk</strong> (Conversation Intelligence SaaS) and creator of autonomous AI pipelines, high-throughput web automation, and predictive data systems.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap items-center gap-4 pt-2">
+          <a href="#projects" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-sm shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:-translate-y-0.5 transition-all flex items-center gap-2">
+            <span>Explore My Builds</span>
+            <i class="fas fa-arrow-right text-xs"></i>
+          </a>
+          <a href="#experience" class="px-6 py-3.5 rounded-xl glass-card hover:bg-slate-800/80 text-white font-semibold text-sm hover:border-cyan-500/50 hover:-translate-y-0.5 transition-all flex items-center gap-2">
+            <i class="fas fa-briefcase text-cyan-400 text-sm"></i>
+            <span>View Experience</span>
+          </a>
+          <button onclick="copyToClipboard('kashyaprahul535@gmail.com', 'Email copied!')" class="px-4 py-3.5 rounded-xl glass-card hover:bg-slate-800/80 text-slate-300 hover:text-cyan-300 text-sm font-mono flex items-center gap-2" title="Copy Email">
+            <i class="far fa-copy"></i>
+            <span class="hidden sm:inline">kashyaprahul535@gmail.com</span>
+            <span class="sm:hidden">Copy Email</span>
+          </button>
+        </div>
+
+        <!-- Social Connections -->
+        <div class="flex items-center gap-4 pt-4 text-slate-400 text-sm">
+          <span class="text-xs uppercase tracking-wider font-mono text-slate-500">Connect:</span>
+          <a href="https://github.com/kashyaprahul12659" target="_blank" rel="noopener" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+            <i class="fab fa-github"></i> <span>GitHub</span>
+          </a>
+          <span class="text-slate-700">•</span>
+          <a href="https://www.linkedin.com/in/rahul-kashyap-6698b5176" target="_blank" rel="noopener" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+            <i class="fab fa-linkedin"></i> <span>LinkedIn</span>
+          </a>
+          <span class="text-slate-700">•</span>
+          <a href="mailto:kashyaprahul535@gmail.com" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+            <i class="fas fa-paper-plane"></i> <span>Email</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Bento Stats -->
+      <div class="lg:col-span-4 flex flex-col gap-4">
+        
+        <!-- Bento 1: Microsoft -->
+        <div class="glass-card rounded-2xl p-6 relative overflow-hidden group border-blue-500/30">
+          <div class="absolute -right-8 -top-8 w-28 h-28 bg-blue-500/15 rounded-full blur-xl group-hover:bg-blue-500/25 transition-all"></div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-mono uppercase tracking-wider text-blue-400 font-bold">Current Impact</span>
+            <i class="fab fa-microsoft text-blue-400 text-lg"></i>
+          </div>
+          <div class="text-2xl font-extrabold text-white">Microsoft Copilot</div>
+          <p class="text-xs text-slate-400 mt-1">Search query analysis, accuracy evaluation, and KQL data pipelines for Bing Sports.</p>
+        </div>
+
+        <!-- Bento 2: SpaceTalk SaaS -->
+        <div class="glass-card rounded-2xl p-6 relative overflow-hidden group border-purple-500/30">
+          <div class="absolute -right-8 -top-8 w-28 h-28 bg-purple-500/15 rounded-full blur-xl group-hover:bg-purple-500/25 transition-all"></div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-mono uppercase tracking-wider text-purple-400 font-bold">Founder</span>
+            <i class="fas fa-rocket text-purple-400 text-lg"></i>
+          </div>
+          <div class="text-2xl font-extrabold text-white">SpaceTalk</div>
+          <p class="text-xs text-slate-400 mt-1">Multi-tenant B2B SaaS conversation intelligence built with Rust/Axum & React.</p>
+        </div>
+
+        <!-- Bento 3: Claude Impact Lab 2026 -->
+        <div class="glass-card rounded-2xl p-6 relative overflow-hidden group border-cyan-500/30">
+          <div class="absolute -right-8 -top-8 w-28 h-28 bg-cyan-500/15 rounded-full blur-xl group-hover:bg-cyan-500/25 transition-all"></div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold">Social Impact AI</span>
+            <i class="fas fa-heart-pulse text-cyan-400 text-lg"></i>
+          </div>
+          <div class="text-2xl font-extrabold text-white">Khoya-Paya Agent</div>
+          <p class="text-xs text-slate-400 mt-1">Claude Impact Lab Mumbai 2026: AI unified missing person registry for Kumbh Mela 2027.</p>
+        </div>
+
+      </div>
+
+    </div>
   </section>
 
-  <!-- Skills Section -->
-  <section class="skills container" data-aos="fade-up">
-    <h2>Technical Skills</h2>
-    <ul>
-      <li>Python (Pandas, NumPy, Data Processing)</li>
-      <li>SQL & Database Design</li>
-      <li>Data Visualization (Power BI, Tableau)</li>
-      <li>Machine Learning & Model Optimization</li>
-      <li>Cybersecurity & IAM Principles</li>
-      <li>Google Cloud, AWS, Notion, GitHub</li>
-    </ul>
+  <!-- ABOUT ME SECTION -->
+  <section id="about" class="py-20 border-t border-slate-900 bg-slate-950/40">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="max-w-3xl mb-12">
+        <span class="text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold">About Me</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 tracking-tight">
+          Product Intelligence, <span class="gradient-text">Search Systems & AI Automations</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- Story Card -->
+        <div class="lg:col-span-2 glass-card rounded-2xl p-8 space-y-5 text-slate-300 text-base leading-relaxed">
+          <p>
+            I am a <strong class="text-white">Product Analyst at Microsoft</strong> with a background spanning product analytics, artificial intelligence system design, and full-stack software development. In my role at Microsoft, I work across search technology and Copilot infrastructure to enhance the Bing Sports user experience—evaluating result accuracy, optimizing complex queries, and collaborating cross-functionally with PMs, Data Engineers, and AI/ML scientists.
+          </p>
+          <p>
+            As a builder and founder, I launched <strong class="text-white">SpaceTalk</strong>, an enterprise conversation intelligence platform architected in Rust, Axum, PostgreSQL, and React. I also engineered <strong class="text-white">AutoApply Pro</strong>, a Chrome extension and full-stack automation platform that cuts job application overhead for thousands of job seekers.
+          </p>
+          <p>
+            My foundation is anchored by an <strong class="text-white">Integrated Master of Computer Applications (IMCA)</strong> from L.J. Institute and an <strong class="text-white">Advanced Certificate in Cyber Security from IIIT Bangalore</strong>. This blend of rigorous systems engineering and data-driven product thinking enables me to build resilient, high-impact technologies.
+          </p>
+
+          <!-- Core Competencies -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+            <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800">
+              <i class="fas fa-magnifying-glass-chart text-blue-400 text-xl mb-2"></i>
+              <h4 class="text-white font-bold text-sm">Search & Copilot</h4>
+              <p class="text-xs text-slate-400 mt-1">Bing Sports relevance, query intent mapping, and KQL telemetry analysis.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800">
+              <i class="fas fa-brain text-purple-400 text-xl mb-2"></i>
+              <h4 class="text-white font-bold text-sm">AI Systems & Agents</h4>
+              <p class="text-xs text-slate-400 mt-1">Multi-tenant AI SaaS (SpaceTalk), memory vaults (MemBridge), and LLM pipelines.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800">
+              <i class="fas fa-gears text-emerald-400 text-xl mb-2"></i>
+              <h4 class="text-white font-bold text-sm">Full-Stack & Rust</h4>
+              <p class="text-xs text-slate-400 mt-1">High-concurrency backends (Rust/Axum, Node.js) and modern React/TypeScript UIs.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Profile Card -->
+        <div class="glass-card rounded-2xl p-8 flex flex-col justify-between space-y-6">
+          <h3 class="text-lg font-bold text-white flex items-center gap-2">
+            <i class="fas fa-id-badge text-cyan-400"></i>
+            <span>Profile Summary</span>
+          </h3>
+
+          <ul class="space-y-4 text-sm">
+            <li class="flex items-start gap-3">
+              <i class="fas fa-building text-blue-400 mt-1"></i>
+              <div>
+                <span class="block text-slate-400 text-xs uppercase font-mono">Current Company</span>
+                <span class="text-slate-200 font-medium">Microsoft (Hyderabad / Remote)</span>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-map-pin text-slate-500 mt-1"></i>
+              <div>
+                <span class="block text-slate-400 text-xs uppercase font-mono">Location</span>
+                <span class="text-slate-200 font-medium">Ahmedabad, Gujarat, India</span>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-envelope text-slate-500 mt-1"></i>
+              <div>
+                <span class="block text-slate-400 text-xs uppercase font-mono">Email</span>
+                <a href="mailto:kashyaprahul535@gmail.com" class="text-cyan-400 hover:underline">kashyaprahul535@gmail.com</a>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-globe text-slate-500 mt-1"></i>
+              <div>
+                <span class="block text-slate-400 text-xs uppercase font-mono">Domain</span>
+                <a href="https://rahulinmotion.me/" class="text-cyan-400 hover:underline font-mono">rahulinmotion.me</a>
+              </div>
+            </li>
+          </ul>
+
+          <div class="pt-4 border-t border-slate-800">
+            <a href="#contact" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm flex items-center justify-center gap-2 transition-colors">
+              <span>Send a Direct Message</span>
+              <i class="fas fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
   </section>
 
-  <!-- Experience Section -->
-  <section class="experience container" data-aos="fade-up">
-    <h2>Experience</h2>
-    <ul>
-      <li>
-        <div class="job-title" onclick="toggleDetails('details1')">
-          <strong>Advertising Data Analyst</strong> - Global eBrand India (Nov 2023 - Feb 2025)
-        </div>
-        <div id="details1" class="job-details" style="display: none;">
-          <p>Data Analysis & Optimization: Analyzed advertising data from Google Ads and Bing Ads to optimize campaign performance, maximize ROI, and enhance audience targeting.</p>
-          <p>Data Visualization & Reporting: Built interactive dashboards and reports using Tableau and Power BI to track key performance indicators (KPIs) and ad performance insights.</p>
-          <p>A/B Testing & Statistical Analysis: Conducted A/B testing and applied statistical methods to evaluate ad performance, optimize bidding strategies, and improve conversion rates.</p>
-          <p>Data Extraction & Cleaning: Used SQL and Python (Pandas, NumPy) to extract, clean, and transform large datasets for trend identification and campaign improvements.</p>
-          <p>Web Analytics & Tracking: Leveraged Google Analytics to monitor user behavior, website traffic, and ad effectiveness for data-driven decision-making.</p>
-          <p>Collaboration & Strategic Insights: Partnered with marketing and product teams to translate data insights into actionable strategies, improving advertising effectiveness.</p>
-        </div>
-      </li>
-      <li>
-        <div class="job-title" onclick="toggleDetails('details2')">
-          <strong>Ecommerce Analyst</strong> - Global eBrand India (Jul 2022 - Nov 2023)
-        </div>
-        <div id="details2" class="job-details" style="display: none;">
-          <p>Optimized Online Marketplaces: Implemented and optimized product listings on Shopify, Amazon, and Walmart, improving visibility and sales performance.</p>
-          <p>Market & Competitive Research: Conducted thorough market research and competitive analysis to identify trends, pricing strategies, and opportunities for growth.</p>
-          <p>Data-Driven Decision Making: Analyzed ecommerce performance metrics, conversion rates, and customer behavior to optimize product listings and marketing campaigns.</p>
-          <p>Collaboration & Marketing Execution: Worked with cross-functional teams to enhance email marketing campaigns, ensuring targeted outreach and improved customer engagement.</p>
-        </div>
-      </li>
-      <li>
-        <div class="job-title" onclick="toggleDetails('details3')">
-          <strong>Frontend Developer</strong> - PALM INDIA (Mar 2021 - Feb 2023)
-        </div>
-        <div id="details3" class="job-details" style="display: none;">
-          <p>Developed responsive, cross-browser applications using HTML5, CSS3 (SASS/SCSS), and JavaScript (ES6+).</p>
-          <p>Built modular, reusable components in React (Hooks, Redux), reducing code redundancy and improving maintainability.</p>
-          <p>Ensured robust performance through code splitting, lazy loading, and other optimization techniques, enhancing page load speed.</p>
-          <p>Collaborated closely with designers, back-end developers, and QA teams to align deliverables with stakeholder requirements.</p>
-          <p>Adhered to WCAG accessibility standards and implemented SEO best practices, resulting in improved user experience and search visibility.</p>
-          <p>Maintained source control using Git and GitHub; performed code reviews to enforce code quality, consistency, and best practices.</p>
-          <p>Participated in daily stand-ups, sprint planning, and retrospectives under Agile/Scrum methodologies.</p>
-          <p>Integrated continuous integration and delivery (CI/CD) pipelines (e.g., Jenkins, GitHub Actions) for automated testing and deployments.</p>
-          <p>Authored unit and end-to-end tests using Jest and Cypress, minimizing bugs and regression issues.</p>
-        </div>
-      </li>
-      <li>
-        <div class="job-title" onclick="toggleDetails('details4')">
-          <strong>Computer System Technician</strong> - Hydro Airtech Engineers (Jun 2019 - Mar 2020)
-        </div>
-        <div id="details4" class="job-details" style="display: none;">
-          <p>Produced comprehensive reports detailing data system operations and effectively monitored system errors. Successfully completed assigned tasks within specified timeframes, consistently meeting or exceeding project objectives. Conducted thorough network and system part evaluations, proactively identifying areas requiring maintenance and recommending solutions. Utilized active verbs to convey technical proficiency and experience in computer system technology.</p>
-        </div>
-      </li>
-    </ul>
+  <!-- EXPERIENCE TIMELINE -->
+  <section id="experience" class="py-20 max-w-7xl mx-auto px-6">
+    <div class="max-w-3xl mb-14">
+      <span class="text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold">Career Pathway</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 tracking-tight">
+        Work <span class="gradient-text">Experience</span>
+      </h2>
+      <p class="text-slate-400 mt-3 text-base">Key roles across Big Tech, B2B SaaS startup leadership, advertising analytics, and full-stack software development.</p>
+    </div>
 
+    <!-- Timeline Wrapper -->
+    <div class="relative border-l border-slate-800 ml-4 md:ml-8 space-y-12">
+      
+      <!-- Role 1: Microsoft -->
+      <div class="relative pl-8 md:pl-10 group">
+        <!-- Marker -->
+        <div class="absolute -left-3 top-1.5 w-6 h-6 rounded-full bg-slate-900 border-2 border-blue-400 group-hover:bg-blue-500 transition-colors flex items-center justify-center shadow-lg shadow-blue-500/20">
+          <div class="w-2 h-2 rounded-full bg-blue-400 group-hover:bg-slate-950"></div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 md:p-8 border-blue-500/40">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-bold">Active Role</span>
+              </div>
+              <h3 class="text-2xl font-bold text-white mt-1 group-hover:text-blue-400 transition-colors">
+                Product Analyst
+              </h3>
+              <span class="text-base font-semibold text-blue-400">Microsoft</span>
+              <span class="text-slate-500 text-sm font-normal">• Hyderabad / Remote</span>
+            </div>
+            <span class="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-mono bg-blue-950/70 text-blue-300 border border-blue-800/60 w-fit font-bold">
+              March 2026 – Present
+            </span>
+          </div>
+
+          <p class="text-slate-300 text-sm mb-4 leading-relaxed">
+            Working across search technology and Copilot infrastructure to enhance the <strong>Bing Sports</strong> user experience. Analyzing search queries, evaluating result accuracy across diverse query patterns, and ensuring that sports-related prompts surface precise, real-time insights.
+          </p>
+
+          <ul class="space-y-2.5 text-sm text-slate-300 mb-6">
+            <li class="flex items-start gap-2.5">
+              <i class="fas fa-check text-blue-400 mt-1 text-xs"></i>
+              <span><strong>Search Query Optimization:</strong> Conduct in-depth analysis and optimization of sports queries to improve intent classification and relevance for millions of users.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fas fa-check text-blue-400 mt-1 text-xs"></i>
+              <span><strong>Copilot AI Integration:</strong> Advance AI-driven sports content discovery by integrating and fine-tuning Copilot prompt surfacing capabilities.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fas fa-check text-blue-400 mt-1 text-xs"></i>
+              <span><strong>Big Data & KQL Analytics:</strong> Leverage Kusto Query Language (KQL), Excel, and Microsoft 365 analytics platforms to evaluate result accuracy and debug telemetry anomalies.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fas fa-check text-blue-400 mt-1 text-xs"></i>
+              <span><strong>Cross-Functional Collaboration:</strong> Partner closely with Product Managers, Data Engineers, UX designers, AI/ML research teams, and SDEs to ship continuous product refinements.</span>
+            </li>
+          </ul>
+
+          <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-800/80">
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-blue-300">Microsoft Copilot</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-blue-300">KQL (Kusto Query Language)</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-blue-300">Bing Search Tech</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-blue-300">Search Relevance</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-blue-300">Prompt Evaluation</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-blue-300">Microsoft 365 Analytics</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Role 2: SpaceTalk Founder -->
+      <div class="relative pl-8 md:pl-10 group">
+        <!-- Marker -->
+        <div class="absolute -left-3 top-1.5 w-6 h-6 rounded-full bg-slate-900 border-2 border-purple-400 group-hover:bg-purple-500 transition-colors flex items-center justify-center shadow-lg shadow-purple-500/20">
+          <div class="w-2 h-2 rounded-full bg-purple-400 group-hover:bg-slate-950"></div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 md:p-8 border-purple-500/30">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">
+                Founder
+              </h3>
+              <span class="text-base font-semibold text-purple-400">SpaceTalk</span>
+              <span class="text-slate-500 text-sm font-normal">• Conversation Intelligence Platform</span>
+            </div>
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-purple-950/60 text-purple-300 border border-purple-800/50 w-fit">
+              February 2026 – Present
+            </span>
+          </div>
+
+          <p class="text-slate-300 text-sm mb-4 leading-relaxed">
+            Founded and engineered SpaceTalk, a multi-tenant B2B SaaS conversation intelligence platform for contact centers that automates speech-to-text, call summarization, and agent QA scoring.
+          </p>
+
+          <ul class="space-y-2.5 text-sm text-slate-300 mb-6">
+            <li class="flex items-start gap-2.5">
+              <i class="fas fa-check text-purple-400 mt-1 text-xs"></i>
+              <span><strong>High-Performance Rust Backend:</strong> Architected backend using Rust and Axum framework with PostgreSQL and Redis caching for ultra-low latency.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fas fa-check text-purple-400 mt-1 text-xs"></i>
+              <span><strong>Enterprise RBAC & Multi-Tenancy:</strong> Built organization-level tenant isolation, rate limiting, and 4-tier Role-Based Access Control (Agent, QA, Manager, Admin).</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fas fa-check text-purple-400 mt-1 text-xs"></i>
+              <span><strong>AI Services Integration:</strong> Connected ASR speech models, automated summarization, and quality assurance scoring pipelines with webhook integrations.</span>
+            </li>
+          </ul>
+
+          <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-800/80">
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-purple-300">Rust</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-purple-300">Axum</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-purple-300">React</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-purple-300">PostgreSQL</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-purple-300">Redis</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-purple-300">Multi-Tenancy</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Role 3: Advertising Data Analyst -->
+      <div class="relative pl-8 md:pl-10 group">
+        <!-- Marker -->
+        <div class="absolute -left-3 top-1.5 w-6 h-6 rounded-full bg-slate-900 border-2 border-cyan-400 group-hover:bg-cyan-500 transition-colors flex items-center justify-center shadow-lg shadow-cyan-500/20">
+          <div class="w-2 h-2 rounded-full bg-cyan-400 group-hover:bg-slate-950"></div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 md:p-8">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
+                Advertising Data Analyst
+              </h3>
+              <span class="text-sm font-semibold text-cyan-400">Global eBrand India</span>
+            </div>
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-cyan-950/60 text-cyan-300 border border-cyan-800/50 w-fit">
+              Nov 2023 – Feb 2025
+            </span>
+          </div>
+
+          <p class="text-slate-300 text-sm mb-4">
+            Managed multi-million rupee digital ad spend optimization, conversion analytics, and interactive BI reporting for global brand catalogs.
+          </p>
+
+          <ul class="space-y-2.5 text-sm text-slate-300 mb-6">
+            <li class="flex items-start gap-2.5">
+              <i class="fas fa-check text-cyan-400 mt-1 text-xs"></i>
+              <span><strong>Ad Performance & ROI:</strong> Analyzed advertising data from Google Ads and Bing Ads to optimize budget allocation, reduce CPA, and boost conversion rates.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fas fa-check text-cyan-400 mt-1 text-xs"></i>
+              <span><strong>Interactive Dashboards:</strong> Built automated Power BI & Tableau dashboards tracking vital marketing KPIs, ROAS, and conversion funnels.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fas fa-check text-cyan-400 mt-1 text-xs"></i>
+              <span><strong>Data Pipelines (SQL & Python):</strong> Extracted, cleaned, and transformed large datasets using Pandas and NumPy to surface bidding optimizations.</span>
+            </li>
+          </ul>
+
+          <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-800/80">
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-slate-300">Google Ads</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-slate-300">Bing Ads</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-slate-300">SQL & Python</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-slate-300">Power BI & Tableau</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Role 4: Ecommerce Analyst -->
+      <div class="relative pl-8 md:pl-10 group">
+        <!-- Marker -->
+        <div class="absolute -left-3 top-1.5 w-6 h-6 rounded-full bg-slate-900 border-2 border-indigo-400 group-hover:bg-indigo-500 transition-colors flex items-center justify-center shadow-lg shadow-indigo-500/20">
+          <div class="w-2 h-2 rounded-full bg-indigo-400 group-hover:bg-slate-950"></div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 md:p-8">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-white group-hover:text-indigo-400 transition-colors">
+                Ecommerce Analyst
+              </h3>
+              <span class="text-sm font-semibold text-indigo-400">Global eBrand India</span>
+            </div>
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-indigo-950/60 text-indigo-300 border border-indigo-800/50 w-fit">
+              Jul 2022 – Nov 2023
+            </span>
+          </div>
+
+          <p class="text-slate-300 text-sm mb-4">
+            Optimized product listings across Shopify, Amazon, and Walmart, analyzing conversion metrics and customer purchasing behavior.
+          </p>
+
+          <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-800/80">
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-slate-300">Shopify</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-slate-300">Amazon Seller</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-slate-300">Market Intelligence</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Role 5: Frontend Developer -->
+      <div class="relative pl-8 md:pl-10 group">
+        <!-- Marker -->
+        <div class="absolute -left-3 top-1.5 w-6 h-6 rounded-full bg-slate-900 border-2 border-emerald-400 group-hover:bg-emerald-500 transition-colors flex items-center justify-center shadow-lg shadow-emerald-500/20">
+          <div class="w-2 h-2 rounded-full bg-emerald-400 group-hover:bg-slate-950"></div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 md:p-8">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">
+                Frontend Developer
+              </h3>
+              <span class="text-sm font-semibold text-emerald-400">PALM INDIA</span>
+            </div>
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-emerald-950/60 text-emerald-300 border border-emerald-800/50 w-fit">
+              Mar 2021 – Feb 2022
+            </span>
+          </div>
+
+          <ul class="space-y-2 text-sm text-slate-300 mb-4">
+            <li class="flex items-start gap-2">
+              <i class="fas fa-check text-emerald-400 mt-1 text-xs"></i>
+              <span>Spearheaded UI/UX redesign that increased overall user engagement by <strong>25%</strong>.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fas fa-check text-emerald-400 mt-1 text-xs"></i>
+              <span>Reduced engineering cycle time by <strong>30%</strong> via shared React component library.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fas fa-check text-emerald-400 mt-1 text-xs"></i>
+              <span>Implemented Test-Driven Development (TDD) decreasing production defects by <strong>40%</strong>.</span>
+            </li>
+          </ul>
+
+          <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-800/80">
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-slate-300">React</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-slate-300">JavaScript ES6+</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono badge-pill text-slate-300">Jest & Cypress</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </section>
 
-  <!-- Projects Section -->
-  <section class="projects container" data-aos="fade-up">
-    <h2>Projects</h2>
-    <ul>
-      <li>
-        <div class="project-title" onclick="toggleDetails('project-ai-task')">
-          <strong>AI-Powered Task Management App</strong> <span style="color: var(--accent-color); margin-left: 10px;">(Currently Working On)</span>
-          <div class="project-tags">
-            <span class="tag">Flutter</span>
-            <span class="tag">Dart</span>
-            <span class="tag">Firebase</span>
-            <span class="tag">AI/ML</span>
-            <span class="tag">Google Cloud NLP</span>
-          </div>
+  <!-- PROJECTS SECTION (REAL PROJECTS CREATED ON THIS LAPTOP) -->
+  <section id="projects" class="py-20 border-t border-slate-900 bg-slate-950/50">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div class="max-w-2xl">
+          <span class="text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold">Code & Systems</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 tracking-tight">
+            Featured <span class="gradient-text">Engineered Builds</span>
+          </h2>
+          <p class="text-slate-400 mt-2 text-base">Real applications, AI memory vaults, SaaS platforms, and automation engines built from scratch.</p>
         </div>
-        <div id="project-ai-task" class="project-details" style="display: none;">
-          <div class="project-content">
-            <h3>Overview</h3>
-            <p>Developing a cross-platform AI-powered task management application that combines intelligent task tracking with motivational psychology to help users achieve their goals more effectively.</p>
-            
-            <h3>Key Features</h3>
-            <ul>
-              <li>Smart task management with AI-driven prioritization and categorization</li>
-              <li>Intelligent reminder system with personalized notification timing</li>
-              <li>AI-powered motivational feedback using NLP for task completion analysis</li>
-              <li>Goal setting and progress tracking with ML-based insights</li>
-              <li>Cross-platform support (iOS/Android) using Flutter framework</li>
-              <li>Real-time data synchronization with Firebase backend</li>
-            </ul>
-            
-            <h3>Technical Implementation</h3>
-            <ul>
-              <li>Built with Flutter/Dart for cross-platform compatibility</li>
-              <li>Integrated Google Cloud NLP for sentiment analysis and motivation generation</li>
-              <li>Implemented Firebase for authentication and real-time data storage</li>
-              <li>Created custom notification system using flutter_local_notifications</li>
-              <li>Designed scalable architecture for future AI/ML enhancements</li>
-            </ul>
-            
-            <h3>Technologies & Skills</h3>
-            <ul class="tech-stack">
-              <li>Flutter</li>
-              <li>Dart</li>
-              <li>Firebase</li>
-              <li>Google Cloud NLP</li>
-              <li>Machine Learning</li>
-              <li>UI/UX Design</li>
-              <li>Cloud Architecture</li>
-              <li>Mobile Development</li>
-              <li>Real-time Systems</li>
-            </ul>
-            
-            <h3>Current Progress</h3>
-            <ul>
-              <li>Completed core task management functionality</li>
-              <li>Implemented basic AI-driven notification system</li>
-              <li>Developing advanced motivational feedback system</li>
-              <li>Testing cross-platform compatibility</li>
-              <li>Planning monetization strategy and premium features</li>
-            </ul>
-            
-            <div class="project-links">
-              <a href="#" target="_blank"><i class="fab fa-github"></i> Development Repository</a>
-              <a href="#" target="_blank"><i class="fas fa-rocket"></i> Project Roadmap</a>
-            </div>
-          </div>
-        </div>
-      </li>
 
-      <li>
-        <div class="project-title" onclick="toggleDetails('project-lead-gen')">
-          <strong>Automated Lead Generation Tool</strong> <span style="color: var(--accent-color); margin-left: 10px;">(Currently Working On)</span>
-          <div class="project-tags">
-            <span class="tag">Python</span>
-            <span class="tag">Selenium</span>
-            <span class="tag">Data Mining</span>
-            <span class="tag">Automation</span>
-            <span class="tag">API Integration</span>
-          </div>
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap items-center gap-2 p-1.5 rounded-xl bg-slate-900/80 border border-slate-800 text-xs font-semibold">
+          <button onclick="filterProjects('all')" class="project-filter-btn active px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 transition-all font-mono" data-filter="all">All</button>
+          <button onclick="filterProjects('ai')" class="project-filter-btn px-4 py-2 rounded-lg text-slate-400 hover:text-white transition-all font-mono" data-filter="ai">AI Systems</button>
+          <button onclick="filterProjects('saas')" class="project-filter-btn px-4 py-2 rounded-lg text-slate-400 hover:text-white transition-all font-mono" data-filter="saas">SaaS & Apps</button>
+          <button onclick="filterProjects('automation')" class="project-filter-btn px-4 py-2 rounded-lg text-slate-400 hover:text-white transition-all font-mono" data-filter="automation">Automation</button>
         </div>
-        <div id="project-lead-gen" class="project-details" style="display: none;">
-          <div class="project-content">
-            <h3>Overview</h3>
-            <p>Developing an advanced lead generation tool that automates the process of identifying and qualifying potential business leads from multiple sources, with intelligent data enrichment and validation capabilities.</p>
-            
-            <h3>Key Features</h3>
-            <ul>
-              <li>Multi-source lead extraction (LinkedIn, Company Websites, Business Directories)</li>
-              <li>Automated data enrichment using various APIs (Company Info, Contact Details)</li>
-              <li>Intelligent lead scoring and qualification system</li>
-              <li>Custom scraping templates for different data sources</li>
-              <li>Export functionality with multiple format support</li>
-              <li>Rate limiting and proxy rotation for reliable scraping</li>
-            </ul>
-            
-            <h3>Technical Implementation</h3>
-            <ul>
-              <li>Built robust web scraping system using Selenium and BeautifulSoup</li>
-              <li>Implemented intelligent waiting and retry mechanisms</li>
-              <li>Developed modular architecture for easy addition of new data sources</li>
-              <li>Created API integrations for data verification and enrichment</li>
-              <li>Designed efficient data storage and caching system</li>
-            </ul>
-            
-            <h3>Technologies & Skills</h3>
-            <ul class="tech-stack">
-              <li>Python</li>
-              <li>Selenium</li>
-              <li>BeautifulSoup</li>
-              <li>RESTful APIs</li>
-              <li>Data Mining</li>
-              <li>Web Scraping</li>
-              <li>Data Validation</li>
-              <li>Database Design</li>
-              <li>Automation</li>
-            </ul>
-            
-            <h3>Current Progress</h3>
-            <ul>
-              <li>Completed core scraping engine development</li>
-              <li>Implemented basic lead scoring algorithm</li>
-              <li>Testing various proxy solutions for scalability</li>
-              <li>Developing additional data source integrations</li>
-              <li>Optimizing performance and reliability</li>
-            </ul>
-            
-            <div class="project-links">
-              <a href="#" target="_blank"><i class="fab fa-github"></i> Development Repository</a>
-              <a href="#" target="_blank"><i class="fas fa-book"></i> Technical Documentation</a>
-            </div>
-          </div>
-        </div>
-      </li>
+      </div>
 
-      <li>
-        <div class="project-title" onclick="toggleDetails('project0')">
-          <strong>IndiaMART Product Importer for Shopify</strong>
-          <div class="project-tags">
-            <span class="tag">TypeScript</span>
-            <span class="tag">Next.js</span>
-            <span class="tag">Prisma</span>
-            <span class="tag">E-commerce</span>
-          </div>
-        </div>
-        <div id="project0" class="project-details" style="display: none;">
-          <div class="project-content">
-            <h3>Overview</h3>
-            <p>Developed a full-stack application that enables seamless product importing from IndiaMART to Shopify stores, streamlining the product sourcing process for e-commerce businesses.</p>
-            
-            <h3>Key Features</h3>
-            <ul>
-              <li>Automated product data scraping from IndiaMART</li>
-              <li>Seamless integration with Shopify API for product creation</li>
-              <li>Prisma ORM integration for efficient database management</li>
-              <li>Modern TypeScript-based architecture for type safety</li>
-              <li>Real-time product sync and update capabilities</li>
-            </ul>
-            
-            <h3>Technologies & Skills</h3>
-            <ul class="tech-stack">
-              <li>TypeScript</li>
-              <li>Next.js</li>
-              <li>Prisma ORM</li>
-              <li>Shopify API</li>
-              <li>Web Scraping</li>
-              <li>RESTful APIs</li>
-              <li>Database Design</li>
-            </ul>
-            
-            <div class="project-links">
-              <a href="https://github.com/kashyaprahul12659/indiamart-importer" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
-              <a href="#" target="_blank"><i class="fas fa-play"></i> Live Demo</a>
+      <!-- Projects Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+        
+        <!-- Project 1: SpaceTalk -->
+        <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between border-purple-500/30" data-category="ai saas">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-mono bg-purple-950/60 text-purple-300 border border-purple-800/50">
+                B2B SaaS • Rust & React
+              </span>
+              <span class="text-xs font-mono text-purple-400 flex items-center gap-1.5 font-bold">
+                <i class="fas fa-crown"></i> Founder
+              </span>
             </div>
-          </div>
-        </div>
-      </li>
+            
+            <h3 class="text-xl font-bold text-white mb-2 hover:text-purple-400 transition-colors">
+              SpaceTalk: Conversation Intelligence
+            </h3>
+            
+            <p class="text-sm text-slate-400 mb-4 line-clamp-3">
+              Multi-tenant contact-center AI platform providing real-time speech-to-text, call summarization, automated agent QA scoring, and customizable compliance tracking.
+            </p>
 
-      <li>
-        <div class="project-title" onclick="toggleDetails('project-multisearch')">
-          <strong>Product MultiSearch Tool</strong>
-          <div class="project-tags">
-            <span class="tag">Python</span>
-            <span class="tag">Pandas</span>
-            <span class="tag">Data Processing</span>
-            <span class="tag">Product Search</span>
+            <ul class="space-y-1.5 text-xs text-slate-300 mb-6">
+              <li class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-purple-400 text-[10px]"></i>
+                <span>Rust & Axum high-throughput backend architecture</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-purple-400 text-[10px]"></i>
+                <span>Multi-tenant data isolation & 4-tier RBAC permissions</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-purple-400 text-[10px]"></i>
+                <span>PostgreSQL + Redis caching with OpenAPI REST design</span>
+              </li>
+            </ul>
           </div>
-        </div>
-        <div id="project-multisearch" class="project-details" style="display: none;">
-          <div class="project-content">
-            <h3>Overview</h3>
-            <p>Developed an efficient product search tool that processes multiple product queries simultaneously, identifying products and their variant IDs from large product feeds.</p>
-            
-            <h3>Key Features</h3>
-            <ul>
-              <li>Batch processing of multiple product queries</li>
-              <li>Advanced search algorithm for exact and partial matches</li>
-              <li>Variant ID mapping and validation</li>
-              <li>High-performance data processing using Pandas</li>
-              <li>Input validation and error handling</li>
-            </ul>
-            
-            <h3>Technical Implementation</h3>
-            <ul>
-              <li>Utilized Pandas DataFrames for efficient data manipulation</li>
-              <li>Implemented parallel processing for faster search results</li>
-              <li>Created custom filtering and matching algorithms</li>
-              <li>Built robust input validation system</li>
-            </ul>
-            
-            <h3>Technologies & Skills</h3>
-            <ul class="tech-stack">
-              <li>Python</li>
-              <li>Pandas</li>
-              <li>Data Structures</li>
-              <li>Algorithm Design</li>
-              <li>Performance Optimization</li>
-            </ul>
-            
-            <div class="project-links">
-              <a href="#" target="_blank"><i class="fab fa-github"></i> View Code</a>
-              <a href="#" target="_blank"><i class="fas fa-book"></i> Documentation</a>
-            </div>
-          </div>
-        </div>
-      </li>
 
-      <li>
-        <div class="project-title" onclick="toggleDetails('project-policy-checker')">
-          <strong>Product Policy Compliance Checker</strong>
-          <div class="project-tags">
-            <span class="tag">Python</span>
-            <span class="tag">Tkinter</span>
-            <span class="tag">GUI</span>
-            <span class="tag">Policy Validation</span>
-          </div>
-        </div>
-        <div id="project-policy-checker" class="project-details" style="display: none;">
-          <div class="project-content">
-            <h3>Overview</h3>
-            <p>Created a GUI application using Tkinter to validate product listings against Google's policy requirements, helping identify and flag non-compliant product descriptions.</p>
+          <div>
+            <div class="flex flex-wrap gap-1.5 mb-5">
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-purple-300">Rust</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-purple-300">Axum</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-purple-300">React</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-purple-300">PostgreSQL</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-purple-300">Redis</span>
+            </div>
             
-            <h3>Key Features</h3>
-            <ul>
-              <li>User-friendly GUI interface for easy interaction</li>
-              <li>Real-time product description validation</li>
-              <li>Comprehensive policy compliance checking</li>
-              <li>Detailed violation reporting</li>
-              <li>Batch processing capabilities</li>
-            </ul>
-            
-            <h3>Technical Implementation</h3>
-            <ul>
-              <li>Built intuitive UI with Tkinter widgets</li>
-              <li>Implemented custom validation algorithms</li>
-              <li>Created efficient data processing pipeline</li>
-              <li>Integrated error handling and user feedback</li>
-            </ul>
-            
-            <h3>Technologies & Skills</h3>
-            <ul class="tech-stack">
-              <li>Python</li>
-              <li>Tkinter</li>
-              <li>GUI Development</li>
-              <li>Text Processing</li>
-              <li>Policy Implementation</li>
-            </ul>
-            
-            <div class="project-links">
-              <a href="#" target="_blank"><i class="fab fa-github"></i> View Code</a>
-              <a href="#" target="_blank"><i class="fas fa-desktop"></i> Live Demo</a>
+            <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs font-semibold">
+              <button onclick="openModal('modal-spacetalk')" class="text-purple-400 hover:text-purple-300 flex items-center gap-1">
+                <span>Architecture Deep Dive</span> <i class="fas fa-arrow-right text-[10px]"></i>
+              </button>
             </div>
           </div>
         </div>
-      </li>
 
-      <li>
-        <div class="project-title" onclick="toggleDetails('project-text-analysis')">
-          <strong>Text Analysis Dashboard</strong>
-          <div class="project-tags">
-            <span class="tag">Python</span>
-            <span class="tag">NLP</span>
-            <span class="tag">Streamlit</span>
-            <span class="tag">Data Analysis</span>
-          </div>
-        </div>
-        <div id="project-text-analysis" class="project-details" style="display: none;">
-          <div class="project-content">
-            <h3>Overview</h3>
-            <p>Developed a comprehensive text analysis dashboard using Streamlit that extracts and analyzes text from articles to compute various metrics for sentiment analysis and readability assessment.</p>
-            
-            <h3>Key Features</h3>
-            <ul>
-              <li>Automated text extraction from web articles using BeautifulSoup and Selenium</li>
-              <li>Advanced sentiment analysis with positive/negative scoring</li>
-              <li>Comprehensive readability metrics calculation (FOG Index, complexity scores)</li>
-              <li>Interactive visualization of metrics using Plotly and Seaborn</li>
-              <li>Robust error handling and NLTK resource management</li>
-              <li>Batch processing capabilities with multi-threading</li>
-            </ul>
-            
-            <h3>Technical Implementation</h3>
-            <ul>
-              <li>Implemented parallel processing using ThreadPoolExecutor for efficient batch analysis</li>
-              <li>Created custom algorithms for syllable counting and text complexity analysis</li>
-              <li>Developed interactive dashboards using Streamlit and Plotly</li>
-              <li>Built robust error handling and logging system</li>
-              <li>Integrated multiple text processing libraries (NLTK, BeautifulSoup)</li>
-            </ul>
-            
-            <h3>Technologies & Skills</h3>
-            <ul class="tech-stack">
-              <li>Python</li>
-              <li>Streamlit</li>
-              <li>NLTK</li>
-              <li>BeautifulSoup</li>
-              <li>Selenium</li>
-              <li>Pandas</li>
-              <li>Plotly</li>
-              <li>Threading</li>
-              <li>Web Scraping</li>
-              <li>NLP</li>
-            </ul>
-            
-            <div class="project-links">
-              <a href="#" target="_blank"><i class="fab fa-github"></i> View Code</a>
-              <a href="#" target="_blank"><i class="fas fa-book"></i> Documentation</a>
+        <!-- Project 2: AutoApply Pro -->
+        <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="saas automation">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-mono bg-cyan-950/60 text-cyan-300 border border-cyan-800/50">
+                Full-Stack & Extension
+              </span>
+              <a href="https://github.com/kashyaprahul12659/AutoApplyPro" target="_blank" class="text-slate-400 hover:text-white transition-colors" title="View Source">
+                <i class="fab fa-github text-base"></i>
+              </a>
             </div>
-          </div>
-        </div>
-      </li>
+            
+            <h3 class="text-xl font-bold text-white mb-2 hover:text-cyan-400 transition-colors">
+              AutoApply Pro: Automated Job Application
+            </h3>
+            
+            <p class="text-sm text-slate-400 mb-4 line-clamp-3">
+              Full-stack job application suite featuring a Chrome extension for one-click form filling, AI-powered custom cover letter generation, and JD resume analyzer.
+            </p>
 
-      <li>
-        <div class="project-title" onclick="toggleDetails('project1')">
-          <strong>BCG - Data Science & Advanced Analytics</strong>
-          <div class="project-tags">
-            <span class="tag">Python</span>
-            <span class="tag">Machine Learning</span>
-            <span class="tag">85% Accuracy</span>
-            <span class="tag">Data Analysis</span>
-          </div>
-        </div>
-        <div id="project1" class="project-details" style="display: none;">
-          <div class="project-content">
-            <h3>Overview</h3>
-            <p>Completed a comprehensive customer churn analysis simulation for XYZ Analytics, showcasing advanced data analytics capabilities and strategic problem-solving skills.</p>
-            
-            <h3>Key Achievements</h3>
-            <ul>
-              <li>Achieved 85% prediction accuracy using Random Forest algorithm for customer churn prediction</li>
-              <li>Conducted efficient data analysis using Python (Pandas, NumPy) and advanced visualization techniques</li>
-              <li>Developed and optimized machine learning models for accurate churn prediction</li>
-              <li>Created executive summary with actionable insights for the Associate Director</li>
+            <ul class="space-y-1.5 text-xs text-slate-300 mb-6">
+              <li class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-cyan-400 text-[10px]"></i>
+                <span>One-click Chrome extension for web application forms</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-cyan-400 text-[10px]"></i>
+                <span>AI cover letter generation matching job requirements</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-cyan-400 text-[10px]"></i>
+                <span>Node/Express backend with MongoDB & JWT authentication</span>
+              </li>
             </ul>
-            
-            <h3>Technologies & Skills</h3>
-            <ul class="tech-stack">
-              <li>Python (Scikit-learn, Pandas)</li>
-              <li>Data Visualization</li>
-              <li>Mathematical Modeling</li>
-              <li>Business Understanding</li>
-              <li>Model Evaluation</li>
-              <li>Hypothesis Framing</li>
-              <li>Client Communication</li>
-            </ul>
-            
-            <div class="project-links">
-              <a href="#" target="_blank"><i class="fas fa-certificate"></i> View Certificate</a>
-              <a href="#" target="_blank"><i class="fas fa-file-alt"></i> Project Report</a>
-            </div>
           </div>
-        </div>
-      </li>
 
-      <li>
-        <div class="project-title" onclick="toggleDetails('project2')">
-          <strong>Commonwealth Bank - Data Science & Engineering</strong>
-          <div class="project-tags">
-            <span class="tag">Data Engineering</span>
-            <span class="tag">Data Privacy</span>
-            <span class="tag">Database Design</span>
-          </div>
-        </div>
-        <div id="project2" class="project-details" style="display: none;">
-          <div class="project-content">
-            <h3>Overview</h3>
-            <p>Completed an intensive job simulation focused on Data Management and Engineering for Commonwealth Bank's Data Science team.</p>
+          <div>
+            <div class="flex flex-wrap gap-1.5 mb-5">
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-slate-300">React</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-slate-300">Chrome Ext</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-slate-300">Node/Express</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-slate-300">MongoDB</span>
+            </div>
             
-            <h3>Key Achievements</h3>
-            <ul>
-              <li>Designed and implemented data engineering pipelines for efficient data aggregation</li>
-              <li>Developed data anonymization protocols ensuring compliance with privacy regulations</li>
-              <li>Created well-structured database schemas for optimal information management</li>
-              <li>Implemented social media data analysis strategies</li>
-            </ul>
-            
-            <h3>Technologies & Skills</h3>
-            <ul class="tech-stack">
-              <li>APIs</li>
-              <li>Database Design</li>
-              <li>Data Privacy</li>
-              <li>Data Processing</li>
-              <li>Microsoft Excel</li>
-              <li>Statistics</li>
-              <li>Data Anonymisation</li>
-            </ul>
-            
-            <div class="project-links">
-              <a href="#" target="_blank"><i class="fas fa-certificate"></i> View Certificate</a>
-              <a href="#" target="_blank"><i class="fas fa-database"></i> Database Documentation</a>
+            <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs font-semibold">
+              <button onclick="openModal('modal-autoapply')" class="text-cyan-400 hover:text-cyan-300 flex items-center gap-1">
+                <span>Deep Dive</span> <i class="fas fa-arrow-right text-[10px]"></i>
+              </button>
+              <a href="https://github.com/kashyaprahul12659/AutoApplyPro" target="_blank" class="text-slate-400 hover:text-white flex items-center gap-1">
+                <i class="fab fa-github"></i> <span>GitHub</span>
+              </a>
             </div>
           </div>
         </div>
-      </li>
 
-      <li>
-        <div class="project-title" onclick="toggleDetails('project3')">
-          <strong>Tata - Data Visualization & Insights</strong>
-          <div class="project-tags">
-            <span class="tag">Data Visualization</span>
-            <span class="tag">Business Analytics</span>
-            <span class="tag">Dashboard Design</span>
-          </div>
-        </div>
-        <div id="project3" class="project-details" style="display: none;">
-          <div class="project-content">
-            <h3>Overview</h3>
-            <p>Led a comprehensive data visualization project for Tata Consultancy Services, focusing on creating impactful business insights through effective visual storytelling.</p>
-            
-            <h3>Key Achievements</h3>
-            <ul>
-              <li>Created executive-level data visualizations for strategic decision-making</li>
-              <li>Prepared and conducted meetings with client senior leadership</li>
-              <li>Developed interactive dashboards for business analysis</li>
-              <li>Implemented data cleanup and interpretation strategies</li>
-            </ul>
-            
-            <h3>Technologies & Skills</h3>
-            <ul class="tech-stack">
-              <li>Data Visualization</li>
-              <li>Dashboard Design</li>
-              <li>Data Analysis</li>
-              <li>Data Interpretation</li>
-              <li>Effective Communication</li>
-              <li>Charts & Graphs</li>
-              <li>Visual Basics</li>
-            </ul>
-            
-            <div class="project-links">
-              <a href="#" target="_blank"><i class="fas fa-certificate"></i> View Certificate</a>
-              <a href="#" target="_blank"><i class="fas fa-chart-bar"></i> View Dashboards</a>
+        <!-- Project 3: MemBridge Universal AI Memory Platform -->
+        <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="ai saas">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-mono bg-indigo-950/60 text-indigo-300 border border-indigo-800/50">
+                Universal AI Memory
+              </span>
+              <span class="text-xs font-mono text-indigo-400 flex items-center gap-1.5 font-bold">
+                <i class="fas fa-brain"></i> Vector Vault
+              </span>
             </div>
-          </div>
-        </div>
-      </li>
+            
+            <h3 class="text-xl font-bold text-white mb-2 hover:text-cyan-400 transition-colors">
+              MemBridge: Your AI Brain Everywhere
+            </h3>
+            
+            <p class="text-sm text-slate-400 mb-4 line-clamp-3">
+              Universal AI Memory Platform allowing users to carry conversation context, behavioral traits, and preferences across ChatGPT, Claude, and Gemini seamlessly.
+            </p>
 
-      <li>
-        <div class="project-title" onclick="toggleDetails('project4')">
-          <strong>Tata Cybersecurity - IAM Strategy & Implementation</strong>
-          <div class="project-tags">
-            <span class="tag">Security</span>
-            <span class="tag">IAM</span>
-            <span class="tag">Risk Assessment</span>
+            <ul class="space-y-1.5 text-xs text-slate-300 mb-6">
+              <li class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-indigo-400 text-[10px]"></i>
+                <span>Postgres + Vector DB (Pinecone/Weaviate) memory store</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-indigo-400 text-[10px]"></i>
+                <span>Cross-platform sync SDKs for major AI assistants</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-indigo-400 text-[10px]"></i>
+                <span>Encrypted user-owned memory vault with privacy controls</span>
+              </li>
+            </ul>
           </div>
-        </div>
-        <div id="project4" class="project-details" style="display: none;">
-          <div class="project-content">
-            <h3>Overview</h3>
-            <p>Developed and implemented comprehensive Identity and Access Management (IAM) strategy for enterprise systems.</p>
+
+          <div>
+            <div class="flex flex-wrap gap-1.5 mb-5">
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-indigo-300">Vector DB</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-indigo-300">Node.js</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-indigo-300">PostgreSQL</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-indigo-300">LLM Plugins</span>
+            </div>
             
-            <h3>Key Achievements</h3>
-            <ul>
-              <li>Reduced security incidents by 40%</li>
-              <li>Implemented Zero Trust architecture</li>
-              <li>Developed automated access review system</li>
-            </ul>
-            
-            <h3>Technologies Used</h3>
-            <ul class="tech-stack">
-              <li>Azure AD</li>
-              <li>OAuth 2.0</li>
-              <li>SAML</li>
-              <li>Python (Security Tools)</li>
-            </ul>
-            
-            <div class="project-links">
-              <a href="#" target="_blank"><i class="fas fa-file-pdf"></i> Case Study</a>
-              <a href="#" target="_blank"><i class="fas fa-presentation"></i> Presentation</a>
+            <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs font-semibold">
+              <button onclick="openModal('modal-membridge')" class="text-cyan-400 hover:text-cyan-300 flex items-center gap-1">
+                <span>Deep Dive</span> <i class="fas fa-arrow-right text-[10px]"></i>
+              </button>
             </div>
           </div>
         </div>
-      </li>
-    </ul>
+
+        <!-- Project 4: Khoya-Paya Agent (Claude Impact Lab Mumbai 2026) -->
+        <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between border-cyan-500/30" data-category="ai">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-mono bg-cyan-950/60 text-cyan-300 border border-cyan-800/50">
+                Claude Impact Lab 2026
+              </span>
+              <span class="text-xs font-mono text-cyan-400 font-bold">
+                Kumbh Mela 2027
+              </span>
+            </div>
+            
+            <h3 class="text-xl font-bold text-white mb-2 hover:text-cyan-400 transition-colors">
+              Khoya-Paya Agent
+            </h3>
+            
+            <p class="text-sm text-slate-400 mb-4 line-clamp-3">
+              Claude-powered unified registry auto-matching missing and found persons across tents at massive pilgrim gatherings. Works phoneless for elderly pilgrims via loudspeaker PA and SMS.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-slate-300 mb-6">
+              <li class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-cyan-400 text-[10px]"></i>
+                <span>Automated missing ↔ found entity resolution using Claude</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-cyan-400 text-[10px]"></i>
+                <span>Rust API + Offline PWA for zero-connectivity environments</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-cyan-400 text-[10px]"></i>
+                <span>Automated loudspeaker broadcast & SMS reunification alerts</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="flex flex-wrap gap-1.5 mb-5">
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-cyan-300">Claude AI</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-cyan-300">Rust API</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-cyan-300">Docker</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-cyan-300">Offline PWA</span>
+            </div>
+            
+            <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs font-semibold">
+              <button onclick="openModal('modal-khoyapaya')" class="text-cyan-400 hover:text-cyan-300 flex items-center gap-1">
+                <span>Case Study</span> <i class="fas fa-arrow-right text-[10px]"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5: Automated Lead Generation Engine -->
+        <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="automation">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-mono bg-emerald-950/60 text-emerald-300 border border-emerald-800/50">
+                High-Throughput Scraping
+              </span>
+              <i class="fas fa-bolt text-emerald-400"></i>
+            </div>
+            
+            <h3 class="text-xl font-bold text-white mb-2 hover:text-cyan-400 transition-colors">
+              Automated Lead Generation Engine
+            </h3>
+            
+            <p class="text-sm text-slate-400 mb-4 line-clamp-3">
+              Automated data mining pipeline that extracts, verifies, and scores high-intent B2B prospect data across enterprise directories with proxy rotation and anti-bot handling.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-slate-300 mb-6">
+              <li class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-emerald-400 text-[10px]"></i>
+                <span>Selenium & BeautifulSoup resilient web scraping</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-emerald-400 text-[10px]"></i>
+                <span>Multi-proxy pool rotation with randomized delays</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-emerald-400 text-[10px]"></i>
+                <span>Automated contact enrichment and scoring</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="flex flex-wrap gap-1.5 mb-5">
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-slate-300">Python</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-slate-300">Selenium</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-slate-300">BeautifulSoup</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-slate-300">APIs</span>
+            </div>
+            
+            <div class="flex items-center gap-3 pt-3 border-t border-slate-800/80 text-xs font-semibold">
+              <button onclick="openModal('modal-leadgen')" class="text-cyan-400 hover:text-cyan-300 flex items-center gap-1">
+                <span>Deep Dive</span> <i class="fas fa-arrow-right text-[10px]"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6: IndiaMART Importer for Shopify -->
+        <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="saas automation">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-mono bg-blue-950/60 text-blue-300 border border-blue-800/50">
+                Shopify Integration
+              </span>
+              <a href="https://github.com/kashyaprahul12659/indiamart-importer" target="_blank" class="text-slate-400 hover:text-white transition-colors" title="View Source">
+                <i class="fab fa-github text-base"></i>
+              </a>
+            </div>
+            
+            <h3 class="text-xl font-bold text-white mb-2 hover:text-cyan-400 transition-colors">
+              IndiaMART Importer for Shopify
+            </h3>
+            
+            <p class="text-sm text-slate-400 mb-4 line-clamp-3">
+              Full-stack application that enables Shopify merchants to automate the extraction and sync of product listings, pricing, and variants from IndiaMART directly into their store catalog.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-slate-300 mb-6">
+              <li class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-blue-400 text-[10px]"></i>
+                <span>Direct Shopify Admin REST & GraphQL API synchronization</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-chevron-right text-blue-400 text-[10px]"></i>
+                <span>Prisma ORM database schema managing import feeds</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="flex flex-wrap gap-1.5 mb-5">
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-slate-300">TypeScript</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-slate-300">Next.js</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-slate-300">Prisma</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded badge-pill text-slate-300">Shopify API</span>
+            </div>
+            
+            <div class="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs font-semibold">
+              <button onclick="openModal('modal-importer')" class="text-cyan-400 hover:text-cyan-300 flex items-center gap-1">
+                <span>Deep Dive</span> <i class="fas fa-arrow-right text-[10px]"></i>
+              </button>
+              <a href="https://github.com/kashyaprahul12659/indiamart-importer" target="_blank" class="text-slate-400 hover:text-white flex items-center gap-1">
+                <i class="fab fa-github"></i> <span>GitHub</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
   </section>
 
-  <!-- Education Section -->
-  <section class="education container" data-aos="fade-up">
-    <h2>Education</h2>
-    <ul>
-      <li>
-        <div class="education-title" onclick="toggleDetails('edu1')">
-          <strong>Advanced Certificate, Cyber Security</strong>
-        </div>
-        <div id="edu1" class="education-details" style="display: none;">
-          <p>IIIT Bangalore</p>
-        </div>
-      </li>
-      <li>
-        <div class="education-title" onclick="toggleDetails('edu2')">
-          <strong>Integrated Master of Computer Applications (IMCA)</strong>
-        </div>
-        <div id="edu2" class="education-details" style="display: none;">
-          <p>L.J. Institute of Engineering & Technology</p>
-        </div>
-      </li>
-    </ul>
+  <!-- SKILLS MATRIX -->
+  <section id="skills" class="py-20 max-w-7xl mx-auto px-6">
+    <div class="max-w-3xl mb-14">
+      <span class="text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold">Capabilities</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 tracking-tight">
+        Technical <span class="gradient-text">Skill Matrix</span>
+      </h2>
+      <p class="text-slate-400 mt-2 text-base">Core technologies, Big Tech analytics tools, programming languages, and frameworks.</p>
+    </div>
 
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <!-- Big Tech & Search Analytics -->
+      <div class="glass-card rounded-2xl p-6 border-blue-500/30">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
+            <i class="fab fa-microsoft text-lg"></i>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-white">Product & Search Analytics</h3>
+            <span class="text-xs text-blue-400 font-mono">Microsoft & Copilot</span>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Microsoft Copilot</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">KQL (Kusto Query Language)</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Search Query Relevance</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Result Accuracy Evaluation</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Telemetry & Funnel Analysis</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Microsoft 365 Analytics</span>
+        </div>
+      </div>
+
+      <!-- AI Systems & LLMs -->
+      <div class="glass-card rounded-2xl p-6 border-purple-500/30">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
+            <i class="fas fa-brain text-lg"></i>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-white">AI Systems & Agents</h3>
+            <span class="text-xs text-purple-400 font-mono">LLMs & Architectures</span>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Prompt Engineering</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Vector Databases (Pinecone/Weaviate)</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Context Memory Vaults</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">ASR & Speech Intelligence</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Scikit-Learn & Random Forest</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Natural Language (NLTK)</span>
+        </div>
+      </div>
+
+      <!-- Languages & Systems Engineering -->
+      <div class="glass-card rounded-2xl p-6">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
+            <i class="fas fa-code text-lg"></i>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-white">Programming & Systems</h3>
+            <span class="text-xs text-slate-400 font-mono">Backend & Frontend</span>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Rust (Axum)</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Python (Pandas, NumPy)</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">SQL & PostgreSQL</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">TypeScript & Node.js</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">React.js & Next.js</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Flutter & Dart</span>
+        </div>
+      </div>
+
+      <!-- Data Analytics & BI -->
+      <div class="glass-card rounded-2xl p-6">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
+            <i class="fas fa-chart-pie text-lg"></i>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-white">Data Analytics & BI</h3>
+            <span class="text-xs text-slate-400 font-mono">Visualization & Testing</span>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Power BI Dashboards</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Tableau Reporting</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Statistical A/B Testing</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Google Ads & Bing Ads</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Google Analytics (GA4)</span>
+        </div>
+      </div>
+
+      <!-- Web Scraping & Automation -->
+      <div class="glass-card rounded-2xl p-6">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+            <i class="fas fa-robot text-lg"></i>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-white">Automation & Mining</h3>
+            <span class="text-xs text-slate-400 font-mono">Web Scraping & APIs</span>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Selenium WebDriver</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">BeautifulSoup4</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">REST & GraphQL APIs</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Proxy Rotation</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Chrome Extension Dev</span>
+        </div>
+      </div>
+
+      <!-- Cybersecurity & Cloud -->
+      <div class="glass-card rounded-2xl p-6">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400">
+            <i class="fas fa-shield-virus text-lg"></i>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-white">Cybersecurity & Cloud</h3>
+            <span class="text-xs text-slate-400 font-mono">Zero Trust & IAM</span>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Identity & Access (IAM)</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Zero Trust Architecture</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Docker & Docker Compose</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Azure & GCP</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium badge-pill text-slate-200">Data Anonymization</span>
+        </div>
+      </div>
+
+    </div>
   </section>
 
-  <!-- Contact Section -->
-  <section class="contact container" data-aos="fade-up">
-    <h2>Contact Me</h2>
-    <p><i class="fas fa-envelope"></i> <a href="mailto:kashyaprahul535@gmail.com">kashyaprahul535@gmail.com</a></p>
-    <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/rahul-kashyap-6698b5176" target="_blank">Rahul Kashyap</a></p>
-    <p><i class="fas fa-phone"></i> +91 7016792897 (Mobile)</p>
-    <p><i class="fas fa-map-marker-alt"></i> B 430, Gujarat Housing Board Society, Near Ramji Mandir, Bhadreshwar, Sardar Nagar, Ahmedabad, Gujarat, 382475</p>
-    <p><i class="fas fa-globe"></i> <a href="https://rahulinmotion.me/" target="_blank">https://rahulinmotion.me/</a></p>
+  <!-- EDUCATION & CERTIFICATIONS -->
+  <section id="education" class="py-20 border-t border-slate-900 bg-slate-950/50">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="max-w-3xl mb-14">
+        <span class="text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold">Credentials</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 tracking-tight">
+          Education & <span class="gradient-text">Certifications</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- IIIT Bangalore -->
+        <div class="glass-card rounded-2xl p-6 flex items-start gap-4">
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 flex-shrink-0">
+            <i class="fas fa-graduation-cap text-xl"></i>
+          </div>
+          <div>
+            <span class="text-xs font-mono text-cyan-400 font-semibold">Postgraduate Certificate (July 2022 – March 2023)</span>
+            <h3 class="text-lg font-bold text-white mt-0.5">Advanced Certificate Programme in Cyber Security</h3>
+            <p class="text-slate-300 text-sm mt-1">International Institute of Information Technology Bangalore (IIITB)</p>
+          </div>
+        </div>
+
+        <!-- IMCA -->
+        <div class="glass-card rounded-2xl p-6 flex items-start gap-4">
+          <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 flex-shrink-0">
+            <i class="fas fa-university text-xl"></i>
+          </div>
+          <div>
+            <span class="text-xs font-mono text-indigo-400 font-semibold">Master's & Bachelor's Degree</span>
+            <h3 class="text-lg font-bold text-white mt-0.5">Integrated Master of Computer Applications (IMCA)</h3>
+            <p class="text-slate-300 text-sm mt-1">L.J. Institute of Engineering & Technology (LJIET)</p>
+          </div>
+        </div>
+
+        <!-- BCG Simulation -->
+        <div class="glass-card rounded-2xl p-6 flex items-start gap-4">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 flex-shrink-0">
+            <i class="fas fa-certificate text-xl"></i>
+          </div>
+          <div>
+            <span class="text-xs font-mono text-purple-400 font-semibold">Verified Certification</span>
+            <h3 class="text-lg font-bold text-white mt-0.5">BCG - Data Science Job Simulation</h3>
+            <p class="text-slate-400 text-xs mt-1">Predictive customer churn modeling with 85% accuracy using Random Forest.</p>
+          </div>
+        </div>
+
+        <!-- Tata Group Simulation -->
+        <div class="glass-card rounded-2xl p-6 flex items-start gap-4">
+          <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 flex-shrink-0">
+            <i class="fas fa-shield-alt text-xl"></i>
+          </div>
+          <div>
+            <span class="text-xs font-mono text-blue-400 font-semibold">Verified Certification</span>
+            <h3 class="text-lg font-bold text-white mt-0.5">Tata Group - Cybersecurity Analyst Job Simulation</h3>
+            <p class="text-slate-400 text-xs mt-1">Identity & Access Management (IAM) framework design & risk assessments.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
   </section>
 
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="py-24 max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      
+      <!-- Left Info -->
+      <div class="lg:col-span-5 flex flex-col justify-between space-y-8">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold">Get In Touch</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 tracking-tight">
+            Let's Build Something <span class="gradient-text">Extraordinary</span>
+          </h2>
+          <p class="text-slate-400 mt-4 text-base leading-relaxed">
+            Interested in discussing Product Analytics, AI Agent architectures, conversation intelligence, or technical collaborations? Feel free to reach out directly.
+          </p>
+        </div>
+
+        <!-- Direct Contact Cards -->
+        <div class="space-y-4">
+          <!-- Email Card -->
+          <div class="glass-card rounded-xl p-4 flex items-center justify-between group">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <span class="text-xs font-mono text-slate-400 block">Direct Email</span>
+                <a href="mailto:kashyaprahul535@gmail.com" class="text-sm font-semibold text-white group-hover:text-cyan-400 transition-colors">
+                  kashyaprahul535@gmail.com
+                </a>
+              </div>
+            </div>
+            <button onclick="copyToClipboard('kashyaprahul535@gmail.com', 'Email copied!')" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-cyan-300 transition-colors" title="Copy Email">
+              <i class="far fa-copy text-sm"></i>
+            </button>
+          </div>
+
+          <!-- Phone Card -->
+          <div class="glass-card rounded-xl p-4 flex items-center justify-between group">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-indigo-500/10 text-indigo-400 flex items-center justify-center">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div>
+                <span class="text-xs font-mono text-slate-400 block">Mobile</span>
+                <span class="text-sm font-semibold text-white">+91 7016792897</span>
+              </div>
+            </div>
+            <button onclick="copyToClipboard('+917016792897', 'Phone number copied!')" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-cyan-300 transition-colors" title="Copy Phone">
+              <i class="far fa-copy text-sm"></i>
+            </button>
+          </div>
+
+          <!-- Location Card -->
+          <div class="glass-card rounded-xl p-4 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center">
+              <i class="fas fa-location-dot"></i>
+            </div>
+            <div>
+              <span class="text-xs font-mono text-slate-400 block">Location</span>
+              <span class="text-sm font-semibold text-white">Ahmedabad, Gujarat, India</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social Buttons -->
+        <div class="flex items-center gap-3 pt-2">
+          <a href="https://github.com/kashyaprahul12659" target="_blank" rel="noopener" class="px-4 py-2.5 rounded-xl glass-card text-slate-300 hover:text-white hover:border-cyan-500/50 flex items-center gap-2 text-xs font-semibold transition-all">
+            <i class="fab fa-github text-sm"></i> GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/rahul-kashyap-6698b5176" target="_blank" rel="noopener" class="px-4 py-2.5 rounded-xl glass-card text-slate-300 hover:text-white hover:border-cyan-500/50 flex items-center gap-2 text-xs font-semibold transition-all">
+            <i class="fab fa-linkedin text-sm"></i> LinkedIn
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Right Form -->
+      <div class="lg:col-span-7">
+        <div class="glass-card rounded-3xl p-8 md:p-10 border border-slate-800">
+          <h3 class="text-xl font-bold text-white mb-2">Send a Message</h3>
+          <p class="text-sm text-slate-400 mb-6">Drop a note directly to my inbox.</p>
+
+          <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label for="name" class="block text-xs font-mono text-slate-400 uppercase mb-2">Your Name</label>
+                <input type="text" id="name" required placeholder="Jane Doe" class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-800 text-white placeholder-slate-600 focus:outline-none focus:border-cyan-500 transition-colors text-sm" />
+              </div>
+              <div>
+                <label for="email" class="block text-xs font-mono text-slate-400 uppercase mb-2">Your Email</label>
+                <input type="email" id="email" required placeholder="jane@example.com" class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-800 text-white placeholder-slate-600 focus:outline-none focus:border-cyan-500 transition-colors text-sm" />
+              </div>
+            </div>
+
+            <div>
+              <label for="subject" class="block text-xs font-mono text-slate-400 uppercase mb-2">Subject / Purpose</label>
+              <input type="text" id="subject" required placeholder="Project Collaboration / Inquiries" class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-800 text-white placeholder-slate-600 focus:outline-none focus:border-cyan-500 transition-colors text-sm" />
+            </div>
+
+            <div>
+              <label for="message" class="block text-xs font-mono text-slate-400 uppercase mb-2">Message</label>
+              <textarea id="message" rows="5" required placeholder="Hi Rahul, I came across your work on SpaceTalk and Bing Sports..." class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-800 text-white placeholder-slate-600 focus:outline-none focus:border-cyan-500 transition-colors text-sm resize-none"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-sm shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all flex items-center justify-center gap-2">
+              <i class="fas fa-paper-plane text-xs"></i>
+              <span>Send Message</span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-900 bg-slate-950 py-10">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center font-mono font-bold text-white text-xs">
+          RK
+        </div>
+        <span class="text-sm font-semibold text-slate-300">Rahul Kashyap</span>
+      </div>
+
+      <p class="text-xs text-slate-500 text-center">
+        &copy; <span id="year">2026</span> Rahul Kashyap. Hosted on GitHub Pages with Custom Domain.
+      </p>
+
+      <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="w-9 h-9 rounded-lg glass-card flex items-center justify-center text-slate-400 hover:text-cyan-400 transition-colors" title="Back to Top">
+        <i class="fas fa-arrow-up text-xs"></i>
+      </button>
+    </div>
+  </footer>
+
+  <!-- DEEP DIVE MODAL -->
+  <div id="project-modal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="glass-card bg-slate-900/95 border border-slate-700/80 max-w-2xl w-full rounded-3xl p-6 md:p-8 max-h-[90vh] overflow-y-auto relative shadow-2xl">
+      <button onclick="closeModal()" class="absolute top-6 right-6 w-9 h-9 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition-colors">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <div id="modal-content" class="space-y-4">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
   <script>
-    // Loading Screen
-    window.addEventListener('load', function() {
-      document.querySelector('.loading').style.display = 'none';
-    });
+    // 1. Dynamic Role Typing
+    const roles = [
+      "Copilot & Search Telemetry",
+      "B2B SaaS with Rust & React",
+      "Universal AI Memory Vaults",
+      "High-Throughput Automations"
+    ];
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const roleElem = document.getElementById("role-text");
 
-    // Back to Top Button
-    window.addEventListener('scroll', function() {
-      const backToTop = document.querySelector('.back-to-top');
-      if (window.pageYOffset > 300) {
-        backToTop.classList.add('visible');
+    function typeRoles() {
+      const currentRole = roles[roleIndex];
+      if (isDeleting) {
+        roleElem.textContent = currentRole.substring(0, charIndex - 1);
+        charIndex--;
       } else {
-        backToTop.classList.remove('visible');
-      }
-    });
-
-    document.querySelector('.back-to-top').addEventListener('click', function() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Skill Bars Animation
-    function initSkillBars() {
-      const skills = {
-        'Python': 90,
-        'SQL': 85,
-        'Data Visualization': 88,
-        'Machine Learning': 82,
-        'Cybersecurity': 80,
-        'Cloud Services': 85
-      };
-
-      const skillsSection = document.querySelector('.skills ul');
-      skillsSection.innerHTML = '';
-
-      for (const [skill, level] of Object.entries(skills)) {
-        const skillHTML = `
-          <li>
-            <div class="skill-title">
-              <span>${skill}</span>
-              <span>${level}%</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-progress" style="width: 0%"></div>
-            </div>
-          </li>
-        `;
-        skillsSection.innerHTML += skillHTML;
+        roleElem.textContent = currentRole.substring(0, charIndex + 1);
+        charIndex++;
       }
 
-      // Animate skill bars when they come into view
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const progressBars = entry.target.querySelectorAll('.skill-progress');
-            progressBars.forEach((bar, index) => {
-              const level = Object.values(skills)[index];
-              setTimeout(() => {
-                bar.style.width = `${level}%`;
-              }, 200 * index);
-            });
-          }
-        });
+      let speed = isDeleting ? 35 : 75;
+
+      if (!isDeleting && charIndex === currentRole.length) {
+        speed = 2200;
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        speed = 400;
+      }
+
+      setTimeout(typeRoles, speed);
+    }
+    document.addEventListener("DOMContentLoaded", typeRoles);
+
+    // 2. Mobile Menu Toggle
+    const menuBtn = document.getElementById("mobile-menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuIcon = document.getElementById("menu-icon");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+      menuIcon.classList.toggle("fa-bars");
+      menuIcon.classList.toggle("fa-times");
+    });
+
+    document.querySelectorAll(".mobile-nav-link").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+        menuIcon.classList.add("fa-bars");
+        menuIcon.classList.remove("fa-times");
+      });
+    });
+
+    // 3. Project Filter Tabs
+    function filterProjects(category) {
+      document.querySelectorAll(".project-filter-btn").forEach(btn => {
+        if (btn.getAttribute("data-filter") === category) {
+          btn.classList.add("bg-cyan-500", "text-slate-950");
+          btn.classList.remove("text-slate-400");
+        } else {
+          btn.classList.remove("bg-cyan-500", "text-slate-950");
+          btn.classList.add("text-slate-400");
+        }
       });
 
-      observer.observe(document.querySelector('.skills'));
-    }
-
-    function toggleDetails(id) {
-      var details = document.getElementById(id);
-      if (details.style.display === "none") {
-        details.style.display = "block";
-      } else {
-        details.style.display = "none";
-      }
-    }
-
-    // Initialize everything
-    document.addEventListener('DOMContentLoaded', function() {
-      AOS.init({
-        duration: 1000,
-        once: true,
-        offset: 100
+      const cards = document.querySelectorAll(".project-card");
+      cards.forEach(card => {
+        const categories = card.getAttribute("data-category");
+        if (category === "all" || categories.includes(category)) {
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
       });
-      initSkillBars();
+    }
+
+    // 4. Copy to Clipboard
+    function copyToClipboard(text, message) {
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById("toast");
+        const toastText = document.getElementById("toast-text");
+        toastText.textContent = message || "Copied to clipboard!";
+        toast.classList.add("show");
+        setTimeout(() => {
+          toast.classList.remove("show");
+        }, 2500);
+      });
+    }
+
+    // 5. Contact Form Handler
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const subject = document.getElementById("subject").value;
+      const message = document.getElementById("message").value;
+
+      const mailtoUrl = `mailto:kashyaprahul535@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("From: " + name + " (" + email + ")\n\n" + message)}`;
+      window.location.href = mailtoUrl;
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // 6. Modal Database
+    const modalData = {
+      'modal-spacetalk': {
+        title: 'SpaceTalk: Conversation Intelligence SaaS',
+        badge: 'Founder Project • Rust / Axum & React',
+        description: 'Multi-tenant B2B SaaS web application for contact-center conversation intelligence. Automatically ingests call audio, generates transcriptions with ASR connectors, extracts summaries, and executes automated agent QA scoring.',
+        features: [
+          'High-performance backend written in Rust utilizing the Axum async web framework.',
+          'Multi-tenancy architecture with complete database isolation per customer organization.',
+          'Role-Based Access Control (RBAC) with 4 granular roles: Agent, QA Reviewer, Manager, Admin.',
+          'Redis caching layer and PostgreSQL primary storage with RESTful OpenAPI specs.'
+        ],
+        stack: ['Rust', 'Axum', 'React', 'PostgreSQL', 'Redis', 'Docker', 'JWT', 'ASR Service Connectors'],
+        links: [
+          { text: 'GitHub Organization', url: 'https://github.com/kashyaprahul12659/SpaceTalk', icon: 'fab fa-github' }
+        ]
+      },
+      'modal-autoapply': {
+        title: 'AutoApply Pro: Automated Job Applications',
+        badge: 'Full-Stack Web App + Chrome Extension',
+        description: 'End-to-end full-stack automation platform that eliminates repetitive form filling across job boards. Users maintain resume profiles and use a custom Chrome extension for one-click form completion.',
+        features: [
+          'Chrome Extension with content script injection for one-click ATS job form population.',
+          'AI-powered Cover Letter generation tailored dynamically to target Job Descriptions.',
+          'JD Analyzer tool calculating keyword compatibility score between resume and listing.',
+          'Node.js/Express backend with MongoDB Atlas, JWT auth, and active deployment on Heroku.'
+        ],
+        stack: ['React.js', 'Tailwind CSS', 'Chrome Extension API', 'Node.js', 'Express', 'MongoDB', 'JWT'],
+        links: [
+          { text: 'View Repository', url: 'https://github.com/kashyaprahul12659/AutoApplyPro', icon: 'fab fa-github' }
+        ]
+      },
+      'modal-membridge': {
+        title: 'MemBridge: Universal AI Memory Platform',
+        badge: 'Vector DB & AI Platform Architecture',
+        description: 'Universal user-owned Memory Vault that bridges conversation context, behavioral traits, and preferences across ChatGPT, Claude, Gemini, and Grok.',
+        features: [
+          'Postgres and Vector Database integration (Pinecone/Weaviate) for semantic context recall.',
+          'Central Memory API with fine-grained user privacy controls and data encryption.',
+          'Cross-platform sync connectors enabling unified personality and task tracking across LLMs.'
+        ],
+        stack: ['Node.js', 'Express', 'PostgreSQL', 'Vector Databases', 'OAuth', 'AI Plugins'],
+        links: [
+          { text: 'GitHub Profile', url: 'https://github.com/kashyaprahul12659', icon: 'fab fa-github' }
+        ]
+      },
+      'modal-khoyapaya': {
+        title: 'Khoya-Paya Agent: Claude Impact Lab Mumbai 2026',
+        badge: 'AI Social Good Hackathon • Kumbh Mela 2027',
+        description: 'Claude-powered unified registry auto-matching missing and found reports across all relief centers. Designed for high-density crowds at Nashik Kumbh Mela 2027 with offline resilience.',
+        features: [
+          'Claude-driven fuzzy semantic matching between missing person descriptions and found reports.',
+          'Offline-first Progressive Web App (PWA) running on single tablets per camp tent.',
+          'Automated PA loudspeaker announcements and SMS broadcast dispatch system.'
+        ],
+        stack: ['Claude API', 'Rust Backend', 'Docker', 'Offline PWA', 'Twilio / SMS Gateway'],
+        links: [
+          { text: 'GitHub Repository', url: 'https://github.com/SumeetGDoshi/claude-impact-labs-data', icon: 'fab fa-github' }
+        ]
+      },
+      'modal-leadgen': {
+        title: 'Automated Lead Generation Engine',
+        badge: 'Python Web Scraping & Data Mining',
+        description: 'High-throughput automated data extraction pipeline identifying, validating, and qualifying B2B prospect contacts across web registries.',
+        features: [
+          'Resilient Selenium & BeautifulSoup web scraping with dynamic waiting algorithms.',
+          'Proxy rotation pool and randomized wait-state heuristics to bypass rate limits.',
+          'Lead scoring and structured export to CSV/database.'
+        ],
+        stack: ['Python 3', 'Selenium', 'BeautifulSoup4', 'Pandas', 'Requests'],
+        links: [
+          { text: 'GitHub Profile', url: 'https://github.com/kashyaprahul12659', icon: 'fab fa-github' }
+        ]
+      },
+      'modal-importer': {
+        title: 'IndiaMART Product Importer for Shopify',
+        badge: 'Full-Stack E-Commerce Automation',
+        description: 'Automates product sourcing from IndiaMART supplier feeds directly into Shopify stores via the Shopify Admin REST/GraphQL APIs.',
+        features: [
+          'Automated product specification, pricing, and media extraction.',
+          'Direct integration with Shopify Admin API for catalog generation.',
+          'Prisma ORM database schema managing import logs and feeds.'
+        ],
+        stack: ['TypeScript', 'Next.js', 'Prisma ORM', 'Shopify Admin API'],
+        links: [
+          { text: 'View on GitHub', url: 'https://github.com/kashyaprahul12659/indiamart-importer', icon: 'fab fa-github' }
+        ]
+      }
+    };
+
+    function openModal(modalId) {
+      const data = modalData[modalId];
+      if (!data) return;
+
+      const content = document.getElementById("modal-content");
+      content.innerHTML = `
+        <div class="flex items-center gap-2">
+          <span class="px-3 py-1 rounded-full text-xs font-mono bg-cyan-950/80 text-cyan-300 border border-cyan-800/50">${data.badge}</span>
+        </div>
+        <h3 class="text-2xl font-extrabold text-white">${data.title}</h3>
+        <p class="text-sm text-slate-300 leading-relaxed">${data.description}</p>
+        
+        <div>
+          <h4 class="text-xs font-mono uppercase text-cyan-400 font-bold mb-2">Key Highlights</h4>
+          <ul class="space-y-1.5 text-xs text-slate-300">
+            ${data.features.map(f => `<li class="flex items-start gap-2"><i class="fas fa-check text-cyan-400 mt-0.5"></i><span>${f}</span></li>`).join('')}
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-mono uppercase text-cyan-400 font-bold mb-2">Technologies & Architecture</h4>
+          <div class="flex flex-wrap gap-1.5">
+            ${data.stack.map(s => `<span class="px-2.5 py-1 rounded text-xs font-mono badge-pill text-slate-300">${s}</span>`).join('')}
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-800 flex items-center gap-3">
+          ${data.links.map(l => `
+            <a href="${l.url}" target="_blank" rel="noopener" class="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs flex items-center gap-1.5 transition-colors">
+              <i class="${l.icon}"></i> <span>${l.text}</span>
+            </a>
+          `).join('')}
+          <button onclick="closeModal()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold transition-colors">
+            Close
+          </button>
+        </div>
+      `;
+
+      document.getElementById("project-modal").classList.remove("hidden");
+    }
+
+    function closeModal() {
+      document.getElementById("project-modal").classList.add("hidden");
+    }
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeModal();
     });
-  </script>
-
-  <!-- AOS JS (Animate On Scroll) -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-  <!-- Particles.js CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script>
-    /* Updated ParticlesJS Config */
-    particlesJS('particles-js', {
-      particles: {
-        number: { value: 100 },
-        color: { value: '#ffffff' },
-        shape: {
-          type: 'circle',
-          stroke: { width: 0, color: '#000000' },
-        },
-        opacity: {
-          value: 0.5,
-          random: false,
-        },
-        size: {
-          value: 3,
-          random: true,
-        },
-        line_linked: {
-          enable: true,
-          distance: 150,
-          color: '#ffffff',
-          opacity: 0.4,
-          width: 1,
-        },
-        move: {
-          enable: true,
-          speed: 2,
-          direction: 'none',
-          random: false,
-          straight: false,
-          out_mode: 'out',
-        },
-      },
-      interactivity: {
-        detect_on: 'canvas',
-        events: {
-          onhover: { enable: true, mode: 'repulse' },
-          onclick: { enable: true, mode: 'push' },
-        },
-        modes: {
-          repulse: { distance: 100, duration: 0.4 },
-          push: { particles_nb: 4 },
-        },
-      },
-      retina_detect: true,
+    document.getElementById("project-modal").addEventListener("click", (e) => {
+      if (e.target.id === "project-modal") closeModal();
     });
   </script>
 </body>
