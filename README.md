@@ -1,28 +1,24 @@
-# Rahul Kashyap - Portfolio
+# Rahul Kashyap - Product Analytics & AI Automation
 
-Welcome to my personal portfolio website hosted on GitHub Pages. This site showcases my professional experience, technical skills, and projects in Data Science, Market Insights, and Cybersecurity.
+Product Analyst working on Bing Sports, with experience in search-query evaluation, advertising reporting, e-commerce analytics, and practical software automation. Based in Ahmedabad, India.
 
-## 🔥 About Me
-Data Analyst with expertise in Python, SQL, Power BI, and data visualization. Skilled in market research, trend analysis, and cybersecurity. Passionate about transforming raw data into actionable insights.
+## Selected work
 
-## 🛠️ Technical Skills
-- **Programming:** Python (Pandas, NumPy), SQL, JavaScript
-- **Data Analysis:** Exploratory Data Analysis (EDA), Data Processing
-- **Visualization:** Power BI, Tableau, Google Data Studio
-- **Machine Learning:** Model Optimization, Model Evaluation
-- **Cybersecurity:** IAM Principles, Security Awareness
-- **Cloud Services:** Google Cloud Console, AWS
+| Project | What to inspect |
+| --- | --- |
+| [Synthetic search funnel experiment](product-analytics-case-study/README.md) | Reproducible SQL and Python analysis, confidence intervals, a latency guardrail, a notebook, and a dashboard. AI-assisted demonstration using generated data; not an employer result. |
+| [DaVinci Director MCP](https://github.com/kashyaprahul12659/davinci-director-mcp) | Python/MCP integration, rhythm analysis, timeline preparation, and LUT generation. See its documented validation boundaries. |
+| [AutoApplyPro](https://github.com/kashyaprahul12659/AutoApplyPro) | React/Node.js web app and browser extension for assisted form filling. |
+| [IndiaMART Importer](https://github.com/kashyaprahul12659/indiamart-importer) | Early TypeScript/Remix supplier-product import prototype, with scope and setup gaps documented. |
 
-## 🚀 Projects
-- **Customer Churn Analysis (BCG)** - Developed a predictive model achieving 85% accuracy.
-- **Data Engineering Pipeline (Commonwealth Bank)** - Built structured & unstructured data pipelines.
-- **IAM Strategy Assessment (Tata Cybersecurity)** - Developed IAM risk management principles.
+## Analytics tools
 
-## 📩 Contact Me
-- **Email:** kashyaprahul535@gmail.com
-- **LinkedIn:** [Rahul Kashyap](https://www.linkedin.com/in/rahulkashyap-6698b5176)
-- **Portfolio Website:** [GitHub Pages Link](https://kashyaprahul12659.github.io)
+SQL, Python (Pandas, NumPy), KQL, Power BI, Tableau, GA4, and BigQuery. Areas of interest: product metrics, search relevance, experimentation, funnel analysis, and automation.
 
-## 📌 License
-This portfolio is open-source under the MIT License. Feel free to use and modify!
+## Learning
 
+Forage job simulations and certificates are training activities. They are distinct from paid employment and production project outcomes.
+
+## Connect
+
+[LinkedIn](https://www.linkedin.com/in/kashyaprahul535/) · [GitHub](https://github.com/kashyaprahul12659)

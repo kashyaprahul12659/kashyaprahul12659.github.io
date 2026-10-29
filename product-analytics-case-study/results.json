@@ -1,0 +1,80 @@
+{
+  "data_notice": "SYNTHETIC DEMONSTRATION; not employer/client results",
+  "metrics": [
+    {
+      "variant": "control",
+      "sessions": 5983,
+      "conversions": 624,
+      "conversion_rate_pct": 10.43,
+      "mean_latency_ms": 479.0,
+      "no_results_pct": 7.92
+    },
+    {
+      "variant": "treatment",
+      "sessions": 6017,
+      "conversions": 739,
+      "conversion_rate_pct": 12.28,
+      "mean_latency_ms": 547.5,
+      "no_results_pct": 5.75
+    }
+  ],
+  "device_metrics": [
+    {
+      "device": "desktop",
+      "variant": "control",
+      "sessions": 2140,
+      "conversion_rate_pct": 11.45,
+      "mean_latency_ms": 477.9
+    },
+    {
+      "device": "desktop",
+      "variant": "treatment",
+      "sessions": 2117,
+      "conversion_rate_pct": 13.56,
+      "mean_latency_ms": 544.2
+    },
+    {
+      "device": "mobile",
+      "variant": "control",
+      "sessions": 3843,
+      "conversion_rate_pct": 9.86,
+      "mean_latency_ms": 479.7
+    },
+    {
+      "device": "mobile",
+      "variant": "treatment",
+      "sessions": 3900,
+      "conversion_rate_pct": 11.59,
+      "mean_latency_ms": 549.3
+    }
+  ],
+  "funnel_metrics": [
+    {
+      "variant": "control",
+      "result_click_rate_pct": 35.89,
+      "click_to_conversion_pct": 29.06
+    },
+    {
+      "variant": "treatment",
+      "result_click_rate_pct": 41.28,
+      "click_to_conversion_pct": 29.75
+    }
+  ],
+  "effect_percentage_points": 1.852317647772228,
+  "relative_lift_pct": 17.76028283112378,
+  "ci_95_percentage_points": [
+    0.7175660724401567,
+    2.9870692231042995
+  ],
+  "two_sided_p_value": 0.0013866853161087832,
+  "latency_delta_ms": 68.4710601704553,
+  "checks": {
+    "synthetic_data": true,
+    "records": 12000,
+    "unique_users": 12000,
+    "conversion_implies_click": true,
+    "no_result_sessions_have_no_click": true,
+    "sql_and_python_conversion_counts_agree": true,
+    "sample_ratio_p_value": 0.7562749546662035
+  }
+}
